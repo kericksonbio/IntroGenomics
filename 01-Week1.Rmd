@@ -1,7 +1,7 @@
 ---
 title: "01-Week1.Rmd"
-author: "M. Armstrong"
-date: "2025-03-19"
+author: "Katie Erickson"
+date: "2026-01-06"
 output:
   bookdown::html_book:
     toc: yes
@@ -20,7 +20,7 @@ This class has code modified from the Data Carpentry's introduction to the shell
 
 ## Main Objectives
 -   Take Pre-class assessment (link on syllabus)
--   Introduction to genomics & shell computing (via slideshow here: [Week 1 Slides](./figs/W1_introcoding.pdf)
+-   Introduction to genomics & shell computing (via slideshow here: [Week 1 Slides](./figs/W1_introcoding.pdf))
 -   Learn how to access terminal via Farm OnDemand
 -   Learn how to interact with the command line interface and move around in your file system
 
@@ -40,14 +40,14 @@ $
 
 The dollar sign is a prompt, which shows us that the shell is waiting for input; your shell may use a different character as a prompt and may add information before the prompt. When typing commands, either from these lessons or from other sources, do not type the prompt, only the commands that follow it.
 
-Let’s find out where we are by running a command called pwd (which stands for “print working directory”). At any moment, our current working directory is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is /home/yourusername, which is the top level directory within our cloud system. Below I show what it looks like from my end with my username, madarm11:
+Let’s find out where we are by running a command called pwd (which stands for “print working directory”). At any moment, our current working directory is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is /home/yourusername, which is the top level directory within our cloud system. Below I show what it looks like from my end with my username, klerick:
 
 ``` html
 $ pwd
 ```
 
 ``` html
-/home/madarm11 
+/home/klerick
 ```
 
 Let’s look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`, which stands for “list”. It may show other things than just the directories listed below if you have been in Farm before (which is why mine looks different below)
@@ -128,10 +128,10 @@ Using tab complete can be very helpful. However, it will only autocomplete a fil
 ## Creating our own directories 
 We will now each make our own directory in the eve198-genomics directory so that everyone can run code individually.
 
-To make a new directory type the command `mkdir` followed by the name of the directory, in this case 'mlarmstrong'. You can do your ucdavis email name or your first intial and last name, just make sure it is specific to you.
+To make a new directory type the command `mkdir` followed by the name of the directory, in this case 'kerickson'. You can do your ucdavis email name or your first intial and last name, just make sure it is specific to you.
 
 ``` html
-$ mkdir mlamstrong
+$ mkdir kerickson
 ```
 
 Check that it's there with ls. As other people make directories those will pop up too!
@@ -141,7 +141,7 @@ $ ls
 ```
 
 ``` html
-mlarmstrong week1
+kerickson week1_activity
 ```
 
 ## Full vs Relative Paths
@@ -158,10 +158,10 @@ $ pwd
 You should see home/'yourusername':
 
 ``` html
-/home/madarm11
+/home/klerick
 ```
 
-This is the full name of your home directory. This tells me that I are in a directory called `madarm11`, and yours will be named with your username. This directory sits inside a directory called home which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the `root` directory. So, to summarize: `madarm11` is a directory in `home` which is a directory in /. More on `root` and `home` in the next section.
+This is the full name of your home directory. This tells me that I are in a directory called `klerick`, and yours will be named with your username. This directory sits inside a directory called home which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the `root` directory. So, to summarize: `klerick` is a directory in `home` which is a directory in /. More on `root` and `home` in the next section.
 
 Now enter the following command:
 
@@ -201,6 +201,7 @@ Let's look at some of the options for the `ls` function using the `man` command 
 ```html
 $ man ls
 ```
+
 The `-a` option is short for all and says that it causes `ls` to “not ignore entries starting with .” This is the option we want.
 
 ```html

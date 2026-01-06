@@ -8,10 +8,10 @@ link-citations: yes
 description: " "
 ---
 # Intro to Genomics in Natural Populations
-Wednesdays 10-11:50am, Storer 1350
-Office Hours 3pm on Fridays
+Wednesdays 12:10-2:00pm, Storer 1350
+Office Hours: TBD
 
-Instructors:  Rachael Bay (rbay@ucdavis.edu) & Madison Armstrong (mlarmstrong@ucdavis.edu), Office Hours: TBD
+Instructors:  Rachael Bay (rbay@ucdavis.edu) & Katie Erickson (kerickson@ucdavis.edu)
 
 ![Class Schedule](./figs/schedule.png)
 
@@ -20,8 +20,8 @@ In this course we will focus on the rapidly developing field of genomics and exp
 
 ## Meet your instructors!
 
-Madison Armstrong, PhD student, instructor (mlarmstrong@ucdavis.edu)-- [Website](https://madisonarmstrong.me/)
-![](./figs/Maddie Medium.png)
+Katie Erickson, PhD student, co-instructor (kerickson@ucdavis.edu)-- [Website](https://kericksonbio.github.io/)
+![](./figs/Katie_headshot.jpg)
 
 Rachael Bay, Assistant Professor, co-instructor (rbay@ucdavis.edu)-- [Website](https://baylab.github.io/).
 ![](./figs/Rachael.jpg)
