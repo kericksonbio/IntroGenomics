@@ -16,7 +16,7 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 
 Welcome to Introduction to Genomics in Natural Populations at UC Davis!
 
-This class has code modified from the Data Carpentry's introduction to the shell tutorial, which can be found here <https://datacarpentry.github.io/shell-genomics/01-introduction.html> This tutorial is also modified from previous tutorials compiled by Serena Caplins: <https://baylab.github.io/MarineGenomics/>  
+This class has code modified from the Data Carpentry's introduction to the shell tutorial, which can be found here: <https://datacarpentry.github.io/shell-genomics/01-introduction.html>. This tutorial is also modified from previous tutorials compiled by Serena Caplins (<https://baylab.github.io/MarineGenomics/>) and Maddie Armstrong (<https://baylab.github.io/IntroGenomics/>)
 
 ## Main Objectives
 -   Take Pre-class assessment (link on syllabus)
@@ -26,7 +26,7 @@ This class has code modified from the Data Carpentry's introduction to the shell
 
 ## How to access the shell via Farm OnDemand
 Instructions on how to get your terminal window running are on this PDF and we will walk through this together in class:
-https://canvas.ucdavis.edu/courses/978599/files?preview=27151921
+<https://canvas.ucdavis.edu/courses/1061172/files?preview=29704214>
 
 ## Navigating your file system
 
