@@ -1,7 +1,7 @@
 ---
 title: "02-Week2.Rmd"
-author: "M. Armstrong"
-date: "2025-03-19"
+author: "Katie Erickson"
+date: "2026-01-07"
 output:
   bookdown::html_book:
     toc: yes
@@ -15,12 +15,86 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 We will be following some of the data carpentry tutorial again (Copyright 2016 @ Software Carpentry) "Introduction to the command line for genomics". We have made some modifications to the data carpentry tutorial to fit our course. 
 
 ## Main Objectives:
-- Learn the general sequencing pipeline 
-- Learn how to use navigational shortcuts and repeat recently used commands to make coding more efficient
-- Learn how to view and work with hidden directories and hidden files
+- Learn more navigational shortcuts
 - Learn how to view and search file contents
+- Learn the general sequencing pipeline 
 
-## Navigational shortcuts
+
+## Warm Up: Find the secret message
+Start a new session in FARM OnDemand (refer to instructions [here](<https://canvas.ucdavis.edu/courses/1061172/files?preview=29704214>)).
+
+Your job is to figure out a secret phrase by seeing what letters you need to type
+to access the folder `genomes/mice/species/rudinoris/ultraprocessed/essential`, starting from the directory `/group/rbaygrp/eve198-genomics/week2_warmup/`.
+
+Use tab complete to find what letters you actually need to type to navigate to the folder folders. 
+Write down those letters to form a secret phrase.
+
+Once you make it to the `essential` directory, feel free to see what's there!
+
+<details>
+<summary>Click for a hint</summary>
+<p>You can change directories with `cd` and you can view what is in each directory with `ls`</p>
+</details>
+
+## Viewing file contents
+Now that you've made it to the essential folder, we have a few more tricks and commands you can learn!
+
+From within the `essential` folder you, can see that there is a file called `you_rule_too.txt`
+There are a few different ways to view the contents of that folder. 
+
+
+`cat` prints the context of the file into the terminal window. 
+```
+$ cat you_rule_too.txt
+```
+
+If you have short files or they have contexts that you want to view along side 
+some of your recent terminal commands, `cat` is a great option. But if you have a 
+larger file, it might clog up your terminal window with text and make it hard to
+see the commands you recently ran. 
+
+With a larger file, like `bee_movie_full_script.txt`, you might find that you
+only want to view the starting or ending lines of the file. 
+
+Try running:
+```
+$ head bee_movie_full_script.txt
+```
+
+Also try:
+```
+$ tail bee_movie_full_script.txt
+```
+
+Notice that `head` prints the first 10 lines of the file into the terminal, while
+`tail` prints the last 10 lines of the file into the terminal. 
+
+If you want to be able to see the whole file, `less` opens a new window so you can 
+view and scroll through your file in the same way that `man` does. `less` also
+works with some navigational tools such as:
+
+| key  | action |
+| ------- | ------- |
+| <kbd>Space</kbd> | to go forward |
+|  <kbd>b</kbd>    | to go backward |
+|  <kbd>g</kbd>    | to go to the beginning |
+|  <kbd>G</kbd>    | to go to the end |
+|  <kbd>q</kbd>    | to quit |
+
+`less` also gives you a way of searching through files. Use the
+"/" key to begin a search. Enter the word you would like
+to search for and press `enter` to see the first occurance of that word. 
+Press "n", and the screen will jump to the next location where that word is found. 
+
+> ## Class Exercise 1
+> Use the navigation commands in `less` to explore the file `bee_movie_full_script.txt`
+> Open the file and try:   
+> 1. Go to the end of the file.  
+> 2. Go to the beginning of the file.  
+> 3. Find all the times that the script contains the phrase "dog".  
+> 4. Go back to the end of the file. Try again to search of the phrase "dog".  
+
+## More navigational shortcuts
 
 The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (/) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in root directories will require special permissions which will be discussed later, so it’s best to avoid them and work within your home directory. Dealing with the home directory is very common. The tilde character, ~, is a shortcut for your home directory. In our case, the root directory is '/group' 
 
@@ -32,13 +106,13 @@ $ pwd
 ```html
 /group/rbaygrp/eve198-genomics
 ```
-Then type ls -F. It should show your and all your classmates' directories. 
+Then type `ls -F`. It should show your and all your classmates' directories. 
 
 ```html
 $ ls -F
 ```
 ```html
-mlarmstrong/
+kerickson/ week1_activity/ week2_warmup/
 ```
 
 Anything with a “/” after it is a directory. Things with a “*” after them are programs. If there are no decorations, it’s a file.
@@ -60,8 +134,12 @@ $ ls
 
 Another navigational shortcut that can be really helpful is just hitting the up arrow on your keyboard. This pulls up the line of code that you ran recently! You can keep hitting the up arrow until you get to a line you want. This can help you save time since you won't need to retype long lines of code over and over again.
 
+> ## Class Exercise 2
+> Using only the up arrow and enter key, can you naviagte to "/group/rbaygroup/eve198-genomics/week2_activity"? 
 
-Now let's download some data to work with! 
+Now that you've learned some new command lines skills, let's think about genomics for a bit
+and apply these skills to a genomic dataset!
+
 
 ## Sequencing Pipeline
 To give you some context on the data we are working with today let's talk about sequencing! It is important to understand the Illumina sequencing pipeline that produced the fastq files we will be working with. This video from Illumina explains the steps well, and I highly recommend checking it out: https://youtu.be/fCd6B5HRaZ8?si=68ZqTO2p2wRX-tUW. The sequencing workflow involves library preparation, cluster generation, sequencing and data analysis. We won't get into the details of library preparation and cluster generation today, but the video does a good job of explaining it!
@@ -96,8 +174,8 @@ With a full dataset you will also get an html file for each sample that give you
 ## Our data set: FASTQ files
 We can use the command `wget` which needs a link to the file that we want to download. If there's a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. If our data file is on github, which is where most of our data will be stored, we'll use the command `git-clone` 
 
-In this example we're going to download all the material in our individual directory. Navigate there and then type the following command:
-
+In this example we're going to download all the material in our individual directories. 
+Make sure you are in your personal directory, then type the following command:
 ```html
 $ wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week2.tar.gz
 ```
@@ -111,9 +189,9 @@ Check out what is in this directory with the ls command. Remember you can do `ls
 ```html
 untrimmed_fastq sra_metadata TableS2_QTL_Bay_2017.txt
 ```
-Now that we know how to navigate around our directory structure, let's start working with our sequencing files. We did a sequencing experiment and  have two results files, which are stored in our `untrimmed_fastq` directory. 
+Now that we know how to navigate around our directory structure, let's start working with our sequencing files. We did a sequencing experiment and have two results files, which are stored in our `untrimmed_fastq` directory. 
 
-## Wildcards
+## Wildcards and echo
 
 Navigate to your `untrimmed_fastq` directory in your week2 individual directory
 
@@ -161,14 +239,12 @@ $ ls /usr/bin/*.sh
 
 
 ```html
-/usr/bin/gettext.sh  /usr/bin/rescan-scsi-bus.sh
+/usr/bin/gettext.sh  /usr/bin/nvidia-bug-report.sh  /usr/bin/nvidia-sleep.sh  /usr/bin/rescan-scsi-bus.sh
 ```
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`.
 Note that the output displays __full__ paths to files, since
 each result starts with `/`.
-
-This directory contains two files with .fastq extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.
 
 `echo` is a built-in shell command that writes its arguments, like a line of text to standard output. 
 The `echo` command can also be used with pattern matching characters, such as wildcard characters. 
@@ -180,7 +256,6 @@ Here we will use the `echo` command to see how the wildcard character is interpr
  ```html
  SRR097977.fastq SRR098026.fastq
  ```
- 
 
 The `*` is expanded to include any file that ends with `.fastq`. We can see that the output of
 `echo *.fastq` is the same as that of `ls *.fastq`.
@@ -204,7 +279,7 @@ $ ls *.missing
 ls: cannot access '*.missing': No such file or directory
 ```
 
-> ## Class Exercise 1
+> ## Class Exercise 3
 > Do each of the following tasks from your current directory using a single
 > `ls` command for each:
 > 
@@ -268,89 +343,24 @@ For more information on advanced usage of `history`, read section 9.3 of
 
 ## Examining Files
 
-We now know how to switch directories, run programs, and look at the
-contents of directories, but how do we look at the contents of files?
+Let's revisit the different ways that we can view the contents of files. 
+Remember that we've introduced `less`, `cat`, `head` and `tail`.
 
-One way to examine a file is to print out all of the
-contents using the program `cat`. 
-
-Enter the following command from within the `untrimmed_fastq` directory: 
-
-```html
-$ cat SRR098026.fastq
-```
-
-
-This will print out all of the contents of the `SRR098026.fastq` to the screen.
-
-
-> ## Class Exercise 2
+> ## Class Exercise 4
 > 
-> 1. Print out the contents of the `/group/rbaygrp/eve198-genomics/'yourdirectory'/Week2/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file? 
+> 1. Recall that `SRR098026.fastq` is a folder that contains sequencing reads
+> for an entire genome! Chat with you neighbor about which of the above 
+> commands might be most udeful for viewing its contents. Try the method you
+> chose to view the contents of your file.
+> 2. What is the last line of the file?   
 > 2.  From your home directory, and without changing directories,
 > use one short command to print the contents of all of the files in
-> the `group/rbaygrp/eve198-genomics/yourdirectory/week2/untrimmed_fastq` directory.
-> 
+> the `/group/rbaygrp/eve198-genomics/yourdirectory/week2/untrimmed_fastq` directory.
+> 3. What are the next three nucleotides (characters) after the first instance of the sequence 
+> "ACA"?
 
 
-
-`cat` is a terrific program, but when the file is really big, it can
-be annoying to use. The program, `less`, is useful for this
-case. `less` opens the file as read only, and lets you navigate through it. The navigation commands
-are identical to the `man` program.
-
-Enter the following command:
-
-```html
-$ less SRR097977.fastq
-```
-
-
-Some navigation commands in `less`:
-
-| key     | action |
-| ------- | ---------- |
-| <kbd>Space</kbd> | to go forward |
-|  <kbd>b</kbd>    | to go backward |
-|  <kbd>g</kbd>    | to go to the beginning |
-|  <kbd>G</kbd>    | to go to the end |
-|  <kbd>q</kbd>    | to quit |
-
-`less` also gives you a way of searching through files. Use the
-"/" key to begin a search. Enter the word you would like
-to search for and press `enter`. The screen will jump to the next location where
-that word is found. 
-
-**Shortcut:** If you hit "/" then "enter", `less` will  repeat
-the previous search. `less` searches from the current location and
-works its way forward. Scroll up a couple lines on your terminal to verify
-you are at the beginning of the file. Note, if you are at the end of the file and search
-for the sequence "CAA", `less` will not find it. You either need to go to the
-beginning of the file (by typing `g`) and search again using `/` or you
-can use `?` to search backwards in the same way you used `/` previously.
-
-For instance, let's search forward for the sequence `TTTTT` in our file. 
-You can see that we go right to that sequence, what it looks like,
-and where it is in the file. If you continue to type `/` and hit return, you will move 
-forward to the next instance of this sequence motif. If you instead type `?` and hit 
-return, you will search backwards and move up the file to previous examples of this motif.
-
-> ## Class Exercise 3
->
-> What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
-> 
-
-
-Remember, the `man` program actually uses `less` internally and
-therefore uses the same commands, so you can search documentation
-using "/" as well!
-
-There's another way that we can look at files, and in this case, just
-look at part of them. This can be particularly useful if we just want
-to see the beginning or end of the file, or see how it's formatted.
-
-The commands are `head` and `tail` and they let you look at
-the beginning and end of a file, respectively.
+Let's use the `head` and `tail` to look at the beginning and end of one of our .fastq files.
 
 ```html
 $ head SRR098026.fastq
@@ -389,9 +399,8 @@ CNCTNTATGCGTACGGCAGTGANNNNNNNGGAGAT
 A!@B!BBB@ABAB#########!!!!!!!######
 ```
 
-
-The `-n` option to either of these commands can be used to print the
-first or last `n` lines of a file. 
+By default, `head` and `tail` show us 10 lines, but we can use the `-n` option 
+with either of these commands to print the first or last `n` lines of a file. 
 
 ```html
 $ head -n 1 SRR098026.fastq
@@ -412,13 +421,11 @@ $ tail -n 1 SRR098026.fastq
 A!@B!BBB@ABAB#########!!!!!!!######
 ```
 
-We can view the first complete read in one of the files in our dataset by using `head` to look at
-the first four lines.
+Recall that a .fastq file has 4 lines per sequencing read. We can view the first complete read in one of the files in our dataset by using `head` to look at the first four lines.
 
 ```html
 $ head -n 4 SRR098026.fastq
 ```
-
 
 ```html
 @SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
@@ -426,7 +433,6 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 +SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
 !!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
 ```
-
 
 All but one of the nucleotides in this read are unknown (`N`). This is a pretty bad read!
 
@@ -474,21 +480,26 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 !!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
 ```
 
-
-we can now see that the quality of each of the `N`s is 0 and the quality of the only
+We can now see that the quality of each of the `N`s is 0 and the quality of the only
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
 bad read. 
 
 ## Group Work Activity- Examining a Fastq File
-Navigate to eve198-genomics and copy the 'CCGPMC004_M0D060025C_S150_L003_R1_001.fastq.gz' file in the week2_activity directory to your individual directory. 
+
+Make a directory within your personal directory to work on the week 2 activity.
+
+```html 
+cd /group/rbaygrp/eve198-genomics/yourdirectory
+mkdir week2_activity
+cd week2_acitvity
+```
+Copy the 'CCGPMC004_M0D060025C_S150_L003_R1_001.fastq.gz' file in the week2_activity directory to your individual directory. This is a large file so it might take a minute!
 
 ```html
-cd .. #go back out of your individual directory
-cd week2_activity
-cp *fastqc.gz ../`yourdirectory`
+cp ../../week2_activity/CCGPMC004_M0D060025C_S150_L003_R1_001.fastq.gz ./
 ```
 
-Next you will need to unzip the fastq file. To do this we will use the command "gunzip". This unzips a gzipped file. "gzip" zips a file again. It will take a second since this is a larger file than our previous examples. It is actually an urchin sample from a recent genomics project Rachael and I worked on! 
+Next you will need to unzip the fastq file. To do this we will use the command "gunzip". This unzips a gzipped file. "gzip" zips a file again. It will take a second since this is a larger file than our previous examples. It is actually an urchin sample from a project that was published out of our lab! (See publication [here](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17700))
 
 ```html
 gunzip CCGPMC004_M0D060025C_S150_L003_R1_001.fastq.gz
@@ -506,27 +517,36 @@ https://help.basespace.illumina.com/files-used-by-basespace/quality-scores
 
 
 ## Key Points
-+ The /, ~, and .. characters represent important navigational shortcuts.
++ The /, ~, and * characters represent important navigational shortcuts.
 
 + The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
 
 + You can view file contents using `less`, `cat`, `head` or `tail`.
 
++ Sequencing reads are stored in .fastq files which have 4 lines per read.
+
 <details><summary><span style="color: orange;">Class Exercise Solutions</span></summary>
 <p>
 > > ## Exercise 1: Solution
+> > 1. After typing "less bee_movie_full_script.txt" type "G" to see " "
+> > 2. Type "g" to see "
+> > 3. Type "/dog" and press "n". Should find two occurances: " " and " "
+> > 4. Type "G", then if you retry "/dog" nothing comes up. 
+> >
+> > ## Exercise 3: Solution
 > > 1. `ls /usr/bin/c*`
 > > 2. `ls /usr/bin/*a*`
 > > 3. `ls /usr/bin/*o`  
 > > Bonus: `ls /usr/bin/*[ac]*`
 > > 
-> > ## Exercise 2: Solution
-> > 1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
-> > 2. `cat ./~/group/rbaygrp/eve198-genomics/yourdirectory/week2/untrimmed_fastq/*`
+> > ## Exercise 4: Solution
+> > 1. `cat` is probably the worst option. If you want to look at the start or end,
+> > you could use `head` or `tail`, respectively. `less` is a great option if you'd
+> > like to scroll through the file or search for any specific phrases. 
+> > 2. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
+> > 3. `cat ./~/group/rbaygrp/eve198-genomics/yourdirectory/week2/untrimmed_fastq/*`
+> > 4. GCG"
 > > 
-> > ## Exercise 3: Solution
-> > `CAC`
->
 
 </p>
 </details>

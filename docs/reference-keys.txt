@@ -155,3 +155,11 @@ on-your-own-computer
 unzip-the-folder-look-at-data
 but-how-do-we-know-which-k-to-pick
 group-work-activity--adding-even-more-context-to-our-plot
+warmup
+warm-up-find-the-secret-message
+making-and-viewing-files-in-command-line
+viewing-files
+more-tips-tricks-and-shortcuts
+viewing-file-contents
+more-navigational-shortcuts
+wildcards-and-echo
