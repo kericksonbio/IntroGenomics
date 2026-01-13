@@ -14,10 +14,10 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 # Week 2- Working with Files
 We will be following some of the data carpentry tutorial again (Copyright 2016 @ Software Carpentry) "Introduction to the command line for genomics". We have made some modifications to the data carpentry tutorial to fit our course. 
 
-## Main Objectives:
-- Learn more navigational shortcuts
-- Learn how to view and search file contents
-- Learn the general sequencing pipeline 
+## Learning Objectives
+- Use shell commands and navigational shortcuts to efficiently navigate between files and folders
+- Choose appropriate tools to view and search file contents
+- Describe the general sequencing pipeline
 
 
 ## Warm Up: Find the secret message

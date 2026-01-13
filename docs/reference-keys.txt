@@ -163,3 +163,5 @@ more-tips-tricks-and-shortcuts
 viewing-file-contents
 more-navigational-shortcuts
 wildcards-and-echo
+learning-objectives
+learning-objectives-1
