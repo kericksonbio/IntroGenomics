@@ -209,7 +209,7 @@ Navigate to your `untrimmed_fastq` directory in your week2 individual directory
 
 
 ```html
-$ cd /group/rbaygrp/eve198-genomics/yourdirectory/week2/untrimmed_fastq
+$ cd /group/rbaygrp/eve198-genomics/yourdirectory/Week2/untrimmed_fastq
 ```
 
 
@@ -220,11 +220,9 @@ all files with the .fastq extension using the command:
 $ ls *.fastq
 ```
 
-
 ```html
 SRR097977.fastq  SRR098026.fastq
 ```
-
 
 The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character. 
 Thus, `*.fastq` matches every file that ends with `.fastq`. 
@@ -362,7 +360,7 @@ Remember that we've introduced `less`, `cat`, `head` and `tail`.
 > 
 > 1. Recall that `SRR098026.fastq` is a folder that contains sequencing reads
 > for an entire genome! Chat with you neighbor about which of the above 
-> commands might be most udeful for viewing its contents. Try the method you
+> commands might be most useful for viewing its contents. Try the method you
 > chose to view the contents of your file.
 > 2. What is the last line of the file?   
 > 2.  From your home directory, and without changing directories,
@@ -417,7 +415,6 @@ with either of these commands to print the first or last `n` lines of a file.
 ```html
 $ head -n 1 SRR098026.fastq
 ```
-
 
 ```html
 @SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
