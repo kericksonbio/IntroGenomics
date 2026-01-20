@@ -1,7 +1,7 @@
 ---
 title: "03-Week3.Rmd"
-author: "M. Armstrong"
-date: "2025-03-19"
+author: "Katie ERickson"
+date: "2026-01-16"
 output:
   bookdown::html_book:
     toc: yes
@@ -13,15 +13,27 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 
 # Week 3- Working with Files Part 2
 
-We now know how to switch directories, run programs, look at the
+We now know how to switch directories and view the
 contents of directories and files, but how do we manipulate files?
 
 ## Main Objectives
-- Learn how to create, copy and delete files/directories
-- Learn how to modify permissions for a file
+- Create, copy and delete files/directories
+- Modify permissions for a file
 - Construct command pipelines with two or more stages
-- Use `for` loops to run the same command for several input files.
+- Expedite running the same commands multiple times using for loops
 - Practice writing scripts to work with data in terminal
+
+## Warmup: Viewing fastq files
+Navigate to `/group/rbaygrp/eve198-genomics/week3_warmup`.
+Answer the following questions about the file `zostera_RNA_subsampled.fastq`
+
+1. What's the most common quality (phred) score in the first read?
+2. How many times does the sequence "AAAAAAAAAAAAAAAAAAAA" (20 'A's in a row!) 
+show up in this file? 
+3. Using `less`, try searching for low quality reads by searching for `!`, which represents a 
+quality score of zero. What happens when you use a normal search pattern on the 
+symbol `!`? Google to find a way to search for a `!` in the file. Can you find any?
+
 
 ## Creating, moving, copying, and removing
 
@@ -42,6 +54,8 @@ $ cp SRR098026.fastq SRR098026-copy.fastq
 $ ls -F
 ```
 
+Copying large files can sometimes tkae some time, so you might have to wait a 
+minute before your copy is made and you can write further commands.
 
 ```html
 SRR097977.fastq  SRR098026-copy.fastq  SRR098026.fastq
@@ -105,7 +119,7 @@ $ ls -l
 
 
 ```html
--rw-rw-r-- 1 margeno margeno 43K Apr 6 12:15 SRR098026-backup.fastq
+-rw-rw-r-- 1 kerickson kerickson 43K Jan 15 11:15 SRR098026-backup.fastq
 ```
 
 
@@ -182,7 +196,8 @@ you will be asked whether you want to override your permission settings.
 >
 > 1. Make sure that you have deleted your backup directory and all files it contains since we are going to do it again but with less commands!
 >
-> 2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't earned yet how to do this with a wildcard.)  
+> 2. Create a backup of each of your FASTQ files using `cp`, making sure to 
+> rename the copies in the process so that it's clear they are the backup. 
 >
 > 3. Use a wildcard to move all of your backup files to a new backup directory.
 >
@@ -191,7 +206,7 @@ you will be asked whether you want to override your permission settings.
 
 ## Searching files
 
-We discussed in a previous episode how to search within a file using `less`. We can also
+We discussed last week how to search within a file using `less`. We can also
 search within files without even opening them, using `grep`. `grep` is a command-line
 utility for searching plain-text files for lines matching a specific set of 
 characters (sometimes called a string) or a particular pattern 
@@ -227,17 +242,20 @@ $ grep NNNNNNNNNN SRR098026.fastq
 ```
 
 
-This command returns a lot of output to the terminal. Every single line in the SRR098026 
-file that contains at least 10 consecutive Ns is printed to the terminal, regardless of how long or short the file is. 
+This command returns a lot of output to the terminal. Every single line in the SRR098026
+file that contains at least 10 consecutive Ns is printed to the terminal, 
+regardless of how long or short the file is.  
+
 We may be interested not only in the actual sequence which contains this string, but 
-in the name (or identifier) of that sequence. We discussed in a previous lesson 
-that the identifier line immediately precedes the nucleotide sequence for each read
-in a FASTQ file. We may also want to inspect the quality scores associated with
-each of these reads. To get all of this information, we will return the line 
+the other lines of information associated with this read (Recall that
+each line in a fasta file has 4 lines of information). 
+If we want to see the read information or inspect the quality scores associated with
+each of these reads, we will return the line 
 immediately before each match and the two lines immediately after each match.
 
 We can use the `-B` argument for grep to return a specific number of lines before
-each match. The `-A` argument returns a specific number of lines after each matching line. Here we want the line *before* and the two lines *after* each 
+each match. The `-A` argument returns a specific number of lines after each matching line. 
+Here we want the line *before* and the two lines *after* each 
 matching line, so we add `-B1 -A2` to our grep command:
 
 ```html
@@ -502,9 +520,8 @@ not interpret the pattern as an extended option (starting with --).
 
 > ### Custom `grep` control
 > 
-> Use `man grep` to read more about other options to customize the output of `grep` including extended options, 
-> anchoring characters, and much more.
-> 
+> 1. Working indiviudally, use `man grep` to read more about other options to customize the output of `grep`. Pick one option, and try using it to display some lines from one of the fastq files.  
+> 2. Share what option you picked with a neighbor and show them the output. 
 
 
 Redirecting output is often not intuitive, and can take some time to get used to. Once you're 
@@ -844,7 +861,8 @@ Then when you are ready to run your job you type
 sbatch HelloWorld.sh
 ```
 
-Want to check the status of your job? Type  `squeue -u `yourusername`
+Want to check the status of your job? Type  `squeue -u `yourusername`, or use the
+fun shortcut, `squeue --me`.
 Once your job is done, type `ls`. There should be a new text file in your directory called  `hello_world_output.txt`. What does it say?
 
 ```html

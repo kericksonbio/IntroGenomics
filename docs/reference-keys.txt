@@ -165,3 +165,4 @@ more-navigational-shortcuts
 wildcards-and-echo
 learning-objectives
 learning-objectives-1
+warmup-viewing-fastq-files
