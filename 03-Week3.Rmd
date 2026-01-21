@@ -1,6 +1,6 @@
 ---
 title: "03-Week3.Rmd"
-author: "Katie ERickson"
+author: "Katie Erickson"
 date: "2026-01-16"
 output:
   bookdown::html_book:
@@ -47,14 +47,14 @@ and change the file permissions so that we can read from, but not write to, the 
 
 First, let's make a copy of one of our FASTQ files using the `cp` command. 
 
-Navigate to the your directory, then move into your Week2/untrimmed_fastq directory with the fastq files we worked with last week. Once you are there, type:
+Navigate to the your directory, then move into  `yourdirectory/Week2/untrimmed_fastq` with the fastq files we worked with last week. Once you are there, type:
 
 ```html
 $ cp SRR098026.fastq SRR098026-copy.fastq
 $ ls -F
 ```
 
-Copying large files can sometimes tkae some time, so you might have to wait a 
+Copying large files can sometimes take some time, so you might have to wait a 
 minute before your copy is made and you can write further commands.
 
 ```html
@@ -107,9 +107,11 @@ SRR098026-backup.fastq
 
 ### File Permissions
 
-We've now made a backup copy of our file, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or 
-overwrite both copies. To make sure we can't accidentally mess up this backup file, we're going to change the permissions on the file so
-that we're only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).
+We've now made a backup copy of our files, but just because we have two copies, 
+it doesn't make us safe. We can still accidentally delete or overwrite both copies. 
+To make sure we can't accidentally mess up this backup file, we're going to change 
+the permissions on the file so that we're only allowed to read (i.e. view) the file, 
+not write to it (i.e. make new changes).
 
 View the current permissions on a file using the `-l` (long) flag for the `ls` command: 
 
@@ -123,10 +125,14 @@ $ ls -l
 ```
 
 
-The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
-permissions list. The first character in this list is related to file type, not permissions, so we'll ignore it for now. The next three
-characters relate to the permissions that the file owner has, the next three relate to the permissions for group members, and the final
-three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
+The first part of the output for the `-l` flag gives you information about the file's 
+current permissions. There are ten slots in the permissions list. 
+The first character in this list is related to file type, not permissions, 
+so we'll ignore it for now. 
+The next three characters relate to the permissions that the file owner has, 
+the next three relate to the permissions for group members, 
+and the final three characters specify what other users outside of your group can 
+do with the file. We're going to concentrate on the three positions
 that deal with your permissions (as the file owner). 
 
 ![Permissions](./figs/rwx_figure.png)
@@ -170,10 +176,13 @@ rm: remove write-protected regular file ‘SRR098026-backup.fastq’?
 ```
 
 
-You should enter `n` for no. If you enter `n` (for no), the file will not be deleted. If you enter `y`, you will delete the file. This gives us an extra 
-measure of security, as there is one more step between us and deleting our data files.
+You should press `n` and the enter key for no. If you enter `n` (for no), the file
+will not be deleted. If you enter `y`, you will delete the file. 
+This gives us an extra measure of security, as there is one more step between us 
+and deleting our data files.
 
-**Important**: The `rm` command permanently removes the file. Be careful with this command. It doesn't just nicely put the files in the Trash. They're really gone.
+**Important**: The `rm` command permanently removes the file. Be careful with this command. 
+There is no trash folder like you might have on your desktop. They're really gone.
 
 By default, `rm` will not delete directories. You can tell `rm` to
 delete a directory using the `-r` (recursive) option. Let's delete the backup directory
@@ -187,22 +196,29 @@ $ rm -r backup
 ```
 
 
-This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory, 
-you will be asked whether you want to override your permission settings. 
+This will delete the directory and all files within the directory. 
+If you have write-protected files in the directory, you will be asked whether you 
+want to override your permission settings. You can enter "y" this time so that
+we can have a clean slate to practice all the commands we just learned!
 
 > ## Class Exercise 1
 >
 > Starting in 'yourdirectory', navigate to 'cd /week2/untrimmed_fastq' and do the following:
 >
-> 1. Make sure that you have deleted your backup directory and all files it contains since we are going to do it again but with less commands!
+> 1. Make sure that you have deleted your backup directory and all files it contains since we are going to do it again > but with less commands!
 >
 > 2. Create a backup of each of your FASTQ files using `cp`, making sure to 
 > rename the copies in the process so that it's clear they are the backup. 
 >
-> 3. Use a wildcard to move all of your backup files to a new backup directory.
+> 3. Create a backup directory 
 >
-> 4. Change the permissions on all of your backup files to be write-protected.  
+> 4. Use a wildcard to move all of your backup files to a new backup directory.
 >
+> 5. Change the permissions on all of your backup files to be write-protected.  
+>
+> Bonus: If you finish early, deleted your backup directory and make a new one.
+> Can you create a renamed copy of the file "SRR097977.fastq" in your backup
+> directory using just one line of code?
 
 ## Searching files
 
