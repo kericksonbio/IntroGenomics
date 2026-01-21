@@ -20,7 +20,6 @@ contents of directories and files, but how do we manipulate files?
 - Create, copy and delete files/directories
 - Modify permissions for a file
 - Construct command pipelines with two or more stages
-- Expedite running the same commands multiple times using for loops
 - Practice writing scripts to work with data in terminal
 
 ## Warmup: Viewing fastq files
