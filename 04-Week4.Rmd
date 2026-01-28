@@ -1,6 +1,6 @@
 ---
 title: "04-Week4.Rmd"
-author: "M. Armstrong"
+author: "K. Erickson"
 date: "2025-04-18"
 output:
   bookdown::html_book:
@@ -15,74 +15,27 @@ editor_options:
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 ```
 
-# Week 4- What is a Genetic Variant?
+# Week 4- More advanced scripting and introducing genetic variants
 
-You'll find the lecture discussing the definition and identification of
-genetic variation here (via slideshow here: [Week 4 Slides](./figs/W4%20Mapping.pdf))
 
 ## Main Objectives
 
--   Be able to define what a genetic variant is
--   Understand the pipeline for identifying genetic variants
--   Understand the difference between SAM and BAM file formats and their
-    use
--   Learn how to call a genotype and quantify genotype likelihoods
+-   Independently write and run simple scripts using slurm 
+-   Build for loops to automate scripts to run across multiple files
+-   List the steps of the pipeline for identifying genetic variants
+-   Organize simple commands into scripts to execute a variant calling pipeline
 
-## Writing scripts: Slurm
-You can also write scripts using a resource manager called "Slurm" (It is a reference to the show Futurama where there is a soda called slurm). Slurm can be really helpful for writing scripts and submitting jobs since you can schedule and run larger jobs. I use this personally in my own research. The set up is pretty similar. First let's create a simple script:
-
+## Warm up: Runnning scripts
+1. Change directories to your personal directory. 
+2. Run a script that is located in a `week4_warmup` folder by typing:
 ```html
-nano HelloWorld.sh
+/group/rbaygrp/eve198-genomics/week4_warmup/message1.sh
 ```
-For a slurm script we need more information in the header of our script so that it knows what account to run on and the amount of time you want to give to your job:
-
-+  All scripts start with `#!/bin/bash`
-+ The next line is your email address so you can get an email when your job finishes
-+ Then add information on if you want an email for all notifications (began, ended, failed, etc)
-+ Next is the name of the job, or job ID
-+ The name of your error log file
-+ The name of your output log file (usually the same name as your error)
-+ The number of processors per task
-+ The minimum number of nodes you need for your job. Small jobs don't need a lot of nodes/memory
-+ The amount of memory for your job
-+ The requested time for your job. Some jobs take a really long time, I had one run for several months! For this class you only need to put in 90 minutes.
-+ The partition to submit to, high2 is the one we will be using
-
-After those headers you write out your script!
-
-```html
-#!/bin/bash
-#SBATCH --mail-user=youremail@ucdavis.edu        # YOUR EMAIL ADDRESS
-#SBATCH --account=rbay-eve198-genomics-grp    #we need this to specify what account we are using
-#SBATCH --mail-type=ALL                         # NOTIFICATIONS OF SLURM JOB STATUS - ALL, NONE, BEGIN, END, FAIL, REQUEUE
-#SBATCH -J HelloWorld                           # JOB ID
-#SBATCH -e HelloWorld.j%j.err                   # STANDARD ERROR FILE TO WRITE TO
-#SBATCH -o HelloWorld.j%j.out                   # STANDARD OUTPUT FILE TO WRITE TO
-#SBATCH -c 1                                    # NUMBER OF PROCESSORS PER TASK
-#SBATCH --ntasks=1                              # MINIMUM NUMBER OF NODES TO ALLOCATE TO JOB
-#SBATCH --mem=1Gb                               # MEMORY POOL TO ALL CORES
-#SBATCH --time=00-00:11:00                      # REQUESTED WALL TIME
-#SBATCH -p high2                               # PARTITION TO SUBMIT TO
-
-echo "Hello World!" > hello_world_output.txt
-```
-Then when you are ready to run your job you type
-```html
-sbatch HelloWorld.sh
-```
-
-Want to check the status of your job? Type  `squeue -u `yourusername`, or use the
-fun shortcut, `squeue --me`.
-Once your job is done, type `ls`. There should be a new text file in your directory called  `hello_world_output.txt`. What does it say?
-
-```html
-cat hello_world_output.txt
-```
-More information on slurm scripts in on the hpc webpage: https://hpc.ucdavis.edu/faq/slurm
-
+3. You can also use relative paths to run programs in different folders. Using a
+relative path from your own personal directory, run the program `/group/rbaygrp/eve198-genomics/week4_warmup/message2.sh`.
+4. Find the output of `message2.sh` in your personal directory.
 
 ## Writing for loops
-
 Loops are key to productivity improvements through automation as they allow us to execute commands repeatedly. 
 Similar to wildcards and tab completion, using loops also reduces the amount of typing (and typing mistakes). 
 Loops are helpful when performing operations on groups of sequencing files, such as unzipping or trimming multiple
@@ -122,7 +75,11 @@ foo is abcEFG
 ```
 
 
-Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven’t finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
+Let's write a for loop to show us the first two lines of the fastq files we downloaded 
+last week. You will notice the shell prompt changes from `$` to `>` and back again as 
+we were typing in our loop. The second prompt, `>`, is different to remind us that 
+we haven’t finished typing a complete command yet. A semicolon, `;`, can be used 
+to separate two commands written on a single line.
 
 ```html
 $ cd /group/rbaygrp/eve198-genomics/yourdirectory/Week2/untrimmed_fastq
@@ -136,23 +93,27 @@ $ for filename in *.fastq
 > done
 ```
 
+The for loop begins with the formula `for <variable> in <group to iterate over>`. 
+In this case, the word `filename` is designated as the variable to be used over 
+each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be 
+substituted for `filename` because they fit the pattern of ending with .fastq 
+in the directory we've specified. The next line of the for loop is `do`. The next 
+line is the code that we want to execute. We are telling the loop to print the 
+first two lines of each variable we iterate over. Finally, the word `done` ends the loop.
 
-The for loop begins with the formula `for <variable> in <group to iterate over>`. In this case, the word `filename` is designated 
-as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename` 
-because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is 
-the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the
-word `done` ends the loop.
+After executing the loop, you should see the first two lines of both fastq files
+printed to the terminal. Let's create a loop that will save this information to 
+a file. 
 
-After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that 
-will save this information to a file.
+Note that we are using `>>` to append the text to our `seq_info.txt` file. If we used `>`, the `seq_info.txt` file would be rewritten
+every time the loop iterates, so it would only have text from the last variable used. Instead, `>>` adds to the end of the file.
 
 ```html
 $ for filename in *.fastq
 > do
-> head -n 2 ${filename} >> seq_info.txt
+> head -n 2 ${filename} >> seq_info.txt 
 > done
 ```
-
 
 When writing a loop, you will not be able to return to previous lines once you have pressed Enter. Remember that we can cancel the current command using
 
@@ -160,8 +121,6 @@ When writing a loop, you will not be able to return to previous lines once you h
 
 If you notice a mistake that is going to prevent your loop for executing correctly.
 
-Note that we are using `>>` to append the text to our `seq_info.txt` file. If we used `>`, the `seq_info.txt` file would be rewritten
-every time the loop iterates, so it would only have text from the last variable used. Instead, `>>` adds to the end of the file.
 
 ## Using Basename in for loops
 Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we’ve been working with. 
@@ -169,7 +128,6 @@ Basename is a function in UNIX that is helpful for removing a uniform part of a 
 ```html
 $ basename SRR097977.fastq .fastq
 ```
-
 
 We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.
 
@@ -188,7 +146,6 @@ $ basename SRR097977.fastq .fasta
 ```html
 SRR097977.fastq
 ```
-
 
 Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you can use to name things. Let's try this.
 
@@ -229,96 +186,103 @@ What if we put the wrong year and actually want to remove the 2019 from all of o
 > mv ${filename} ${name}.txt
 > done
 ```
-Now write your own for loop it to have `_2025` at the end of each of our .txt files!
+Now write your own for loop it to have `_2026` at the end of each of our .txt files!
 ```html
 $ for filename in *.txt
 > do
 > name=$(basename ${filename} .txt)
-> mv ${filename}  ${name}_2025.txt
+> mv ${filename}  ${name}_2026.txt
 > done
 ```
 
+## Writing scripts: Slurm
+You can also write scripts using a resource manager called "Slurm" (It is a reference to the show Futurama where there is a soda called slurm). Slurm can be really helpful for writing scripts and submitting jobs since you can schedule and run larger jobs. I use this personally in my own research. The set up is pretty similar. First let's create a simple script:
 
-## Step 1: Download data
+```html
+nano HelloWorld.sh
+```
+For a slurm script we need more information in the header of our script so that it knows what account to run on and the amount of time you want to give to your job:
 
-Below we'll show you some commands to download data onto your instance,
-or to move data between your computer and the cloud.
++  All scripts start with `#!/bin/bash`
++ The next line is your email address so you can get an email when your job finishes
++ Then add information on if you want an email for all notifications (began, ended, failed, etc)
++ Next is the name of the job, or job ID
++ The name of your error log file
++ The name of your output log file (usually the same name as your error)
++ The number of processors per task
++ The minimum number of nodes you need for your job. Small jobs don't need a lot of nodes/memory
++ The amount of memory for your job
++ The requested time for your job. Some jobs take a really long time, I had one run for several months! For this class you only need to put in 90 minutes.
++ The partition to submit to, low is the one we will be using
 
-### Getting data from the cloud
+After those headers you write out your script!
 
-There are two programs that will download data from a remote server to
-your local (or remote) machine: `wget` and `curl`. They were designed to
-do slightly different tasks by default, so you'll need to give the
-programs somewhat different options to get the same behaviour, but they
-are mostly interchangeable.
+```html
+#!/bin/bash
+#SBATCH --mail-user=youremail@ucdavis.edu       # YOUR EMAIL ADDRESS
+#SBATCH --account=rbay-eve198-genomics-grp      # GROUP
+#SBATCH --mail-type=ALL                         # NOTIFICATIONS OF SLURM JOB STATUS - ALL, NONE, BEGIN, END, FAIL, REQUEUE
+#SBATCH -J HelloWorld                           # JOB ID
+#SBATCH -e HelloWorld.j%j.err                   # STANDARD ERROR FILE TO WRITE TO
+#SBATCH -o HelloWorld.j%j.out                   # STANDARD OUTPUT FILE TO WRITE TO
+#SBATCH -c 1                                    # NUMBER OF PROCESSORS PER TASK
+#SBATCH --ntasks=1                              # MINIMUM NUMBER OF NODES TO ALLOCATE TO JOB
+#SBATCH --mem=1Gb                               # MEMORY POOL TO ALL CORES
+#SBATCH --time=00-00:11:00                      # REQUESTED WALL TIME
+#SBATCH -p low                                  # PARTITION TO SUBMIT TO
 
--   `wget` is short for "world wide web get", and it's basic function is
-    to *download* web pages or data at a web address.
-
--   `cURL` is a pun, it is supposed to be read as "see URL", so its
-    basic function is to *display* webpages or data at a web address.
-
-Which one you need to use mostly depends on your operating system, as
-most computers will only have one or the other installed by default.
-
-Before we can start our download, we need to know whether we're using
-`curl` or `wget`. To see which program you have, type:
-
-``` html
-$ which curl
-$ which wget
+echo "Hello World!" > hello_world_output.txt
+```
+Then when you are ready to run your job you type
+```html
+$ sbatch HelloWorld.sh
 ```
 
-`which` is a BASH program that looks through everything you have
-installed, and tells you what folder it is installed to. If it can't
-find the program you asked for, it returns nothing, i.e. gives you no
-results.
+Want to check the status of your job? Type  `squeue -u `yourusername`, or use the
+fun shortcut, `squeue --me`.
+Once your job is done, type `ls`. There should be a new text file in your directory called  `hello_world_output.txt`. What does it say?
 
-On Mac OSX, you'll likely get the following output:
-
-``` html
-$ which wget
+```html
+$ cat hello_world_output.txt
 ```
+More information on slurm scripts in on the hpc webpage: https://hpc.ucdavis.edu/faq/slurm
 
-``` html
-$ /usr/bin/wget
-```
+## Finding Variants Pipeline 
+
+## Mini Lecture
+
+Slides can be accessed [here](./figs/W4 Mapping.pdf) 
+
+This is the general pipeline of what we will be doing today: ![Finding
+Variants Pipeline](./figs/pipeline_variants.png)
+
+## Step 0: Download data and load programs
+
+### Download Data
+
+We've used `wget` before, but to give you a bit more informations, it is short 
+for "world wide web get", and it's basic function is to download web pages or data at a web address.
 
 We will be using wget to retrieve data from the class github, but if you
 want more practice with this tool there is an additional tutorial below:
-
-> ### Ensembl data retrieving exercise:
->
-> ``` html
-> $ cd
-> $ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
-> ```
->
-> Let's see if the file from ensembl downloaded
->
-> ``` html
-> ls species_EnsemblBacteria.txt
-> ```
->
-> It did! Woo!
 
 Download the data from the IntroGenomics_Data Week 4 repository on
 github in your individual directory. Make sure you are there first
 before you do the wget step!
 
 ``` html
-cd /navigate/to/your/directory
+$ cd /navigate/to/your/directory
 
-wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week4.zip
+$ wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week4.zip
 ```
 
 And then unzip week4 so we can work with the data inside:
 
 ``` html
-unzip week4.zip
+$ unzip week4.zip
 ```
 
-### tools for today's class
+### Load programs
 
 These are the programs we will be using today:
 
@@ -328,17 +292,15 @@ These are the programs we will be using today:
 -   cutadapt: will trim adaptor sequences from the reads
 -   angsd: used to find variants in our data
 
-To load these tools navigate to your directory and type the following
-code:
-
+To load the first program, type the following code:
 ``` html
-module load fastqc
+$ module load fastqc
 ```
 
 You should get something on your screen that looks like this:
 
 ``` html
-madarm11@farm:/group/rbaygrp/eve198-genomics/mlarmstrong$ module load fastqc
+$ module load fastqc
 Loading openjdk/17.0.11_9
 
 Loading fastqc/0.12.1
@@ -349,48 +311,51 @@ This will load our module! Check to see that it loaded and what version
 you are working with using this command:
 
 ``` html
-fastqc -v
+$ fastqc -v
+FastQC v0.12.1
 ```
 
-This tells us that we have fastqc loaded and we are using version
-0.12.1. This is important information to report in papers too when you
-discuss what genomics methods you've used. Repeat these steps for all
-five packages! All of the package names are the same except for
-cutadapt. Do load this and check the version control type:
+This tells us that we have fastqc loaded and we are using version 0.12.1. 
+This is important information to report in papers too when you discuss what 
+genomics methods you've used. All of the package names matchtheir module names, 
+except for cutadapt.To load cutadapt and check the version, type:
 
 ``` html
-module load py-cutadapt
-
-cutadapt -v
+$ module load py-cutadapt
+$ py-cutadapt -v
 ```
 
-Now we're ready to get going. The first thing we'll do is have a look at
-our data and directories to make sure we know where everything is. This
-is the general pipeline of what we will be doing today: ![Finding
-Variants Pipeline](./figs/pipeline_variants.png)
+Notes on loading programs:
 
-We have already done step 1! Change directories so that you are inside
-the week4 directory inside your individual directory. If you `ls` into
-this directory you should see 6 files with a `.fastq.gz` extension and 1
-tiny genome file with a `.fna.gz` extension.
+-   Every time you start a new OnDemand session, you'll start with a blank slate
+and will need to load any modules you want to use, so next time you start up
+a session, fastqc and py-cutadapt won't be pre-loaded
+-   You can load a module from any directory, and then use it in any directory
 
-``` html
-madarm11@farm:/group/rbaygrp/eve198-genomics/mlarmstrong/week4$ ls
+> ## Class Exercise 1
+>
+> 1. Load all five of the packages we need (fastqc, samtools, bowtie2, cutadapt and 
+> angsd) and check their versions. 
+> 
+> 2. Change directories so that you are inside the week4 directory inside your 
+> individual directory. Confirm that you see6 files with a `.fastq.gz` extension 
+> and 1 genome file with a `.fna.gz` extension.
+> 
+> 3. Imagine you have a program in mind and want to check if it's available as
+> a module on our cluster Type in `module avail` and scroll through the list to see
+> what programs are already downloaded and easy to use. 
+> 
 
-Ppar_tinygenome.fna.gz    SRR6805881.tiny.fastq.gz  SRR6805883.tiny.fastq.gz  SRR6805885.tiny.fastq.gz
-SRR6805880.tiny.fastq.gz  SRR6805882.tiny.fastq.gz  SRR6805884.tiny.fastq.gz
-```
 
-## Step 1.2: Raw read quality control
+## Step 1: Raw read quality control
 
-Next let's use the program fastqc to check the quality of our data
-files:
+Next let's use the program fastqc to check the quality of our data files:
 
 ``` html
 $ fastqc SRR6805880.tiny.fastq.gz
 ```
 
--   Readout should say:
+-   Readout should include:
     -   Started analysis for SRR6805880.tiny.fastq.gz
     -   Analysis complete for SRR6805880.tiny.fastq.gz
 
@@ -423,19 +388,14 @@ file extension on some of our files. It simply skips these and moves on
 the the next file.
 
 To view the output of fastqc you can access the html files for each
-sample. To make one big html file with all of our samples we can run
-multiqc. More information on this tool here:
-<https://github.com/MultiQC/MultiQC>. For now we will just be looking at
-each html individually.
+sample using the OnDemand GUI. 
 
-> ## Class Exercise 1: looking at your fastqc.html files!
+> ## Class Exercise 2: looking at your fastqc.html files!
 >
-> Navigate to `home/group/rbaygrp/eve198-genomics/yourdirectory/week4`
-> to find your html files you created with fastqc. Try clicking on
-> individual html files too for information specific to each fastq
-> sample. These will look more similar to what I showed in the
-> mini-lecture at the beginning of class. ![Click the yellow "home"
-> folder and navigate to fastqc.html files](./figs/html_nav.png)
+> Open the yellow "Home" folder on your OnDemand session and use the top search 
+> bar to navigate to `home/group/rbaygrp/eve198-genomics/yourdirectory/week4`.
+> Click on on of your fastq output files (with the suffix fastqc.html)
+> to view the quality information of a fastq files.
 
 ## Step 2: Trimming to remove adapters
 
@@ -479,7 +439,7 @@ You can check if the trimmed files are there with:
 ls *trimmed*
 ```
 
-> ## Class Exercise 2
+> ## Class Exercise 3
 >
 > Run fastqc on our .trimmed reads and compare the html with the
 > .untrimmed files. What main difference do you see between them?
@@ -530,7 +490,7 @@ You'll also notice that we have made a bunch of .sam files. THis stands
 for Sequence Alignment Map file. Let's use `less` to look at one of
 these files using `less`
 
-> ## Class Exercise 3
+> ## Class Exercise 4
 >
 > Now let's write a for loop to map the untrimmed files to the genome.
 > How do the alignments compare to the trimmed ones we just did as a
@@ -611,8 +571,8 @@ However, having the data in a different directory from the output
 complicates running things a little (you have to remember which
 directory you're in). Make a new directory inside your own week4
 directory called `raw_data` and `mv` the raw data files (those that end
-in fastq.gz, and the tinygenome) into it. Then move everything that we
-generated into a folder called `old_outputs`.
+in .fastq.gz, and the tinygenome, ending in .fna) into it. 
+Then move everything that we generated so far into a folder called `old_outputs`.
 
 Now you can write your own slurm script to call genetic variants. Use
 the code above to help you process everything in one single script. Make
@@ -642,9 +602,12 @@ tab for 'Week 4: Calling Variants'.
 
 > > # Exercise: Solutions
 > >
-> > ## Exercise 1. just look at your html files! Exercise 2. We should no
+> > ## Exercise 1. 
+> > ## Exercise 2. just look at your html files! 
+> > ## Exercise 3. We should no
 > > longer see the red error flag for the per base sequence quality or
-> > base pairs conten. code: fastqc \*trimmed.fastq.gz Exercise 3: The
+> > base pairs conten. code: fastqc \*trimmed.fastq.gz 
+> > ## Exercise 4: The
 > > full genome and full read files should have a much higher mapping
 > > rate (70-80%) \> than our subset.
 > >

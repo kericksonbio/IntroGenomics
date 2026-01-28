@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 5 Week 4- More advanced scripting and introducing genetic variants | 04-Week4.Rmd</title>
+  <meta name="description" content=" 5 Week 4- More advanced scripting and introducing genetic variants | 04-Week4.Rmd" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 5 Week 4- More advanced scripting and introducing genetic variants | 04-Week4.Rmd" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 5 Week 4- More advanced scripting and introducing genetic variants | 04-Week4.Rmd" />
+  
+  
+  
+
+<meta name="author" content="K. Erickson" />
+
+
+<meta name="date" content="2025-04-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-3--working-with-files-part-2.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Genomics in Natural Populations</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro to Genomics in Natural Populations</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Course Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-your-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet your instructors!</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#getting-your-farm-account-set-up-class-specific"><i class="fa fa-check"></i><b>1.3</b> Getting your Farm Account set up (class specific)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell-via-farm-ondemand"><i class="fa fa-check"></i><b>2.2</b> How to access the shell via Farm OnDemand</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#creating-our-own-directories"><i class="fa fa-check"></i><b>2.5</b> Creating our own directories</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.6</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.7</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#group-work-activity--treasure-hunt"><i class="fa fa-check"></i><b>2.8</b> Group Work Activity- Treasure Hunt!</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#key-points"><i class="fa fa-check"></i><b>2.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2- Working with Files</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#warm-up-find-the-secret-message"><i class="fa fa-check"></i><b>3.2</b> Warm Up: Find the secret message</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#viewing-file-contents"><i class="fa fa-check"></i><b>3.3</b> Viewing file contents</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#more-navigational-shortcuts"><i class="fa fa-check"></i><b>3.4</b> More navigational shortcuts</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#sequencing-pipeline"><i class="fa fa-check"></i><b>3.5</b> Sequencing Pipeline</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.6</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.7</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#wildcards-and-echo"><i class="fa fa-check"></i><b>3.8</b> Wildcards and echo</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.9</b> Command History</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.10</b> Examining Files</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#group-work-activity--examining-a-fastq-file"><i class="fa fa-check"></i><b>3.11</b> Group Work Activity- Examining a Fastq File</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#key-points-1"><i class="fa fa-check"></i><b>3.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html"><i class="fa fa-check"></i><b>4</b> Week 3- Working with Files Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#main-objectives"><i class="fa fa-check"></i><b>4.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#warmup-viewing-fastq-files"><i class="fa fa-check"></i><b>4.2</b> Warmup: Viewing fastq files</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>4.3</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#copying-files"><i class="fa fa-check"></i><b>4.3.1</b> Copying Files</a></li>
+<li class="chapter" data-level="4.3.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-directories"><i class="fa fa-check"></i><b>4.3.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="4.3.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#moving-renaming"><i class="fa fa-check"></i><b>4.3.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="4.3.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-permissions"><i class="fa fa-check"></i><b>4.3.4</b> File Permissions</a></li>
+<li class="chapter" data-level="4.3.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#removing"><i class="fa fa-check"></i><b>4.3.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#searching-files"><i class="fa fa-check"></i><b>4.4</b> Searching files</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#redirecting-output"><i class="fa fa-check"></i><b>4.5</b> Redirecting output</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-extensions"><i class="fa fa-check"></i><b>4.6</b> File extensions</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>4.7</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-bash"><i class="fa fa-check"></i><b>4.8</b> Writing scripts: Bash</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#group-work-activity--writing-your-own-script"><i class="fa fa-check"></i><b>4.9</b> Group Work Activity- Writing your own script</a></li>
+<li class="chapter" data-level="4.10" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#key-points-2"><i class="fa fa-check"></i><b>4.10</b> Key Points</a></li>
+<li class="chapter" data-level="4.11" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#additional-information"><i class="fa fa-check"></i><b>4.11</b> Additional Information</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.11.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#more-ways-to-work-with-files"><i class="fa fa-check"></i><b>4.12</b> More ways to work with files</a>
+<ul>
+<li class="chapter" data-level="4.12.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#awk"><i class="fa fa-check"></i><b>4.12.1</b> Awk</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><i class="fa fa-check"></i><b>5</b> Week 4- More advanced scripting and introducing genetic variants</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#main-objectives-1"><i class="fa fa-check"></i><b>5.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#warm-up-runnning-scripts"><i class="fa fa-check"></i><b>5.2</b> Warm up: Runnning scripts</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-for-loops"><i class="fa fa-check"></i><b>5.3</b> Writing for loops</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>5.4</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-scripts-slurm"><i class="fa fa-check"></i><b>5.5</b> Writing scripts: Slurm</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#finding-variants-pipeline"><i class="fa fa-check"></i><b>5.6</b> Finding Variants Pipeline</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#mini-lecture"><i class="fa fa-check"></i><b>5.7</b> Mini Lecture</a></li>
+<li class="chapter" data-level="5.8" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-0-download-data-and-load-programs"><i class="fa fa-check"></i><b>5.8</b> Step 0: Download data and load programs</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#download-data"><i class="fa fa-check"></i><b>5.8.1</b> Download Data</a></li>
+<li class="chapter" data-level="5.8.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#load-programs"><i class="fa fa-check"></i><b>5.8.2</b> Load programs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-1-raw-read-quality-control"><i class="fa fa-check"></i><b>5.9</b> Step 1: Raw read quality control</a></li>
+<li class="chapter" data-level="5.10" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-2-trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.10</b> Step 2: Trimming to remove adapters</a></li>
+<li class="chapter" data-level="5.11" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-3-building-an-index-of-our-genome"><i class="fa fa-check"></i><b>5.11</b> Step 3: Building an index of our genome</a></li>
+<li class="chapter" data-level="5.12" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-4-map-reads-to-the-genome"><i class="fa fa-check"></i><b>5.12</b> Step 4: Map reads to the genome</a></li>
+<li class="chapter" data-level="5.13" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-5-sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>5.13</b> Step 5: sam to bam file conversion</a></li>
+<li class="chapter" data-level="5.14" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-6-genotype-likelihoods"><i class="fa fa-check"></i><b>5.14</b> Step 6: Genotype likelihoods</a></li>
+<li class="chapter" data-level="5.15" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#group-work-activity--calling-variants-at-a-larger-scale"><i class="fa fa-check"></i><b>5.15</b> Group Work Activity- Calling Variants at a Larger Scale</a></li>
+<li class="chapter" data-level="5.16" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#key-points-3"><i class="fa fa-check"></i><b>5.16</b> Key Points</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">04-Week4.Rmd</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-4--more-advanced-scripting-and-introducing-genetic-variants" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number"> 5</span> Week 4- More advanced scripting and introducing genetic variants<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#week-4--more-advanced-scripting-and-introducing-genetic-variants" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="main-objectives-1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Main Objectives<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#main-objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Independently write and run simple scripts using slurm</li>
+<li>Build for loops to automate scripts to run across multiple files</li>
+<li>List the steps of the pipeline for identifying genetic variants</li>
+<li>Organize simple commands into scripts to execute a variant calling pipeline</li>
+</ul>
+</div>
+<div id="warm-up-runnning-scripts" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Warm up: Runnning scripts<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#warm-up-runnning-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Change directories to your personal directory.</li>
+<li>Run a script that is located in a <code>week4_warmup</code> folder by typing:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb1-1" aria-hidden="true" tabindex="-1"></a>/group/rbaygrp/eve198-genomics/week4_warmup/message1.sh</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>You can also use relative paths to run programs in different folders. Using a
+relative path from your own personal directory, run the program <code>/group/rbaygrp/eve198-genomics/week4_warmup/message2.sh</code>.</li>
+<li>Find the output of <code>message2.sh</code> in your personal directory.</li>
+</ol>
+</div>
+<div id="writing-for-loops" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Writing for loops<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Loops are key to productivity improvements through automation as they allow us to execute commands repeatedly.
+Similar to wildcards and tab completion, using loops also reduces the amount of typing (and typing mistakes).
+Loops are helpful when performing operations on groups of sequencing files, such as unzipping or trimming multiple
+files. We will use loops for these purposes in subsequent analyses, but will cover the basics of them for now.</p>
+<p>When the shell sees the keyword <code>for</code>, it knows to repeat a command (or group of commands) once for each item in a list.
+Each time the loop runs (called an iteration), an item in the list is assigned in sequence to the <strong>variable</strong>, and
+the commands inside the loop are executed, before moving on to the next item in the list. Inside the loop, we call for
+the variable’s value by putting <code>$</code> in front of it. The <code>$</code> tells the shell interpreter to treat the <strong>variable</strong>
+as a variable name and substitute its value in its place, rather than treat it as text or an external command. In shell programming, this is usually called “expanding” the variable.</p>
+<p>Sometimes, we want to expand a variable without any whitespace to its right.
+Suppose we have a variable named <code>foo</code> that contains the text <code>abc</code>, and would
+like to expand <code>foo</code> to create the text <code>abcEFG</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb2-1" aria-hidden="true" tabindex="-1"></a>$ foo=abc</span>
+<span id="cb2-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb2-2" aria-hidden="true" tabindex="-1"></a>$ echo foo is $foo</span>
+<span id="cb2-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb2-3" aria-hidden="true" tabindex="-1"></a>foo is abc</span>
+<span id="cb2-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb2-4" aria-hidden="true" tabindex="-1"></a>$ echo foo is $fooEFG      # doesn&#39;t work</span>
+<span id="cb2-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb2-5" aria-hidden="true" tabindex="-1"></a>foo is</span></code></pre></div>
+<p>The interpreter is trying to expand a variable named <code>fooEFG</code>, which (probably)
+doesn’t exist. We can avoid this problem by enclosing the variable name in
+braces (<code>{</code> and <code>}</code>, sometimes called “squiggle braces”). <code>bash</code> treats the <code>#</code>
+character as a comment character. Any text on a line after a <code>#</code> is ignored by
+bash when evaluating the text as code.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb3-1" aria-hidden="true" tabindex="-1"></a>$ foo=abc</span>
+<span id="cb3-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb3-2" aria-hidden="true" tabindex="-1"></a>$ echo foo is $foo</span>
+<span id="cb3-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb3-3" aria-hidden="true" tabindex="-1"></a>foo is abc</span>
+<span id="cb3-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb3-4" aria-hidden="true" tabindex="-1"></a>$ echo foo is ${foo}EFG      # now it works!</span>
+<span id="cb3-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb3-5" aria-hidden="true" tabindex="-1"></a>foo is abcEFG</span></code></pre></div>
+<p>Let’s write a for loop to show us the first two lines of the fastq files we downloaded
+last week. You will notice the shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as
+we were typing in our loop. The second prompt, <code>&gt;</code>, is different to remind us that
+we haven’t finished typing a complete command yet. A semicolon, <code>;</code>, can be used
+to separate two commands written on a single line.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb4-1" aria-hidden="true" tabindex="-1"></a>$ cd /group/rbaygrp/eve198-genomics/yourdirectory/Week2/untrimmed_fastq</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb5-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.fastq</span>
+<span id="cb5-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb5-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb5-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb5-3" aria-hidden="true" tabindex="-1"></a>&gt; head -n 2 ${filename}</span>
+<span id="cb5-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb5-4" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<p>The for loop begins with the formula <code>for &lt;variable&gt; in &lt;group to iterate over&gt;</code>.
+In this case, the word <code>filename</code> is designated as the variable to be used over
+each iteration. In our case <code>SRR097977.fastq</code> and <code>SRR098026.fastq</code> will be
+substituted for <code>filename</code> because they fit the pattern of ending with .fastq
+in the directory we’ve specified. The next line of the for loop is <code>do</code>. The next
+line is the code that we want to execute. We are telling the loop to print the
+first two lines of each variable we iterate over. Finally, the word <code>done</code> ends the loop.</p>
+<p>After executing the loop, you should see the first two lines of both fastq files
+printed to the terminal. Let’s create a loop that will save this information to
+a file.</p>
+<p>Note that we are using <code>&gt;&gt;</code> to append the text to our <code>seq_info.txt</code> file. If we used <code>&gt;</code>, the <code>seq_info.txt</code> file would be rewritten
+every time the loop iterates, so it would only have text from the last variable used. Instead, <code>&gt;&gt;</code> adds to the end of the file.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb6-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.fastq</span>
+<span id="cb6-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb6-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb6-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb6-3" aria-hidden="true" tabindex="-1"></a>&gt; head -n 2 ${filename} &gt;&gt; seq_info.txt </span>
+<span id="cb6-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb6-4" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<p>When writing a loop, you will not be able to return to previous lines once you have pressed Enter. Remember that we can cancel the current command using</p>
+<ul>
+<li><kbd>Ctrl</kbd>+<kbd>C</kbd></li>
+</ul>
+<p>If you notice a mistake that is going to prevent your loop for executing correctly.</p>
+</div>
+<div id="using-basename-in-for-loops" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Using Basename in for loops<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#using-basename-in-for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the <code>.fastq</code> extension from the files that we’ve been working with.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb7-1" aria-hidden="true" tabindex="-1"></a>$ basename SRR097977.fastq .fastq</span></code></pre></div>
+<p>We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb8-1" aria-hidden="true" tabindex="-1"></a>SRR097977</span></code></pre></div>
+<p>If we try the same thing but use <code>.fasta</code> as the file extension instead, nothing happens. This is because basename only works when it exactly matches a string in the file.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb9-1" aria-hidden="true" tabindex="-1"></a>$ basename SRR097977.fastq .fasta</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb10-1" aria-hidden="true" tabindex="-1"></a>SRR097977.fastq</span></code></pre></div>
+<p>Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you can use to name things. Let’s try this.</p>
+<p>Inside our for loop, we create a new name variable. We call the basename function inside the parenthesis, then give our variable name from the for loop, in this case <code>${filename}</code>, and finally state that <code>.fastq</code> should be removed from the file name. It’s important to note that we’re not changing the actual files, we’re creating a new variable called name. The line &gt; echo $name will print to the terminal the variable name each time the for loop runs. Because we are iterating over two files, we expect to see two lines of output.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb11-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.fastq</span>
+<span id="cb11-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb11-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb11-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb11-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .fastq)</span>
+<span id="cb11-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb11-4" aria-hidden="true" tabindex="-1"></a>&gt; echo ${name}</span>
+<span id="cb11-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb11-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<p>If we want to print the file prefix of all of the <code>.txt</code> files in our current directory, we would run the following code:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb12-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.txt</span>
+<span id="cb12-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb12-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb12-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb12-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .txt)</span>
+<span id="cb12-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb12-4" aria-hidden="true" tabindex="-1"></a>&gt; echo ${name}</span>
+<span id="cb12-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb12-5" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<p>One way this is really useful is to move files. Let’s rename all of our .txt files using <code>mv</code> so that they have the years on them, which will document when we created them.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb13-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.txt</span>
+<span id="cb13-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb13-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb13-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb13-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .txt)</span>
+<span id="cb13-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb13-4" aria-hidden="true" tabindex="-1"></a>&gt; mv ${filename}  ${name}_2019.txt</span>
+<span id="cb13-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb13-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<p>What if we put the wrong year and actually want to remove the 2019 from all of our .txt files?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb14-1" aria-hidden="true" tabindex="-1"></a> $ for filename in *_2019.txt</span>
+<span id="cb14-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb14-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb14-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb14-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} _2019.txt)</span>
+<span id="cb14-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb14-4" aria-hidden="true" tabindex="-1"></a>&gt; mv ${filename} ${name}.txt</span>
+<span id="cb14-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb14-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<p>Now write your own for loop it to have <code>_2026</code> at the end of each of our .txt files!</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb15-1" aria-hidden="true" tabindex="-1"></a>$ for filename in *.txt</span>
+<span id="cb15-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb15-2" aria-hidden="true" tabindex="-1"></a>&gt; do</span>
+<span id="cb15-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb15-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .txt)</span>
+<span id="cb15-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb15-4" aria-hidden="true" tabindex="-1"></a>&gt; mv ${filename}  ${name}_2026.txt</span>
+<span id="cb15-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb15-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+</div>
+<div id="writing-scripts-slurm" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Writing scripts: Slurm<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-scripts-slurm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can also write scripts using a resource manager called “Slurm” (It is a reference to the show Futurama where there is a soda called slurm). Slurm can be really helpful for writing scripts and submitting jobs since you can schedule and run larger jobs. I use this personally in my own research. The set up is pretty similar. First let’s create a simple script:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb16-1" aria-hidden="true" tabindex="-1"></a>nano HelloWorld.sh</span></code></pre></div>
+<p>For a slurm script we need more information in the header of our script so that it knows what account to run on and the amount of time you want to give to your job:</p>
+<ul>
+<li>All scripts start with <code>#!/bin/bash</code></li>
+<li>The next line is your email address so you can get an email when your job finishes</li>
+<li>Then add information on if you want an email for all notifications (began, ended, failed, etc)</li>
+<li>Next is the name of the job, or job ID</li>
+<li>The name of your error log file</li>
+<li>The name of your output log file (usually the same name as your error)</li>
+<li>The number of processors per task</li>
+<li>The minimum number of nodes you need for your job. Small jobs don’t need a lot of nodes/memory</li>
+<li>The amount of memory for your job</li>
+<li>The requested time for your job. Some jobs take a really long time, I had one run for several months! For this class you only need to put in 90 minutes.</li>
+<li>The partition to submit to, low is the one we will be using</li>
+</ul>
+<p>After those headers you write out your script!</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-1" aria-hidden="true" tabindex="-1"></a>#!/bin/bash</span>
+<span id="cb17-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-2" aria-hidden="true" tabindex="-1"></a>#SBATCH --mail-user=youremail@ucdavis.edu       # YOUR EMAIL ADDRESS</span>
+<span id="cb17-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-3" aria-hidden="true" tabindex="-1"></a>#SBATCH --account=rbay-eve198-genomics-grp      # GROUP</span>
+<span id="cb17-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-4" aria-hidden="true" tabindex="-1"></a>#SBATCH --mail-type=ALL                         # NOTIFICATIONS OF SLURM JOB STATUS - ALL, NONE, BEGIN, END, FAIL, REQUEUE</span>
+<span id="cb17-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-5" aria-hidden="true" tabindex="-1"></a>#SBATCH -J HelloWorld                           # JOB ID</span>
+<span id="cb17-6"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-6" aria-hidden="true" tabindex="-1"></a>#SBATCH -e HelloWorld.j%j.err                   # STANDARD ERROR FILE TO WRITE TO</span>
+<span id="cb17-7"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-7" aria-hidden="true" tabindex="-1"></a>#SBATCH -o HelloWorld.j%j.out                   # STANDARD OUTPUT FILE TO WRITE TO</span>
+<span id="cb17-8"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-8" aria-hidden="true" tabindex="-1"></a>#SBATCH -c 1                                    # NUMBER OF PROCESSORS PER TASK</span>
+<span id="cb17-9"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-9" aria-hidden="true" tabindex="-1"></a>#SBATCH --ntasks=1                              # MINIMUM NUMBER OF NODES TO ALLOCATE TO JOB</span>
+<span id="cb17-10"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-10" aria-hidden="true" tabindex="-1"></a>#SBATCH --mem=1Gb                               # MEMORY POOL TO ALL CORES</span>
+<span id="cb17-11"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-11" aria-hidden="true" tabindex="-1"></a>#SBATCH --time=00-00:11:00                      # REQUESTED WALL TIME</span>
+<span id="cb17-12"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-12" aria-hidden="true" tabindex="-1"></a>#SBATCH -p low                                  # PARTITION TO SUBMIT TO</span>
+<span id="cb17-13"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb17-14" aria-hidden="true" tabindex="-1"></a>echo &quot;Hello World!&quot; &gt; hello_world_output.txt</span></code></pre></div>
+<p>Then when you are ready to run your job you type</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb18-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb18-1" aria-hidden="true" tabindex="-1"></a>$ sbatch HelloWorld.sh</span></code></pre></div>
+<p>Want to check the status of your job? Type <code>squeue -u</code>yourusername<code>, or use the fun shortcut,</code>squeue –me<code>. Once your job is done, type</code>ls<code>. There should be a new text file in your directory called</code>hello_world_output.txt`. What does it say?</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb19-1" aria-hidden="true" tabindex="-1"></a>$ cat hello_world_output.txt</span></code></pre></div>
+<p>More information on slurm scripts in on the hpc webpage: <a href="https://hpc.ucdavis.edu/faq/slurm" class="uri">https://hpc.ucdavis.edu/faq/slurm</a></p>
+</div>
+<div id="finding-variants-pipeline" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Finding Variants Pipeline<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#finding-variants-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="mini-lecture" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Mini Lecture<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#mini-lecture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Slides can be accessed <a href="./figs/W4%20Mapping.pdf">here</a></p>
+<p>This is the general pipeline of what we will be doing today: <img src="figs/pipeline_variants.png" alt="Finding Variants Pipeline" /></p>
+</div>
+<div id="step-0-download-data-and-load-programs" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Step 0: Download data and load programs<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-0-download-data-and-load-programs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="download-data" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Download Data<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#download-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We’ve used <code>wget</code> before, but to give you a bit more informations, it is short
+for “world wide web get”, and it’s basic function is to download web pages or data at a web address.</p>
+<p>We will be using wget to retrieve data from the class github, but if you
+want more practice with this tool there is an additional tutorial below:</p>
+<p>Download the data from the IntroGenomics_Data Week 4 repository on
+github in your individual directory. Make sure you are there first
+before you do the wget step!</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb20-1" aria-hidden="true" tabindex="-1"></a>$ cd /navigate/to/your/directory</span>
+<span id="cb20-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb20-3" aria-hidden="true" tabindex="-1"></a>$ wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week4.zip</span></code></pre></div>
+<p>And then unzip week4 so we can work with the data inside:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb21-1" aria-hidden="true" tabindex="-1"></a>$ unzip week4.zip</span></code></pre></div>
+</div>
+<div id="load-programs" class="section level3 hasAnchor" number="5.8.2">
+<h3><span class="header-section-number">5.8.2</span> Load programs<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#load-programs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These are the programs we will be using today:</p>
+<ul>
+<li>fastqc: used to view the quality of the read files</li>
+<li>samtools: allows us to filter and view our mapped data</li>
+<li>bowtie2: to map our reads to the reference genome</li>
+<li>cutadapt: will trim adaptor sequences from the reads</li>
+<li>angsd: used to find variants in our data</li>
+</ul>
+<p>To load the first program, type the following code:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb22-1" aria-hidden="true" tabindex="-1"></a>$ module load fastqc</span></code></pre></div>
+<p>You should get something on your screen that looks like this:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb23-1" aria-hidden="true" tabindex="-1"></a>$ module load fastqc</span>
+<span id="cb23-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb23-2" aria-hidden="true" tabindex="-1"></a>Loading openjdk/17.0.11_9</span>
+<span id="cb23-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb23-4" aria-hidden="true" tabindex="-1"></a>Loading fastqc/0.12.1</span>
+<span id="cb23-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  Loading requirement: openjdk/17.0.11_9</span></code></pre></div>
+<p>This will load our module! Check to see that it loaded and what version
+you are working with using this command:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb24-1" aria-hidden="true" tabindex="-1"></a>$ fastqc -v</span>
+<span id="cb24-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb24-2" aria-hidden="true" tabindex="-1"></a>FastQC v0.12.1</span></code></pre></div>
+<p>This tells us that we have fastqc loaded and we are using version 0.12.1.
+This is important information to report in papers too when you discuss what
+genomics methods you’ve used. All of the package names matchtheir module names,
+except for cutadapt.To load cutadapt and check the version, type:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb25-1" aria-hidden="true" tabindex="-1"></a>$ module load py-cutadapt</span>
+<span id="cb25-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb25-2" aria-hidden="true" tabindex="-1"></a>$ py-cutadapt -v</span></code></pre></div>
+<p>Notes on loading programs:</p>
+<ul>
+<li>Every time you start a new OnDemand session, you’ll start with a blank slate
+and will need to load any modules you want to use, so next time you start up
+a session, fastqc and py-cutadapt won’t be pre-loaded</li>
+<li>You can load a module from any directory, and then use it in any directory</li>
+</ul>
+<blockquote>
+<h2 id="class-exercise-1" class="hasAnchor">Class Exercise 1<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#class-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Load all five of the packages we need (fastqc, samtools, bowtie2, cutadapt and
+angsd) and check their versions.</p></li>
+<li><p>Change directories so that you are inside the week4 directory inside your
+individual directory. Confirm that you see6 files with a <code>.fastq.gz</code> extension
+and 1 genome file with a <code>.fna.gz</code> extension.</p></li>
+<li><p>Imagine you have a program in mind and want to check if it’s available as
+a module on our cluster Type in <code>module avail</code> and scroll through the list to see
+what programs are already downloaded and easy to use.</p></li>
+</ol>
+</blockquote>
+</div>
+</div>
+<div id="step-1-raw-read-quality-control" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Step 1: Raw read quality control<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-1-raw-read-quality-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next let’s use the program fastqc to check the quality of our data files:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb26-1" aria-hidden="true" tabindex="-1"></a>$ fastqc SRR6805880.tiny.fastq.gz</span></code></pre></div>
+<ul>
+<li>Readout should include:
+<ul>
+<li>Started analysis for SRR6805880.tiny.fastq.gz</li>
+<li>Analysis complete for SRR6805880.tiny.fastq.gz</li>
+</ul></li>
+</ul>
+<p>Let’s look to see that it worked</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb27-1" aria-hidden="true" tabindex="-1"></a>$ ls</span>
+<span id="cb27-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb27-3" aria-hidden="true" tabindex="-1"></a>Ppar_tinygenome.fna.gz       SRR6805880.tiny_fastqc.zip  SRR6805883.tiny.fastq.gz</span>
+<span id="cb27-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb27-4" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny.fastq.gz     SRR6805881.tiny.fastq.gz    SRR6805884.tiny.fastq.gz</span>
+<span id="cb27-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb27-5" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny_fastqc.html  SRR6805882.tiny.fastq.gz    SRR6805885.tiny.fastq.gz</span></code></pre></div>
+<p>Looks good! Fastqc generated two outputs for us, a <code>.html</code> and a <code>.zip</code>
+directory</p>
+<p>Let’s run fastqc on the remaining files, and then we’ll take a look at
+the output. You may have noticed fastqc just used the same file name to
+produce our output with different extensions. We can take advantage of
+that by running fastqc on all our datafiles with the wildcard <code>*</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb28-1" aria-hidden="true" tabindex="-1"></a>$ fastqc SRR680588*</span></code></pre></div>
+<p><img src="figs/fastqc-output.png" alt="What you should see on your screen!" /> You may
+initially get an error message because fastqc doesn’t see the .fastq
+file extension on some of our files. It simply skips these and moves on
+the the next file.</p>
+<p>To view the output of fastqc you can access the html files for each
+sample using the OnDemand GUI.</p>
+<blockquote>
+<h2 id="class-exercise-2-looking-at-your-fastqc.html-files" class="hasAnchor">Class Exercise 2: looking at your fastqc.html files!<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#class-exercise-2-looking-at-your-fastqc.html-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Open the yellow “Home” folder on your OnDemand session and use the top search
+bar to navigate to <code>home/group/rbaygrp/eve198-genomics/yourdirectory/week4</code>.
+Click on on of your fastq output files (with the suffix fastqc.html)
+to view the quality information of a fastq files.</p>
+</blockquote>
+</div>
+<div id="step-2-trimming-to-remove-adapters" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> Step 2: Trimming to remove adapters<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-2-trimming-to-remove-adapters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many programs to trim sequence files. Cutadapt is relatively
+easy to run with the code below, once we have identified our adaptor
+sequence and takes the general form below.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb29-1" aria-hidden="true" tabindex="-1"></a>$ cutadapt -g SEQUENCETOTRIM -o name_of_input_file name_of_output_file </span></code></pre></div>
+<p>Let’s do this on one of our files to test it out.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb30-1" aria-hidden="true" tabindex="-1"></a>cutadapt -g TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz </span></code></pre></div>
+<p>This works for a single file, but if we want to do it for all our read
+files we need to either do them all individually (slow and error prone)
+or use a for loop.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
+<span id="cb31-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb31-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
+<span id="cb31-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
+<span id="cb31-6"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-7" aria-hidden="true" tabindex="-1"></a>  cutadapt -g TGCAG ${base}.tiny.fastq.gz -o ${base}.tiny_trimmed.fastq.gz </span>
+<span id="cb31-8"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb31-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<p>Yay! You should see a little report for each of these files that showing
+how many reads were trimmed and some other info (how long are the reads,
+etc)</p>
+<p>You can check if the trimmed files are there with:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb32-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb32-1" aria-hidden="true" tabindex="-1"></a>ls *trimmed*</span></code></pre></div>
+<blockquote>
+<h2 id="class-exercise-3" class="hasAnchor">Class Exercise 3<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#class-exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Run fastqc on our .trimmed reads and compare the html with the
+.untrimmed files. What main difference do you see between them?</p>
+</blockquote>
+<p>Our reads are now ready to be mapped to the genome!</p>
+</div>
+<div id="step-3-building-an-index-of-our-genome" class="section level2 hasAnchor" number="5.11">
+<h2><span class="header-section-number">5.11</span> Step 3: Building an index of our genome<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-3-building-an-index-of-our-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First we have to index our genome. We’ll do that with the bowtie2-build
+command. This will generate a lot of files that describe different
+aspects of our genome</p>
+<p>We give bowtie2-build two things, the name of our genome, and a general
+name to label the output files. I always keep the name of the output
+files the same as the original genome file (without the .fna.gz
+extension) to avoid confusion.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb33-2" aria-hidden="true" tabindex="-1"></a>bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome</span></code></pre></div>
+<p>This should produce several output files with extensions including: .bt2
+and rev.1.bt2 etc (six files in total)</p>
+</div>
+<div id="step-4-map-reads-to-the-genome" class="section level2 hasAnchor" number="5.12">
+<h2><span class="header-section-number">5.12</span> Step 4: Map reads to the genome<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-4-map-reads-to-the-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s map those reads using a for loop</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb34-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny_trimmed.fastq.gz</span>
+<span id="cb34-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb34-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny_trimmed.fastq.gz)</span>
+<span id="cb34-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
+<span id="cb34-6"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny_trimmed.fastq.gz -S ${base}.sam</span>
+<span id="cb34-8"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb34-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<p>You should see a bunch of text telling you all about how well our reads
+mapped to the genome. For this example we’re getting a low percentage
+(20-30%) because of how the genome and reads were subset for this
+exercise.</p>
+<p>You’ll also notice that we have made a bunch of .sam files. THis stands
+for Sequence Alignment Map file. Let’s use <code>less</code> to look at one of
+these files using <code>less</code></p>
+<blockquote>
+<h2 id="class-exercise-4" class="hasAnchor">Class Exercise 4<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#class-exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now let’s write a for loop to map the untrimmed files to the genome.
+How do the alignments compare to the trimmed ones we just did as a
+class?</p>
+</blockquote>
+</div>
+<div id="step-5-sam-to-bam-file-conversion" class="section level2 hasAnchor" number="5.13">
+<h2><span class="header-section-number">5.13</span> Step 5: sam to bam file conversion<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-5-sam-to-bam-file-conversion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next step is to convert our sam file to a bam (Binary Alignment Map
+file). This gets our file ready to be read by angsd the program we’re
+going to use to call SNPs.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb35-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-1" aria-hidden="true" tabindex="-1"></a>for filename in *.sam</span>
+<span id="cb35-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb35-3"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
+<span id="cb35-5"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
+<span id="cb35-6"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-7"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-7" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam</span>
+<span id="cb35-8"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb35-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+</div>
+<div id="step-6-genotype-likelihoods" class="section level2 hasAnchor" number="5.14">
+<h2><span class="header-section-number">5.14</span> Step 6: Genotype likelihoods<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-6-genotype-likelihoods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many ways and many programs that call genotypes. The program
+that we will use calculates genotype likelihoods, which account for
+uncertainty due to sequencing errors and/or mapping errors and is one of
+several programs in the package ANGSD. The purpose of this class is not
+to discuss which program is the “best”, but to teach you to use some
+commonly used programs.</p>
+<p>angsd needs a text file with the <code>.bam</code> file names listed. We can make
+that by running the command below</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb36-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb36-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb36-2" aria-hidden="true" tabindex="-1"></a>ls *.bam &gt; bam.filelist</span></code></pre></div>
+<p>Look at the list:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb37-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb37-1" aria-hidden="true" tabindex="-1"></a>cat bam.filelist</span></code></pre></div>
+<p>Run the following code to calculate genotype likelihoods</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb38-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb38-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-2"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb38-2" aria-hidden="true" tabindex="-1"></a>angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
+<p>This will generate two files, one with a .arg extension, this has a
+record of the script we ran to generate the output, and a .maf file that
+will give you the minor allele frequencies and is the main output file.
+If you see these two files, Yay!! We did it!</p>
+<p>We can change the parameters of the angsd genotype likelihoods command
+by altering the values next to <code>-SNP_pval</code>. If we remove the <code>-SNP_pval</code>
+command entirely we get ~72000 sites retained! Wow! That seems like a
+lot given our ~20% mapping rate. If you instead increase the p-value
+threshold to 1e-3 we find 3 SNPs.</p>
+<p>To see what the other parameters do you can run the following:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb39-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb39-1" aria-hidden="true" tabindex="-1"></a>angsd -h</span></code></pre></div>
+</div>
+<div id="group-work-activity--calling-variants-at-a-larger-scale" class="section level2 hasAnchor" number="5.15">
+<h2><span class="header-section-number">5.15</span> Group Work Activity- Calling Variants at a Larger Scale<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#group-work-activity--calling-variants-at-a-larger-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this exercise we ran everything in the same directory and you can
+see that we generated quite a few files by the time we were done. Many
+population genomic studies have data for hundreds of individuals and
+running everything in the same directory gets confusing and messy.
+However, having the data in a different directory from the output
+complicates running things a little (you have to remember which
+directory you’re in). Make a new directory inside your own week4
+directory called <code>raw_data</code> and <code>mv</code> the raw data files (those that end
+in .fastq.gz, and the tinygenome, ending in .fna) into it.
+Then move everything that we generated so far into a folder called <code>old_outputs</code>.</p>
+<p>Now you can write your own slurm script to call genetic variants. Use
+the code above to help you process everything in one single script. Make
+a directory for the <code>trimmed_reads</code> and <code>sam_bam</code> files each. Submit a
+copy of your script for this activity on canvas under the ‘Assignments’
+tab for ‘Week 4: Calling Variants’.</p>
+</div>
+<div id="key-points-3" class="section level2 hasAnchor" number="5.16">
+<h2><span class="header-section-number">5.16</span> Key Points<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#key-points-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The general pipeline for identifying genetic variants first starts
+with trimming adaptors from the sample reads, indexing the reference
+genome, mapping the reads to the genome, converting the sam file to
+a bam (binary) file and then calculating the genotype likelihoods.</li>
+<li>There are many tools that are useful for calling genetic variants,
+including samtools, bowtie2, cutadapt and</li>
+<li>SAM and BAM files are similar, but BAM files are in a binary format
+which makes it easier to process and call SNPs</li>
+<li>ANGSD is a useful program for calculating genotype likelihoods and
+accounts for uncertainty due to sequencing errors and/or mapping
+errors</li>
+</ul>
+<details>
+<summary>
+<span style="color: orange;">Class Exercise Solutions</span>
+</summary>
+<p>
+<blockquote>
+<blockquote>
+<h1 id="exercise-solutions" class="hasAnchor">Exercise: Solutions<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#exercise-solutions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h2 id="exercise-1." class="hasAnchor">Exercise 1.<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#exercise-1." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 id="exercise-2.-just-look-at-your-html-files" class="hasAnchor">Exercise 2. just look at your html files!<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#exercise-2.-just-look-at-your-html-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2 id="exercise-3.-we-should-no" class="hasAnchor">Exercise 3. We should no<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#exercise-3.-we-should-no" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>longer see the red error flag for the per base sequence quality or
+base pairs conten. code: fastqc *trimmed.fastq.gz
+## Exercise 4: The
+full genome and full read files should have a much higher mapping
+rate (70-80%) &gt; than our subset.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb40-1"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#cb40-1" aria-hidden="true" tabindex="-1"></a>for filename in *tiny.fastq.gz; do; base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome.fna.gz -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done</span></code></pre></div>
+</blockquote>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-3--working-with-files-part-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

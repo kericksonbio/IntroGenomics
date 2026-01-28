@@ -166,3 +166,13 @@ wildcards-and-echo
 learning-objectives
 learning-objectives-1
 warmup-viewing-fastq-files
+week-4--more-advanced-scripting-and-introducing-genetic-variants
+warm-up-runnning-scripts
+finding-variants-pipeline
+step-0-download-data
+step-0-download-data-and-load-programs
+download-data
+load-programs-for-todays-class
+load-programs
+step-1-raw-read-quality-control
+mini-lecture
