@@ -287,10 +287,7 @@ $ unzip week4.zip
 These are the programs we will be using today:
 
 -   fastqc: used to view the quality of the read files
--   samtools: allows us to filter and view our mapped data
--   bowtie2: to map our reads to the reference genome
 -   cutadapt: will trim adaptor sequences from the reads
--   angsd: used to find variants in our data
 
 To load the first program, type the following code:
 ``` html
@@ -317,12 +314,13 @@ FastQC v0.12.1
 
 This tells us that we have fastqc loaded and we are using version 0.12.1. 
 This is important information to report in papers too when you discuss what 
-genomics methods you've used. All of the package names matchtheir module names, 
-except for cutadapt.To load cutadapt and check the version, type:
+genomics methods you've used. Most of the package we use have names that
+match their module names, but cutadapt is a bit different. 
+To load cutadapt and check the version, type:
 
 ``` html
 $ module load py-cutadapt
-$ py-cutadapt -v
+$ cutadapt -v
 ```
 
 Notes on loading programs:
@@ -334,8 +332,7 @@ a session, fastqc and py-cutadapt won't be pre-loaded
 
 > ## Class Exercise 1
 >
-> 1. Load all five of the packages we need (fastqc, samtools, bowtie2, cutadapt and 
-> angsd) and check their versions. 
+> 1. Load all both packages and check their versions.
 > 
 > 2. Change directories so that you are inside the week4 directory inside your 
 > individual directory. Confirm that you see6 files with a `.fastq.gz` extension 

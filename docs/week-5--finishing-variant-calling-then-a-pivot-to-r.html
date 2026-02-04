@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 6 Week 5- Finishing Variant Calling, then a pivot to R! | 05-Week5.Rmd</title>
+  <meta name="description" content=" 6 Week 5- Finishing Variant Calling, then a pivot to R! | 05-Week5.Rmd" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 6 Week 5- Finishing Variant Calling, then a pivot to R! | 05-Week5.Rmd" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 6 Week 5- Finishing Variant Calling, then a pivot to R! | 05-Week5.Rmd" />
+  
+  
+  
+
+<meta name="author" content="K. Erickson" />
+
+
+<meta name="date" content="2026-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Genomics in Natural Populations</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro to Genomics in Natural Populations</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Course Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-your-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet your instructors!</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#getting-your-farm-account-set-up-class-specific"><i class="fa fa-check"></i><b>1.3</b> Getting your Farm Account set up (class specific)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell-via-farm-ondemand"><i class="fa fa-check"></i><b>2.2</b> How to access the shell via Farm OnDemand</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#creating-our-own-directories"><i class="fa fa-check"></i><b>2.5</b> Creating our own directories</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.6</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.7</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#group-work-activity--treasure-hunt"><i class="fa fa-check"></i><b>2.8</b> Group Work Activity- Treasure Hunt!</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#key-points"><i class="fa fa-check"></i><b>2.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2- Working with Files</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#warm-up-find-the-secret-message"><i class="fa fa-check"></i><b>3.2</b> Warm Up: Find the secret message</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#viewing-file-contents"><i class="fa fa-check"></i><b>3.3</b> Viewing file contents</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#more-navigational-shortcuts"><i class="fa fa-check"></i><b>3.4</b> More navigational shortcuts</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#sequencing-pipeline"><i class="fa fa-check"></i><b>3.5</b> Sequencing Pipeline</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.6</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.7</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#wildcards-and-echo"><i class="fa fa-check"></i><b>3.8</b> Wildcards and echo</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.9</b> Command History</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.10</b> Examining Files</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#group-work-activity--examining-a-fastq-file"><i class="fa fa-check"></i><b>3.11</b> Group Work Activity- Examining a Fastq File</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#key-points-1"><i class="fa fa-check"></i><b>3.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html"><i class="fa fa-check"></i><b>4</b> Week 3- Working with Files Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#main-objectives"><i class="fa fa-check"></i><b>4.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#warmup-viewing-fastq-files"><i class="fa fa-check"></i><b>4.2</b> Warmup: Viewing fastq files</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>4.3</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#copying-files"><i class="fa fa-check"></i><b>4.3.1</b> Copying Files</a></li>
+<li class="chapter" data-level="4.3.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-directories"><i class="fa fa-check"></i><b>4.3.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="4.3.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#moving-renaming"><i class="fa fa-check"></i><b>4.3.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="4.3.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-permissions"><i class="fa fa-check"></i><b>4.3.4</b> File Permissions</a></li>
+<li class="chapter" data-level="4.3.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#removing"><i class="fa fa-check"></i><b>4.3.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#searching-files"><i class="fa fa-check"></i><b>4.4</b> Searching files</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#redirecting-output"><i class="fa fa-check"></i><b>4.5</b> Redirecting output</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-extensions"><i class="fa fa-check"></i><b>4.6</b> File extensions</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>4.7</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-bash"><i class="fa fa-check"></i><b>4.8</b> Writing scripts: Bash</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#group-work-activity--writing-your-own-script"><i class="fa fa-check"></i><b>4.9</b> Group Work Activity- Writing your own script</a></li>
+<li class="chapter" data-level="4.10" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#key-points-2"><i class="fa fa-check"></i><b>4.10</b> Key Points</a></li>
+<li class="chapter" data-level="4.11" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#additional-information"><i class="fa fa-check"></i><b>4.11</b> Additional Information</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.11.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#more-ways-to-work-with-files"><i class="fa fa-check"></i><b>4.12</b> More ways to work with files</a>
+<ul>
+<li class="chapter" data-level="4.12.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#awk"><i class="fa fa-check"></i><b>4.12.1</b> Awk</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><i class="fa fa-check"></i><b>5</b> Week 4- More advanced scripting and introducing genetic variants</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#main-objectives-1"><i class="fa fa-check"></i><b>5.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#warm-up-runnning-scripts"><i class="fa fa-check"></i><b>5.2</b> Warm up: Runnning scripts</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-for-loops"><i class="fa fa-check"></i><b>5.3</b> Writing for loops</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>5.4</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-scripts-slurm"><i class="fa fa-check"></i><b>5.5</b> Writing scripts: Slurm</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#finding-variants-pipeline"><i class="fa fa-check"></i><b>5.6</b> Finding Variants Pipeline</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#mini-lecture"><i class="fa fa-check"></i><b>5.7</b> Mini Lecture</a></li>
+<li class="chapter" data-level="5.8" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-0-download-data-and-load-programs"><i class="fa fa-check"></i><b>5.8</b> Step 0: Download data and load programs</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#download-data"><i class="fa fa-check"></i><b>5.8.1</b> Download Data</a></li>
+<li class="chapter" data-level="5.8.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#load-programs"><i class="fa fa-check"></i><b>5.8.2</b> Load programs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-1-raw-read-quality-control"><i class="fa fa-check"></i><b>5.9</b> Step 1: Raw read quality control</a></li>
+<li class="chapter" data-level="5.10" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-2-trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.10</b> Step 2: Trimming to remove adapters</a></li>
+<li class="chapter" data-level="5.11" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#group-work-activity--calling-variants-at-a-larger-scale"><i class="fa fa-check"></i><b>5.11</b> Group Work Activity- Calling Variants at a Larger Scale</a></li>
+<li class="chapter" data-level="5.12" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#key-points-3"><i class="fa fa-check"></i><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><i class="fa fa-check"></i><b>6</b> Week 5- Finishing Variant Calling, then a pivot to R!</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#main-objectives-2"><i class="fa fa-check"></i><b>6.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-1-comparing-scripts-with-a-friend"><i class="fa fa-check"></i><b>6.2</b> Warmup Part 1: Comparing scripts with a friend</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-2-ensuring-we-have-well-organized-data"><i class="fa fa-check"></i><b>6.3</b> Warmup Part 2: Ensuring we have well organized data!</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-3-building-an-index-of-our-genome"><i class="fa fa-check"></i><b>6.4</b> Step 3: Building an index of our genome</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-4-map-reads-to-the-genome"><i class="fa fa-check"></i><b>6.5</b> Step 4: Map reads to the genome</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-5-sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>6.6</b> Step 5: sam to bam file conversion</a></li>
+<li class="chapter" data-level="6.7" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-6-genotype-likelihoods"><i class="fa fa-check"></i><b>6.7</b> Step 6: Genotype likelihoods</a></li>
+<li class="chapter" data-level="6.8" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#orientation-to-r"><i class="fa fa-check"></i><b>6.8</b> Orientation to R</a></li>
+<li class="chapter" data-level="6.9" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>6.9</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="6.10" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.10</b> Operations act on each element of a vector</a></li>
+<li class="chapter" data-level="6.11" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.11</b> Operations can also work with two vectors</a></li>
+<li class="chapter" data-level="6.12" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.12</b> A few tips below for working with objects</a></li>
+<li class="chapter" data-level="6.13" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.13</b> Characterizing a dataframe</a></li>
+<li class="chapter" data-level="6.14" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.14</b> How to access parts of the data</a></li>
+<li class="chapter" data-level="6.15" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#group-work-activity-practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>6.15</b> Group Work Activity: practice exploring a dataframe</a></li>
+<li class="chapter" data-level="6.16" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#key-points-4"><i class="fa fa-check"></i><b>6.16</b> Key Points</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">05-Week5.Rmd</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-5--finishing-variant-calling-then-a-pivot-to-r" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number"> 6</span> Week 5- Finishing Variant Calling, then a pivot to R!<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#week-5--finishing-variant-calling-then-a-pivot-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Picking up from last week, we will start where we left off with
+a variant calling pipeline. Then we’ll pivot to interacting with the cluster in
+a new way, by starting RStudio sessions in OnDemand.</p>
+<div id="main-objectives-2" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Main Objectives<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#main-objectives-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Organize simple commands into scripts to execute a variant calling pipeline</li>
+<li>Write code in Rstudio through FarmOnDemand</li>
+<li>Understand the different parts of the Rstudio window</li>
+<li>Learn how to work with objects in R and general R operation</li>
+</ul>
+</div>
+<div id="warmup-part-1-comparing-scripts-with-a-friend" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Warmup Part 1: Comparing scripts with a friend<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-1-comparing-scripts-with-a-friend" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Buddy up! Start an OnDemand session and navigate to the script that you wrote
+for the week 4 assignment.</p>
+<p>If either you or your partner’s script did not run, take some time to look at the
+code together! Try to fix any errors and get it to run. If you’re having
+trouble diagnosing your issues, remember that you can look at your log files, which
+have the extensions <code>.err</code> and <code>/out</code>.</p>
+<p>If both of your code produced the expected files, compare scripts! Find any places
+where your code differs, and discuss why you chose to code it the way you did!
+After seeing your partner’s script, are there any changes you’d like to make to yours?</p>
+</div>
+<div id="warmup-part-2-ensuring-we-have-well-organized-data" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Warmup Part 2: Ensuring we have well organized data!<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-2-ensuring-we-have-well-organized-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Last week’s assignment was to rerun the <code>fastqc</code> and <code>cutadapt</code> commands that
+we learned last week to create a well organized file system. If your script
+didn’t work exactly as you planned, let’s make sure that we
+all are moving forward into the next section with the same files.</p>
+<p>From within your <code>week4</code> folder, you should make sure you have a folder called
+<code>raw_data</code> which contains the following files:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a>$ ls raw_data</span>
+<span id="cb1-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a>Ppar_tinygenome.fna.gz    SRR6805881.tiny.fastq.gz  SRR6805883.tiny.fastq.gz  SRR6805885.tiny.fastq.gz</span>
+<span id="cb1-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny.fastq.gz  SRR6805882.tiny.fastq.gz  SRR6805884.tiny.fastq.gz</span></code></pre></div>
+<p>From within your <code>week4</code> folder, you should make sure you have a folder called
+<code>trimmed_fastqs</code> which contains the following files:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>$ ls trimmed_fastqs</span>
+<span id="cb2-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny_trimmed.fastq.gz  SRR6805882.tiny_trimmed.fastq.gz  SRR6805884.tiny_trimmed.fastq.gz</span>
+<span id="cb2-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>SRR6805881.tiny_trimmed.fastq.gz  SRR6805883.tiny_trimmed.fastq.gz  SRR6805885.tiny_trimmed.fastq.gz</span></code></pre></div>
+<p>You may have some additional files inside your folder, like fastqc files, your
+week 4 scripts or slurm outputs, those can all stay there!</p>
+<p>If you are struggling to get the files into the right folder, you can copy this folder
+into your personal <code>week4</code> folder from the folder <code>week4_files</code> as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>$ cd /group/rbaygroup/eve198-genomics/yourdirectory/week4</span>
+<span id="cb3-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>$ cp -r /group/rbaygroup/eve198-genomics/week4_files/raw_data ./</span>
+<span id="cb3-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>$ cp -r /group/rbaygroup/eve198-genomics/week4_files/trimmed_fastqs ./</span></code></pre></div>
+<p>Rerun the <code>ls</code> commands to ensure that you have everything you need in the
+<code>raw_data</code> and <code>trimmed_fastqs</code>. Now we can move forward with the next steps in
+the variant calling pipeline!</p>
+</div>
+<div id="step-3-building-an-index-of-our-genome" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Step 3: Building an index of our genome<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-3-building-an-index-of-our-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recall that we’ve already performed QC and adapter cutting on our sequencing reads.
+Today, we’ll pick up where we left off with our variant calling pipeline:
+<img src="figs/pipeline_variants.png" alt="Finding Variants Pipeline" /></p>
+<p>Recall that we need to reload packages every time we open a new OnDemand session. This week
+we’ll need:</p>
+<ul>
+<li>samtools: allows us to filter and view our mapped data</li>
+<li>bowtie2: to map our reads to the reference genome</li>
+<li>angsd: used to find variants in our data</li>
+</ul>
+<p>Load all these packages using <code>module load</code>.</p>
+<p>Our next task is to index our genome. We’ll do that with the bowtie2-build
+command. This will generate a lot of files that describe different
+aspects of our genome</p>
+<p>We give bowtie2-build two things, the name of our genome, and a general
+name to label the output files. I always keep the name of the output
+files the same as the original genome file (without the .fna.gz
+extension) to avoid confusion.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>bowtie2-build raw_data/Ppar_tinygenome.fna.gz raw_data/Ppar_tinygenome</span></code></pre></div>
+<p>This should produce several output files with extensions including: .bt2
+and rev.1.bt2 etc (six files in total)</p>
+</div>
+<div id="step-4-map-reads-to-the-genome" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Step 4: Map reads to the genome<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-4-map-reads-to-the-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we’ve indexed our reference, we can map our sequencing reads to that
+reference genome.
+Let’s map those reads using a for loop.</p>
+<p>First, let’s set up a directory for the output files, which will have the extension
+<code>.sam</code> (more on that later!)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a>$ mkdir sams</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a>for filename in trimmed_fastqs/*.tiny_trimmed.fastq.gz</span>
+<span id="cb6-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb6-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny_trimmed.fastq.gz)</span>
+<span id="cb6-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
+<span id="cb6-6"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x raw_data/Ppar_tinygenome -U trimmed_fastqs/${base}.tiny_trimmed.fastq.gz -S sams/${base}.sam</span>
+<span id="cb6-8"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb6-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<p>You should see a bunch of text telling you all about how well our reads
+mapped to the genome. For this example we’re getting a low percentage
+(~20%) because of how the genome and reads were subset for this
+exercise.</p>
+<p>You’ll also notice that we have made a bunch of .sam files. THis stands
+for Sequence Alignment Map file. Let’s use <code>less</code> to look at one of
+these files using <code>less</code></p>
+</div>
+<div id="step-5-sam-to-bam-file-conversion" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Step 5: sam to bam file conversion<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-5-sam-to-bam-file-conversion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next step is to convert our sam file to a bam (Binary Alignment Map
+file). This gets our file ready to be read by angsd the program we’re
+going to use to call SNPs.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mkdir bams</span>
+<span id="cb7-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a>for filename in sams/*.sam</span>
+<span id="cb7-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-3" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb7-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
+<span id="cb7-6"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
+<span id="cb7-7"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS sams/${base}.sam | samtools sort -o bams/${base}.bam</span>
+<span id="cb7-9"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb7-10" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+</div>
+<div id="step-6-genotype-likelihoods" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Step 6: Genotype likelihoods<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-6-genotype-likelihoods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many ways and many programs that call genotypes. The program
+that we will use calculates genotype likelihoods, which account for
+uncertainty due to sequencing errors and/or mapping errors and is one of
+several programs in the package ANGSD. The purpose of this class is not
+to discuss which program is the “best”, but to teach you to use some
+commonly used programs.</p>
+<p>angsd needs a text file with the <code>.bam</code> file names listed. We can make
+that by running the command below</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>ls bams/*.bam &gt; bam.filelist</span></code></pre></div>
+<p>Look at the list:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>cat bam.filelist</span></code></pre></div>
+<p>Run the following code to calculate genotype likelihoods</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
+<p>The output of angsd gives us a nice overview of what happened:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>    -&gt; Output filenames:</span>
+<span id="cb11-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a>        -&gt;&quot;genotype_likelihoods.arg&quot;</span>
+<span id="cb11-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a>        -&gt;&quot;genotype_likelihoods.mafs.gz&quot;</span>
+<span id="cb11-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    -&gt; Tue Feb  3 22:27:17 2026</span>
+<span id="cb11-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-5" aria-hidden="true" tabindex="-1"></a>    -&gt; Arguments and parameters for all analysis are located in .arg file</span>
+<span id="cb11-6"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    -&gt; Total number of sites analyzed: 71450</span>
+<span id="cb11-7"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    -&gt; Number of sites retained after filtering: 9 </span>
+<span id="cb11-8"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-8" aria-hidden="true" tabindex="-1"></a>    [ALL done] cpu-time used =  1.39 sec</span>
+<span id="cb11-9"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb11-9" aria-hidden="true" tabindex="-1"></a>    [ALL done] walltime used =  1.00 sec</span></code></pre></div>
+<p>We can see that it generated two files, one with a .arg extension (which has a
+record of the script we ran to generate the output), and a .maf file (that
+will give you the minor allele frequencies and is the main output file).
+We can also see that we started with 71,450 sites but only retained 9 after
+filtering.</p>
+<p>To see what the other parameters do you can run the following:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>angsd -h</span></code></pre></div>
+<p>We can change the parameters of the angsd genotype likelihoods command
+by altering the values next to <code>-SNP_pval</code>. If we remove the <code>-SNP_pval</code>
+command entirely we get around 70,000 sites retained! Wow! That seems like a
+lot given our ~20% mapping rate. If you instead increase the p-value
+threshold to 1e-3 we find 3 SNPs.</p>
+<blockquote>
+<h2 id="class-exercise-1-changing-angsd-parameters" class="hasAnchor">Class Exercise 1: Changing angsd parameters<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#class-exercise-1-changing-angsd-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To see what the parameters you can use with angsd, type <code>angsd -h</code>
+Try changing the value of <code>-SNP_pval</code> and rerunning angsd.
+How many sites are retained if we remove the <code>-SNP_pval</code> flag entirely?
+How many sites are retained if you instead increase the p-value
+threshold to 1e-3?</p>
+</blockquote>
+</div>
+<div id="orientation-to-r" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Orientation to R<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#orientation-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many R packages that are built to work with SNP data! So often, once
+we use slurm scripts to pare down our data from sequencing reads to SNPs, we read
+the SNP data into R to analyze it from there! Before we get to working with SNP
+data, we’ll start with a more general intro to R.</p>
+<p>This lesson is modified from materials compiled by Serena Caplins from
+the STEMinist_R lessons produced by several UC Davis graduate student
+and which can be found
+<a href="https://github.com/ecalfee/STEMinist_R.git">here</a>.</p>
+<p>First let’s navigate to our R studio on Farm OnDemand! Launch your
+session with the information shown below:
+Give yourself 2 for memory and make sure your conda environment is set to <code>r-4.4.2</code></p>
+<div class="figure">
+<img src="figs/RStudioOnDemand_Setup.png" alt="" />
+<p class="caption">Fill out this information</p>
+</div>
+<p>After we start it up we will want to create a new file called
+“Week5-IntroR.R” to type our scripts for today.</p>
+<p>To do this, we will click <code>File</code>, <code>New File</code> then <code>R script</code>. Name your
+file with your <code>name-Week5-introR</code></p>
+<p><code>#</code> before a sentence comments out what you want before you write code.
+Without a <code>#</code> R will think what you are writing needs to be run as a
+command! I have used comments in this example to write what the script is for. The top left is the script, the bottom left is the terminal window where code and outputs will be typed, the top right is your environment
+<img src="figs/Rwindow.png" alt="R window- example" />
+R can be used for basic arithmetic. Type this into your script and hit
+enter:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#adding prompt</span></span>
+<span id="cb13-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">+</span><span class="dv">23</span></span></code></pre></div>
+<pre><code>## [1] 38</code></pre>
+<p>It can also store values in variables:</p>
+<p>You can assign an object using an assignment operator <code>&lt;-</code> or <code>=</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#storing variables</span></span>
+<span id="cb15-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a>number<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb15-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb15-4" aria-hidden="true" tabindex="-1"></a>numbers<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">16</span>)</span></code></pre></div>
+<p>You can see your assigned object by typing the name you gave it.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#assigned objects</span></span>
+<span id="cb16-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>number</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>numbers</span></code></pre></div>
+<pre><code>## [1] 10 11 12 14 16</code></pre>
+<p>Objects can be numbers or characters:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#objects as characters</span></span>
+<span id="cb20-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a>cat<span class="ot">&lt;-</span><span class="st">&quot;meow&quot;</span></span>
+<span id="cb20-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb20-3" aria-hidden="true" tabindex="-1"></a>dog<span class="ot">&lt;-</span><span class="st">&quot;woof&quot;</span></span></code></pre></div>
+<p>We can use colons to get sequences of numbers:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sequence of numbers</span></span>
+<span id="cb21-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb21-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div>
+<p>Data Structures include:</p>
+<ol style="list-style-type: decimal">
+<li><p>Vector</p></li>
+<li><p>Lists</p></li>
+<li><p>Matrices</p></li>
+<li><p>Factor</p></li>
+<li><p>Data frame</p></li>
+</ol>
+<p>Vectors can also include characters (in quotes): <code>c()</code>=concatenate, aka
+link things together!</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#link things together with this code</span></span>
+<span id="cb22-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb22-2" aria-hidden="true" tabindex="-1"></a>animals<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;woof&quot;</span>, <span class="st">&quot;meow&quot;</span>, <span class="st">&quot;hiss&quot;</span>, <span class="st">&quot;baa&quot;</span>)</span></code></pre></div>
+</div>
+<div id="manipulating-a-vector-object" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Manipulating a vector object<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#manipulating-a-vector-object" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can get summaries of vectors with <code>summary()</code></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summarize what you have done so far</span></span>
+<span id="cb23-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(n)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00   25.75   50.50   50.50   75.25  100.00</code></pre>
+<p>We can see how long a vector is with <code>length()</code></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how long is vector n</span></span>
+<span id="cb25-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(n)</span></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<p>You can use square brackets <code>[]</code> to get parts of vectors.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#what is the 50th entry in our vector n?</span></span>
+<span id="cb27-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb27-2" aria-hidden="true" tabindex="-1"></a>n[<span class="dv">50</span>]</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<blockquote>
+<h2 id="class-exercise-2" class="hasAnchor">Class Exercise 2<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#class-exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>What is the 2nd entry in our vector animals?</li>
+</ol>
+<p>create a new vector with the following code for different field sites to answer questions 2 &amp; 3:</p>
+</blockquote>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a>site_code <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;BB&quot;</span>,<span class="st">&quot;ShC&quot;</span>,<span class="st">&quot;BH&quot;</span>,<span class="st">&quot;Pes&quot;</span>,<span class="st">&quot;StC&quot;</span>,<span class="st">&quot;MR&quot;</span>,<span class="st">&quot;PV&quot;</span>,<span class="st">&quot;KH&quot;</span>,<span class="st">&quot;CM&quot;</span>,<span class="st">&quot;RP&quot;</span>,<span class="st">&quot;Car&quot;</span>,<span class="st">&quot;SR&quot;</span>,<span class="st">&quot;RM&quot;</span>,<span class="st">&quot;Dav&quot;</span>,<span class="st">&quot;JB&quot;</span>,<span class="st">&quot;Mal&quot;</span>,<span class="st">&quot;PB&quot;</span>,<span class="st">&quot;PA&quot;</span>,<span class="st">&quot;Leu&quot;</span>,<span class="st">&quot;VD&quot;</span>,<span class="st">&quot;A&quot;</span>)</span></code></pre></div>
+<blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Without counting, which site is the 10th entry?</li>
+<li>How many sites are there total?</li>
+</ol>
+</blockquote>
+</blockquote>
+</div>
+<div id="operations-act-on-each-element-of-a-vector" class="section level2 hasAnchor" number="6.10">
+<h2><span class="header-section-number">6.10</span> Operations act on each element of a vector<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-act-on-each-element-of-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># +2</span></span>
+<span id="cb30-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a>numbers<span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 12 13 14 16 18</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *2</span></span>
+<span id="cb32-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb32-2" aria-hidden="true" tabindex="-1"></a>numbers<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 20 22 24 28 32</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean</span></span>
+<span id="cb34-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 12.6</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ^2</span></span>
+<span id="cb36-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb36-2" aria-hidden="true" tabindex="-1"></a>numbers<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 100 121 144 196 256</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
+<span id="cb38-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 63</code></pre>
+</div>
+<div id="operations-can-also-work-with-two-vectors" class="section level2 hasAnchor" number="6.11">
+<h2><span class="header-section-number">6.11</span> Operations can also work with two vectors<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-can-also-work-with-two-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#define a new object y</span></span>
+<span id="cb40-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb40-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span>numbers<span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb40-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n + y</span></span>
+<span id="cb40-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb40-5" aria-hidden="true" tabindex="-1"></a>numbers <span class="sc">+</span> y</span></code></pre></div>
+<pre><code>## [1] 30 33 36 42 48</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n * y</span></span>
+<span id="cb42-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb42-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="sc">*</span> y</span></code></pre></div>
+<pre><code>## [1] 200 242 288 392 512</code></pre>
+</div>
+<div id="a-few-tips-below-for-working-with-objects" class="section level2 hasAnchor" number="6.12">
+<h2><span class="header-section-number">6.12</span> A few tips below for working with objects<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#a-few-tips-below-for-working-with-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can keep track of what objects R is using, with the functions <code>ls()</code>
+and <code>objects()</code></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;animals&quot;   &quot;cat&quot;       &quot;dog&quot;       &quot;n&quot;         &quot;number&quot;    &quot;numbers&quot;  
+## [7] &quot;site_code&quot; &quot;y&quot;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>() <span class="co">#returns the same results as ls() in this case. because we only have objects in our environment.</span></span></code></pre></div>
+<pre><code>## [1] &quot;animals&quot;   &quot;cat&quot;       &quot;dog&quot;       &quot;n&quot;         &quot;number&quot;    &quot;numbers&quot;  
+## [7] &quot;site_code&quot; &quot;y&quot;</code></pre>
+<p>This is where those objects show up with you type <code>ls()</code>: <img src="figs/ls.png" alt="Returns a list of what is present in our R environment" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how to get help for a function; you can also write help()</span></span>
+<span id="cb48-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-2" aria-hidden="true" tabindex="-1"></a>?ls</span>
+<span id="cb48-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># you can get rid of objects you don&#39;t want</span></span>
+<span id="cb48-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(numbers)</span>
+<span id="cb48-7"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co"># and make sure it got rid of them</span></span>
+<span id="cb48-9"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;animals&quot;   &quot;cat&quot;       &quot;dog&quot;       &quot;n&quot;         &quot;number&quot;    &quot;site_code&quot;
+## [7] &quot;y&quot;</code></pre>
+<div class="figure">
+<img src="figs/ls2.png" alt="" />
+<p class="caption">After removal</p>
+</div>
+<p>Call the help files for the functions ls() and rm() + What are the
+arguments for the ls() function? + What does the ‘sorted’ argument do?</p>
+<p>From the help file: sorted is a logical indicating if the resulting
+character should be sorted alphabetically. Note that this is part of
+ls() may take most of the time.</p>
+</div>
+<div id="characterizing-a-dataframe" class="section level2 hasAnchor" number="6.13">
+<h2><span class="header-section-number">6.13</span> Characterizing a dataframe<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#characterizing-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We’ll now move from working with objects and vectors to working with
+dataframes:</p>
+<ul>
+<li>Here are a few useful functions! I will go over each as we introduce
+them throughout the lesson today:
+<ul>
+<li>install.packages()</li>
+<li>library()</li>
+<li>data()</li>
+<li>str()</li>
+<li>dim()</li>
+<li>colnames() and rownames()</li>
+<li>class()</li>
+<li>as.factor()</li>
+<li>as.numeric()</li>
+<li>unique()</li>
+<li>t()</li>
+<li>max(), min(), mean() and summary()</li>
+</ul></li>
+</ul>
+<p>We’re going to use data on sleep patterns in mammals. This requires
+installing a package (ggplot2) and loading the data</p>
+<p>Install the package <code>ggplot2</code>. This only has to be done once and after
+installation we should then <strong>comment out the command to install the
+package with a #.</strong></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb50-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load the package</span></span>
+<span id="cb50-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (ggplot2)</span></code></pre></div>
+<p>Load the data (it’s called msleep). This dataset includes information
+bout mammal sleep times and weights that was taken from a study by V. M.
+Savage and G. B. West. “A quantitative, theoretical framework for
+understanding mammalian sleep. Proceedings of the National Academy of
+Sciences, 104 (3):1051-1056, 2007.”</p>
+<p>The data includes
+- <code>name</code> (common name)
+- <code>genus</code>
+- <code>vore</code> (carnivore, omnivore, etc)
+- <code>order</code>
+- <code>conservation</code> (status)
+- <code>sleep_total</code> (total amount of sleep in hours)
+- <code>sleep_rem</code> (rem sleep in hours)
+- <code>sleep_cycle</code> (length of sleep cycle, in hours)
+- <code>awake</code> (amount of time spent awake, in hours)
+- <code>brainwt</code> (brain weight in kilograms)
+- <code>bodywt</code> (body weight in kilograms)</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;msleep&quot;</span>)</span></code></pre></div>
+<p>There are many functions in R that allow us to get an idea of what the
+data looks like. For example, what are it’s dimensions (how many rows
+and columns)?</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head() -look at the beginning of the data file</span></span>
+<span id="cb52-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tail() -look at the end of the data file</span></span>
+<span id="cb52-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9
+## 2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+## 3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+## 4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+## 5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+## 6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+## # ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(msleep)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Tenrec  Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA       8.4
+## 2 Tree s… Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233  15.1
+## 3 Bottle… Turs… carni Ceta… &lt;NA&gt;                 5.2      NA        NA      18.8
+## 4 Genet   Gene… carni Carn… &lt;NA&gt;                 6.3       1.3      NA      17.7
+## 5 Arctic… Vulp… carni Carn… &lt;NA&gt;                12.5      NA        NA      11.5
+## 6 Red fox Vulp… carni Carn… &lt;NA&gt;                 9.8       2.4       0.35   14.2
+## # ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str()</span></span>
+<span id="cb56-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
+<pre><code>## tibble [83 × 11] (S3: tbl_df/tbl/data.frame)
+##  $ name        : chr [1:83] &quot;Cheetah&quot; &quot;Owl monkey&quot; &quot;Mountain beaver&quot; &quot;Greater short-tailed shrew&quot; ...
+##  $ genus       : chr [1:83] &quot;Acinonyx&quot; &quot;Aotus&quot; &quot;Aplodontia&quot; &quot;Blarina&quot; ...
+##  $ vore        : chr [1:83] &quot;carni&quot; &quot;omni&quot; &quot;herbi&quot; &quot;omni&quot; ...
+##  $ order       : chr [1:83] &quot;Carnivora&quot; &quot;Primates&quot; &quot;Rodentia&quot; &quot;Soricomorpha&quot; ...
+##  $ conservation: chr [1:83] &quot;lc&quot; NA &quot;nt&quot; &quot;lc&quot; ...
+##  $ sleep_total : num [1:83] 12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...
+##  $ sleep_rem   : num [1:83] NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...
+##  $ sleep_cycle : num [1:83] NA NA NA 0.133 0.667 ...
+##  $ awake       : num [1:83] 11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...
+##  $ brainwt     : num [1:83] NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...
+##  $ bodywt      : num [1:83] 50 0.48 1.35 0.019 600 ...</code></pre>
+<p>dim(), ncol(), nrow()- dimensions, number of columns, number of rows
+colnames(), rownames() - column names, row names</p>
+<p>Rstudio also allows us to just look into the data file with <code>View()</code>.
+Try to look at the msleep data using <code>View(msleep)</code></p>
+</div>
+<div id="how-to-access-parts-of-the-data" class="section level2 hasAnchor" number="6.14">
+<h2><span class="header-section-number">6.14</span> How to access parts of the data<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#how-to-access-parts-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can also look at a single column at a time. There are three ways to
+access this: $, [,#] or [,“a”].</p>
+<p>Think about “<strong>R</strong>emote <strong>C</strong>ontrol car” to remember that [5,] means
+fifth row and [,5] means fifth column! Rows are listed first and columns
+are listed second.</p>
+<p>Each way has it’s own advantages! The first subsets the third column of
+data, so you need to know where your data of interest is. The second
+subsets the <code>vore</code> column only. The third prints all of the data from
+the <code>vore</code> column in your console window.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb58-1" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 83 × 1
+##    vore 
+##    &lt;chr&gt;
+##  1 carni
+##  2 omni 
+##  3 herbi
+##  4 omni 
+##  5 herbi
+##  6 herbi
+##  7 carni
+##  8 &lt;NA&gt; 
+##  9 carni
+## 10 herbi
+## # ℹ 73 more rows</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb60-1" aria-hidden="true" tabindex="-1"></a>msleep[, <span class="st">&quot;vore&quot;</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 83 × 1
+##    vore 
+##    &lt;chr&gt;
+##  1 carni
+##  2 omni 
+##  3 herbi
+##  4 omni 
+##  5 herbi
+##  6 herbi
+##  7 carni
+##  8 &lt;NA&gt; 
+##  9 carni
+## 10 herbi
+## # ℹ 73 more rows</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb62-1" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>vore</span></code></pre></div>
+<pre><code>##  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;  
+##  [8] NA        &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;  
+## [15] &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;  
+## [22] &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;  
+## [29] &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;  
+## [36] &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+## [43] &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+## [50] &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;   
+## [57] NA        NA        &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; NA       
+## [64] &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;  
+## [71] &quot;herbi&quot;   &quot;herbi&quot;   NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;  
+## [78] &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
+<p>If you wanted to save these as objects, you need to add an arrow an a
+new name for that object. They should all be the same!</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb64-1" aria-hidden="true" tabindex="-1"></a>column3<span class="ot">&lt;-</span>msleep[,<span class="dv">3</span>]</span>
+<span id="cb64-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb64-2" aria-hidden="true" tabindex="-1"></a>voreonly<span class="ot">&lt;-</span>msleep[, <span class="st">&quot;vore&quot;</span>]</span>
+<span id="cb64-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb64-3" aria-hidden="true" tabindex="-1"></a>vores<span class="ot">&lt;-</span>msleep<span class="sc">$</span>vore</span>
+<span id="cb64-4"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(column3) <span class="co">#do this or View() for all of your new objects!</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   vore 
+##   &lt;chr&gt;
+## 1 carni
+## 2 omni 
+## 3 herbi
+## 4 omni 
+## 5 herbi
+## 6 herbi</code></pre>
+<p>It’s important to know the class of data if you want to manipulate it.
+For example, you can’t add characters. <code>msleep</code> contains several
+different types of data. We see with <code>str()</code> that there are columns of
+data that are characters and numeric.</p>
+<p>Data Types/Classes:</p>
+<ul>
+<li><p>Character (names)</p></li>
+<li><p>Numeric (numbers)</p></li>
+<li><p>Logical (T/F)</p></li>
+<li><p>Integer (2L for example)</p></li>
+<li><p>Complex (imaginary #s)</p></li>
+<li><p>Raw (not really used)</p></li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>vore) <span class="co">#character!</span></span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>sleep_total) <span class="co">#numeric!</span></span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>We can also look at a single row at a time. There are two ways to access this:</p>
+<ul>
+<li>by indicating the row number in square brackets next to the
+name of the dataframe <code>name[#,]</code></li>
+<li>by calling the actual name of the row (if your rows have names) <code>name["a",]</code>.</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb70-1" aria-hidden="true" tabindex="-1"></a>msleep[<span class="dv">43</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Little… Myot… inse… Chir… &lt;NA&gt;                19.9         2         0.2   4.1
+## # ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb72-1" aria-hidden="true" tabindex="-1"></a>msleep[msleep<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Mountain beaver&quot;</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 11
+##   name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Mounta… Aplo… herbi Rode… nt                  14.4       2.4          NA   9.6
+## # ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</code></pre>
+<p><img src="figs/mtbeaver.png" alt="Mountain Beaver by Coke Smith" />
+<a href="https://www.nps.gov/articles/000/mapping-mountain-beavers-in-point-reyes-a-collaboration-between-the-national-park-service-and-uc-berkeley.htm" class="uri">https://www.nps.gov/articles/000/mapping-mountain-beavers-in-point-reyes-a-collaboration-between-the-national-park-service-and-uc-berkeley.htm</a></p>
+<p>We can select more than one row or column at a time:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb74-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># see two columns</span></span>
+<span id="cb74-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb74-3" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
+<pre><code>## # A tibble: 83 × 2
+##    name                       sleep_total
+##    &lt;chr&gt;                            &lt;dbl&gt;
+##  1 Cheetah                           12.1
+##  2 Owl monkey                        17  
+##  3 Mountain beaver                   14.4
+##  4 Greater short-tailed shrew        14.9
+##  5 Cow                                4  
+##  6 Three-toed sloth                  14.4
+##  7 Northern fur seal                  8.7
+##  8 Vesper mouse                       7  
+##  9 Dog                               10.1
+## 10 Roe deer                           3  
+## # ℹ 73 more rows</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb76-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># and make a new data frame from these subsets</span></span>
+<span id="cb76-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb76-3" aria-hidden="true" tabindex="-1"></a>subsleep<span class="ot">&lt;-</span>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
+<p>But what if we actually care about how many <strong>unique</strong> things are in a
+column?</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># unique()</span></span>
+<span id="cb77-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(msleep[, <span class="st">&quot;order&quot;</span>])</span></code></pre></div>
+<pre><code>## # A tibble: 19 × 1
+##    order          
+##    &lt;chr&gt;          
+##  1 Carnivora      
+##  2 Primates       
+##  3 Rodentia       
+##  4 Soricomorpha   
+##  5 Artiodactyla   
+##  6 Pilosa         
+##  7 Cingulata      
+##  8 Hyracoidea     
+##  9 Didelphimorphia
+## 10 Proboscidea    
+## 11 Chiroptera     
+## 12 Perissodactyla 
+## 13 Erinaceomorpha 
+## 14 Cetacea        
+## 15 Lagomorpha     
+## 16 Diprotodontia  
+## 17 Monotremata    
+## 18 Afrosoricida   
+## 19 Scandentia</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb79-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># table()</span></span>
+<span id="cb79-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>order)</span></code></pre></div>
+<pre><code>## 
+##    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera 
+##               1               6              12               3               2 
+##       Cingulata Didelphimorphia   Diprotodontia  Erinaceomorpha      Hyracoidea 
+##               2               2               2               2               3 
+##      Lagomorpha     Monotremata  Perissodactyla          Pilosa        Primates 
+##               1               1               3               1              12 
+##     Proboscidea        Rodentia      Scandentia    Soricomorpha 
+##               2              22               1               5</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># levels(), if class is factor (and if not we can make it a factor) showing the way that the data is displayed</span></span>
+<span id="cb81-2"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(msleep<span class="sc">$</span>order))</span></code></pre></div>
+<pre><code>##  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;        
+##  [5] &quot;Chiroptera&quot;      &quot;Cingulata&quot;       &quot;Didelphimorphia&quot; &quot;Diprotodontia&quot;  
+##  [9] &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;    
+## [13] &quot;Perissodactyla&quot;  &quot;Pilosa&quot;          &quot;Primates&quot;        &quot;Proboscidea&quot;    
+## [17] &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
+</div>
+<div id="group-work-activity-practice-exploring-a-dataframe" class="section level2 hasAnchor" number="6.15">
+<h2><span class="header-section-number">6.15</span> Group Work Activity: practice exploring a dataframe<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#group-work-activity-practice-exploring-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure">
+<img src="figs/iris.png" alt="" />
+<p class="caption">Iris Diagram for Reference</p>
+</div>
+<p>We’ll use the built-in ‘iris’ dataset. The command: `</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># this loads the &#39;iris&#39; dataset. </span></span></code></pre></div>
+<p>You can view more information about this dataset with <code>help(iris)</code> or <code>?iris</code>.
+This dataset was published by Ronald Fisher in his 1936 paper: “The use of multiple
+measurements in taxonomic problems”. It has three plant species (setosa,
+virginica, versicolor) and four morphological traits measured for each
+sample in centimeters: Sepal.Length, Sepal.Width, Petal.Length and
+Petal.Width. It is important to acknowledge that the field of genetics has been
+built on eugenics, and Fisher was a prominent geneticist and eugenicist.
+More information about this can be accessed here: <a href="https://www.ucl.ac.uk/biosciences/gee/ucl-centre-computational-biology/ronald-aylmer-fisher-1890-1962" class="uri">https://www.ucl.ac.uk/biosciences/gee/ucl-centre-computational-biology/ronald-aylmer-fisher-1890-1962</a></p>
+<p>Submit a screenshot or copied text that shows the code you ran to answer
+the following questions:</p>
+<blockquote>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>How many rows are in the dataset?</li>
+</ol></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="2" style="list-style-type: decimal">
+<li>How many species of flowers are in the dataset?</li>
+</ol></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="3" style="list-style-type: decimal">
+<li>How many columns does this data frame have? What are their names?</li>
+</ol></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="4" style="list-style-type: decimal">
+<li>What class did R assign to each column?</li>
+</ol></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="5" style="list-style-type: decimal">
+<li>Create a vector that is the area of each flower’s petals. (You can assume
+that each petal is rectangular so that petal width * petal length = petal area)</li>
+</ol></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="6" style="list-style-type: decimal">
+<li>What is the maximum sepal length of the irises?</li>
+</ol></li>
+</ul>
+</blockquote>
+</div>
+<div id="key-points-4" class="section level2 hasAnchor" number="6.16">
+<h2><span class="header-section-number">6.16</span> Key Points<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#key-points-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Useful functions such as <code>install.packages()</code>, <code>library()</code> can help
+us upload packages and data from R, while other functions such as
+<code>str()</code>, <code>dim()</code>, and <code>unique()</code> can help us investigate dataframes</li>
+<li>To look at our data we can use several commands, including <code>view()</code>
+or <code>data$columnofinterest</code> if you only want to look at one variable.</li>
+<li>Manipulating data in R can be extremely helpful in the analysis
+stage, and we can get data on <code>mean()</code>, <code>min()</code>, <code>max()</code>, and
+<code>summary()</code> data on different variables of interest</li>
+</ul>
+<details>
+<summary>
+<span style="color: orange;">Class Exercise Solution</span>
+</summary>
+<p>
+<blockquote>
+<blockquote>
+<h2 id="class-exercise-1-solution" class="hasAnchor">Class Exercise 1: Solution<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#class-exercise-1-solution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>no pvalue: 68574 sites retained
+p = 1e-3: 0 sites retained</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<h2 id="class-exercise-2-solution" class="hasAnchor">Class Exercise 2: Solution<a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#class-exercise-2-solution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>animals[2]
+“meow”</li>
+<li>site_code[10]
+“RP”</li>
+<li>summary(site_code)
+21 sample sites</li>
+</ol>
+</blockquote>
+</blockquote>
+</p>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -176,3 +176,11 @@ load-programs-for-todays-class
 load-programs
 step-1-raw-read-quality-control
 mini-lecture
+week-5--finsihing-variant-calling-then-a-pivot-to-r
+warmup-writing-a-script-with-a-for-loop-using-basename
+getting-on-the-same-page-post-fastqc-and-cutadapt
+week-5--finishing-variant-calling-then-a-pivot-to-r
+warmup-comparing-scripts-with-a-friend
+warmup-part-1-comparing-scripts-with-a-friend
+warmup-part-2-getting-on-the-same-page-post-fastqc-and-cutadapt
+warmup-part-2-ensuring-we-have-well-organized-data

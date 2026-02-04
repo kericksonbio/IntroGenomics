@@ -34,6 +34,58 @@ Slides](./figs/W6_Figures.pdf))
     hist(), boxplot() and plot() -Learn how to use arguments within
     plot(): main, xlab, ylab, col, pch, cex
 
+
+## Data Manipulation
+
+If your data is transposed in a way that isn't useful to you, you can
+switch it. Note that this often changes the class of each column!
+
+In R, all entries within a column must have the same format to be
+interpreted :
+
+```{r, echo=T}
+ # t()
+
+tr_msleep<-t(msleep)
+
+str(tr_msleep)
+
+```
+
+
+Often we want to summarize data. There are many ways of doing this in R:
+
+```{r, echo=T}
+
+ # calculate mean() of a column
+mean(msleep$sleep_total)
+
+ # max()
+max(msleep$sleep_total)
+
+ # min()
+min(msleep$sleep_total)
+
+ # summary()
+summary(msleep$sleep_total)
+```
+
+Sometimes, the values we care about aren't provided in a data set. When
+this happens, we can create a new column that contains the values we're
+interested in:
+
+```{r, echo=T}
+
+  # what if what we cared about was our sleep_total/sleep_rem ratio?
+  # add a sleep_total/sleep_rem ratio column to our msleep dataframe with $
+msleep$total_rem<-msleep$sleep_total/msleep$sleep_rem
+
+  # look at our dataframe again. It now contains 12 columns, one of them being the one we just created.
+head(msleep)
+
+```
+
+
 Start by making a new R script titled `Week 6- plotting` so that you can
 follow along with today's code! We will again work with the sleep
 dataset on sleep patterns in mammals. This requires installing a package
