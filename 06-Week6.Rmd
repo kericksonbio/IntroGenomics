@@ -1,7 +1,7 @@
 ---
 title: "06-Week6.Rmd"
-author: "M. Armstrong"
-date: "2025-04-24"
+author: "K. Erickson"
+date: "2026-02-10"
 output:
   bookdown::html_book:
   toc: yes
@@ -13,6 +13,8 @@ editor_options:
 
 ```{r setupq6, include=FALSE}
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
+library(ggplot2)
+data("msleep")
 ```
 
 # Week 6- Plotting in R
@@ -20,74 +22,62 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 We're again drawing some of this material from the STEMinist_R materials
 which can be found [here](https://github.com/ecalfee/STEMinist_R.git)
 
-We will also be talking a lot about figures and how to make and
-interpret figures in the lecture slides here: [Week 6
-Slides](./figs/W6_Figures.pdf))
 
 ## Main Objectives
 
--   Learn how to subset dataframes and how to use logicals
--   Learn how to make various plots in R, including histograms,
-    scatterplots and boxplots, as well as learn how to customize those
-    plots
--   Learn useful commands in R including points(), lines(), abline(),
-    hist(), boxplot() and plot() -Learn how to use arguments within
-    plot(): main, xlab, ylab, col, pch, cex
+-   Interpret figures generated from genomic data
+-   Generate and customize histograms, scatterplots and boxplots in R 
+-   Become familiar with a suite of plotting functions and parameters in R
+
+## Warmup: Interpreting Figures
+For this warmup, you'll be analyzing two figures below, from which we have omitted 
+some important information! These are modified from real scientific papers in the 
+field of genomics.
+
+Today, we will ask you to interpret what you can about these figures and use your 
+imagination to predict what kind of information they might be showing. 
+Here's how our warmup will be structured:
+
+-   2 minutes to look at both figures individually 
+-   3 minutes to discuss the figures with a partner
+-   3 minutes to share with the class
+-   3 minutes to discuss the figures with all of the context
+
+Here are some questions to guide your thoughts and conversations:
+
+-   What patterns do you see?
+-   What elements are missing that you'd need to interpret this figure?
+-   What are the potential meanings of the axes and shapes?
+-   What do you think the main message of the figure is?
+  
+### Figure 1
+
+![](./figs/w6_warmup_1.jpg)
+
+
+### Figure 2
+
+![](./figs/w6_warmup_2.jpg)
+
+<details>
+<summary><b>After the warmup,</b> click here to see the complete versions of each figure</summary>
+<p> Figures 1 and 2B from <a href="https://academic.oup.com/mbe/article/35/11/2639/5068378"> Brennan <i> et al., </i>2018</a> 
+"Integrative Population and Physiological Genomics Reveals Mechanisms of Adaptation in Killifish"
+
+<img src="./figs/w6_warmup_full_fig1.jpg" alt="Figures 1 and 2B from Brennan et al., 2018">
+
+Figure from <a href="https://www.science.org/doi/full/10.1126/science.aan4380"> Bay <i> et al.,</i> 2018</a> 
+"Genomic signals of selection predict climate-driven population declines in a migratory bird"
+
+<img src="./figs/w6_warmup_full_fig2.jpg" alt="Figure 2A from Bay at al., 2018 ">
+</p>
+</details>
 
 
 ## Data Manipulation
-
-If your data is transposed in a way that isn't useful to you, you can
-switch it. Note that this often changes the class of each column!
-
-In R, all entries within a column must have the same format to be
-interpreted :
-
-```{r, echo=T}
- # t()
-
-tr_msleep<-t(msleep)
-
-str(tr_msleep)
-
-```
-
-
-Often we want to summarize data. There are many ways of doing this in R:
-
-```{r, echo=T}
-
- # calculate mean() of a column
-mean(msleep$sleep_total)
-
- # max()
-max(msleep$sleep_total)
-
- # min()
-min(msleep$sleep_total)
-
- # summary()
-summary(msleep$sleep_total)
-```
-
-Sometimes, the values we care about aren't provided in a data set. When
-this happens, we can create a new column that contains the values we're
-interested in:
-
-```{r, echo=T}
-
-  # what if what we cared about was our sleep_total/sleep_rem ratio?
-  # add a sleep_total/sleep_rem ratio column to our msleep dataframe with $
-msleep$total_rem<-msleep$sleep_total/msleep$sleep_rem
-
-  # look at our dataframe again. It now contains 12 columns, one of them being the one we just created.
-head(msleep)
-
-```
-
-
-Start by making a new R script titled `Week 6- plotting` so that you can
-follow along with today's code! We will again work with the sleep
+Today, we're going to work with a sleep data set which is available in R. 
+Start an RStudio OnDemand session, and make a new R script titled `Week6plotting` 
+so that you can follow along with today's code! We will again work with the sleep
 dataset on sleep patterns in mammals. This requires installing a package
 (ggplot2) and loading the data (msleep). This dataset includes
 information about mammal sleep times and weights that was taken from a
@@ -95,24 +85,69 @@ study by V. M. Savage and G. B. West. "A quantitative, theoretical
 framework for understanding mammalian sleep. Proceedings of the National
 Academy of Sciences, 104 (3):1051-1056, 2007."
 
-The data includes `name` (common name), `genus`, `vore` (carnivore,
-omnivore, etc), `order`, `conservation` (status), `sleep_total` (total
-amount of sleep in hours), `sleep_rem` (rem sleep in hours),
-`sleep_cycle` (length of sleep cycle, in hours), `awake` (amount of time
-spent awake, in hours), `brainwt` (brain weight in kilograms) and
-`bodywt` (body weight in kilograms).
-
-```{r, echo=T}
-
+```{r, echo=T, eval=FALSE}
+# install.packages("ggplot2") #only needs to be run once, uncomment if needed
 library(ggplot2)
-data(msleep)
+data("msleep")
 ```
+
+> ## Class Exercise 1: Getting oriented with the sleep dataset
+>
+> 1. What is mean of the `sleep_total` column?
+>
+> 2. What are the max and min of the `sleep_total` column?
+>
+> 3. Which animal is represented in the 3rd row of the dataframe?
+> 
+> Challenge Questions:
+>
+> 4. Can you use one command to see how many each of carnivores, herbivores, 
+> insectivores and omnivores are in this dataset?
+>
+> 5. Which carnivore gets the most sleep? How many hours?
+
+
+Okay, now we're moving onto some new ways to make the most of our dataframe!
+If your data is transposed in a way that isn't useful to you, you can
+switch it. Note that this often changes the class of each column!
+
+In R, all entries within a column must have the same format to be interpreted :
+
+```{r, echo=T, eval=FALSE}
+tr_msleep<-t(msleep)
+
+str(tr_msleep)
+
+```
+
+Sometimes, the values we care about aren't directly available in a data set. When
+this happens, we can create a new column that contains the values we're
+interested in:
+
+```{r, echo=T, eval=FALSE}
+
+  # what if what we cared about was our sleep_rem/sleep_total ratio?
+  # add a sleep_rem/sleep_total ratio column to our msleep dataframe with $
+msleep$rem_total<-msleep$sleep_rem/msleep$sleep_total
+
+  # look at our dataframe again. It now contains 12 columns, one of them being the one we just created.
+head(msleep)
+
+```
+
 
 ## Subsetting datasets & logicals
 
-A few useful commands: equals `==`, does not equal `!=`, greater than
-`>`, less than `<`, and `&`, and a pipe which can also indicate "and"
-`|`.
+Sometimes we use logical expressions to subset our dataframes. Here's a list for 
+your reference:
+
+-   equals `==`
+-   does not equal `!=`
+-   greater than `>`
+-   less than `<`
+-   not `!`
+-   and `&`
+-   a pipe, which can also indicate "and" `|`.
 
 Reminder there are two assignment operators in R `<-` and a single
 equals sign `=`. The one you use really depends on how you learned to
@@ -123,12 +158,17 @@ use R, and are otherwise equivalent.
 Logical values of TRUE and FALSE are special in R. What class is a
 logical value?
 
-```{r, echo=T}
+```{r, echo=T, eval=FALSE}
 TRUE
 FALSE
 
-# what class is a logical value?
+true
+false
 
+T
+F
+
+# what class is a logical value?
 class(TRUE)
 
 ```
@@ -136,7 +176,7 @@ class(TRUE)
 Logical values are stored as 0 for FALSE and 1 for TRUE. Which means you
 can do math with them!
 
-```{r, echo=T}
+```{r, echo=T, eval=FALSE}
 
 TRUE + 1
 FALSE + 1
@@ -150,77 +190,68 @@ sum(c(TRUE,TRUE,FALSE,FALSE))
 
 Logicals will be the output of various tests:
 
-```{r, echo=T}
-
+```{r, echo=T, eval=FALSE}
+# equals
 1 == 1
 1 == 2
 
- # does not equal
-
+# does not equal
 1 != 1
 1 != 2
 
  # greater than
-
 1 > 1
 1 >= 1
 
  # less than
-
 1 < 3
 
  # combining logical conditions with and (&), or(|)
-
 1 == 1 & 2 == 2
 1 == 1 & 1 == 2
 1 == 1 | 1 == 2
  
  # we can take the opposite of a logical by using !
-
 !TRUE
 ```
 
-This is very useful because we can use logicals to query a data frame or
-vector.
+This is very useful because we can use logicals to query a data frame or vector.
 
-```{r, echo=T}
+```{r, echo=T, eval=F}
 
-# in our msleep data frame, which species have total sleep greater than  or equal to 18 hours?
-
+# for each row in our dataframe, does that species sleep greater than or equal to 18 hours?
 msleep[,"sleep_total"]>=18
 
-# Using which() to identify which rows match the logical values (TRUE) and length to count how many species there are
+# we can use which() to identify which rows match the logical values (TRUE) and length to count how many species there are
 
 which(msleep[,"sleep_total"]>=18)  #20 22 37 43 62 --> the rows that contain organisms that sleep more than 18 hrs
 
 length(which(msleep[,"sleep_total"]>=18)) #5 --> number of species that sleep more than 18 hrs 
 
- # which four species are these?
+ # which five species are these?
 
 msleep[which(msleep[,"sleep_total"]>=18),]
 ``` 
 Looks like our species include North American opossum, big brown bats, thick-tailed opposums, little brown bats and giant armadillos. What if we only want to see the bats that sleep more than 18 hours per 24 hour period?
 
-```{r, echo=T}
+```{r, echo=T, eval=FALSE}
 msleep[which(msleep[,"sleep_total"]>=18 & msleep[,"order"] == "Chiroptera"),] #should give us two species!
 
 ```
-
-> ## Class Exercise 1
+> ## Class Exercise 2
 
 > Let's keep looking at the mammal sleep data! 
 >
-> - Q1. How many mammals sleep 6 hours or less total? Of these species, how many are marine mammals (in the order Cetacea)?
+> 1. How many mammals sleep 6 hours or less total? Of these species, how many are marine mammals (in the order Cetacea)?
 >
-> - Q2. Of the mammals that less less than 6 hours or less total, how many of them are carnivores?
+> 2. Of the mammals that less less than 6 hours or less total, how many of them are carnivores?
 >
-> - Q3. Identify which mammal(s) sleep the average amount of hours you sleep at night!
+> 3. Identify which mammal(s) sleep the average amount of hours you sleep at night!
 
 
 ## Plotting in Base R
 
 ### Scatterplots
-
 First let's work on building a scatterplot. This can be a good first
 step for visualizing data and is the base plotting visualization in R.
 
@@ -228,13 +259,11 @@ step for visualizing data and is the base plotting visualization in R.
 
 plot(msleep$sleep_total~msleep$sleep_rem)
 
-# or plot response variable as a function "~" of the predictor variable
 ```
 
 ```{r,  label='6-0', echo=T}
-
-plot(msleep$sleep_rem~msleep$sleep_total) #you'll notice this swaps the x and y axis
-
+# now switch, the order of the variables and see how the plot differs  
+plot(msleep$sleep_rem~msleep$sleep_total)
 ```
 
 > #### X vs Y
@@ -247,13 +276,12 @@ plot(msleep$sleep_rem~msleep$sleep_total) #you'll notice this swaps the x and y 
 > we are interested in how rem sleep in mammals changes with the total
 > amount of sleep they get, so we will want the second graph, where
 > `sleep_total` is on the x (dependent variable) and `sleep_rem` is on
-> the y (independent variable). Review the lecture slides again if this
-> gets confusing in the homework!
+> the y (independent variable).
 
 -   There are several different arguments within plotting functions that
     can be used to customize your plot.
 -   `col` changes color
--   `pch` changes point character
+-   `pch` changes point character (symbol)
 -   `cex` changes size
 -   `type` changes type ("l" = line, "p" = points, "b" = both)
 -   `lty` changes line type
@@ -265,7 +293,7 @@ You can view different point characters with `?pch`
 
 There are **many** color options in R. For some general colors you can
 write the name (blue, red, green, etc). There are apparently 657 named
-colors in R (including "slateblue3, and peachpuff4) but you can also use
+colors in R (including "slateblue3", and "peachpuff4") but you can also use
 the color hexidecimal code for a given color. There are several
 comprehensives guides for colors in R online and one of which can be
 found
@@ -368,7 +396,7 @@ plot(msleep$sleep_total~as.factor(msleep$vore),col=rainbow(4), xlab="REM Sleep (
 
 > # Explore this dataset of chick weight and identify:
 >
-> 1)  how many chicks are in the dataset (sample size) and how many
+> 1)  How many chicks are in the dataset (sample size) and how many
 >     different diets were used in the experiment? Hint \*\*length()
 >     will be a useful command!
 > 2)  Visualize the relationship of chick weight over time (scatterplot
@@ -405,18 +433,18 @@ plots and has become increasingly popular. There are also many tutorials
 on how to use ggplot as well as example code that could be modified to
 fit the data you're interested in plotting. There is a really helpful
 cheatsheat
-(here)[<https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf>]
+[here](<https://rstudio.github.io/cheatsheets/html/data-visualization.html>)
 
 There is a little bit of a learning curve for ggplot as the syntax is
 structured differently than base R plotting. One thing that remains the
-same and is even more noticible in ggplot is the iterative process of
+same and is even more noticeible in ggplot is the iterative process of
 building a plot, one aspect at a time.
 
 Let's demonstrate what ggplot can do with this dataset on the Effect of
 Vitamin C on Tooth Growth in Guinea Pigs. You can also open your dataset
 with this command which pulls it into a different window with `View()`
 
-```{r, echo=T}
+```{r, echo=T, eval=F}
 #load in the data
 data(ToothGrowth)
 #look at the structure of the data
@@ -570,17 +598,8 @@ ggsave("plot1.png",plot1, width=20, height=20, units = "cm")
 ```
 
 I use ggplot often with data sets that have multiple character vectors
-and I want to see how they relate to my continuous variables. For
-example in the iris dataframe we may be interested in looking at the
-relationship between Sepal.Length and Sepal.Width for each species. This
-dataset was published by Ronald Fisher in his 1936 paper: "The use of
-multiple measurements in taxonomic problems". It has three plant species
-(setosa, virginica, versicolor) and four morphological traits measured
-for each sample in centimeters: Sepal.Length, Sepal.Width, Petal.Length
-and Petal.Width. As I have mentioned before, it is important to acknowledge that the field of genetics has been built on eugenics, and Fisher (author of this dataset) was a prominent geneticist and eugenicist. More information about this can be accessedhere:
-<https://www.ucl.ac.uk/biosciences/gee/ucl-centre-computational-biology/ronald-aylmer-fisher-1890-1962>
-
-![Iris Diagram for Reference](./figs/iris.png)
+and I want to see how they relate to my continuous variables. Let's return 
+to the iris dataset that we introduced in the Week 5 activity. 
 
 ```{r, echo=T}
 data(iris)
@@ -656,11 +675,10 @@ squares
 
 ```
 
-## Group Work Activity: Palmer Penguins!
+## Group Work Activity: Plotting with Palmer Penguins!
 
 ![Artwork by](./figs/lter_penguins.png) For this week's activity we will
-be working with the dataset `palmerpenguins`
-<https://allisonhorst.github.io/palmerpenguins/> First install the
+be working with the dataset [palmerpenguins](https://allisonhorst.github.io/palmerpenguins) First install the
 package with the data. There are two datasets, `penguins` and
 `penguins_raw`. Learn more about each dataset by doing `?penguins` or
 `?penguins_raw` in your console. We will be working with the `penguins`
@@ -677,25 +695,21 @@ data(package = 'palmerpenguins')
 
 For this week your goal is to do the following:
 
-1)  Without using the `view()` command, report the names of the unique
-    species in this dataset and how many species there are.
-
-2)  Using the `penguins` dataset, how does bill length vary across the
+1)  Using the `penguins` dataset, how does bill length vary across the
     three species? Consider the best way to visualize this figure, is a
     scatterplot or a boxplot a better fit for showing the variation
     between the species? **Interpret the main takeaway from this figure
     in one to two sentences.**
 
-3)  Again using the `penguins` dataset visualize the relationship
+2)  Again using the `penguins` dataset visualize the relationship
     between bill length and bill depth across the three species. This
     should all be in one single graph with a specific color and a line
     of best fit for each of the species. **Interpret the main takeaway
     from this figure in one to two sentences.**
 
-Copy the lines in your script used to answer all three of these
-questions into your canvas submission. Be sure to include the answers
-for question 1, interpretations for the figures and the two figures you
-made as well.
+This week, rather than submitting code, please submit screenshots or
+downloaded image files of your graphs. You can submit the interpretation of the 
+graphs wither as screenshots/images or as text.
 
 ![Artwork by allison_horst](./figs/beakdepth.png)
 
@@ -720,6 +734,27 @@ made as well.
 > > # Class Exercises: Solutions
 > >
 > > ## Exercise 1
+```{r, echo=T}
+#Q1
+mean(msleep$sleep_total) 
+
+#Q2
+max(msleep$sleep_total)
+min(msleep$sleep_total)
+
+#Q3
+msleep[3,]
+
+#Q4
+table(msleep$vore)
+
+#Q5
+max_carni_sleep = max(na.omit(msleep$sleep_total[msleep$vore=="carni"], ))
+msleep[msleep$sleep_total==max_carni_sleep & msleep$vore=="carni",]
+msleep$name[msleep$sleep_total==max_carni_sleep & msleep$vore=="carni"]
+
+```
+> > ## Exercise 2
 > >
 > > 1) Q1. How many mammals sleep less than 6 hours total? Of these species, how many are marine mammals (in the order Cetacea)?
 > > 16 species, Pilot whale, common porpoise and bottle-nose dolphin
@@ -743,7 +778,7 @@ msleep[msleep$sleep_total >= 8 & msleep$sleep_total <= 10, ] #several species in
 
 ```
 > >
-> > ## Exercise 2
+> > ## Exercise 3
 > >
 > > 1)  sample size and different diets in the experiment
 

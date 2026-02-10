@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"/>
-
+<link rel="next" href="week-6--plotting-in-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -239,6 +239,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.15" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#group-work-activity-practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>6.15</b> Group Work Activity: practice exploring a dataframe</a></li>
 <li class="chapter" data-level="6.16" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#key-points-4"><i class="fa fa-check"></i><b>6.16</b> Key Points</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html"><i class="fa fa-check"></i><b>7</b> Week 6- Plotting in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#main-objectives-3"><i class="fa fa-check"></i><b>7.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#warmup-interpreting-figures"><i class="fa fa-check"></i><b>7.2</b> Warmup: Interpreting Figures</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#figure-1"><i class="fa fa-check"></i><b>7.2.1</b> Figure 1</a></li>
+<li class="chapter" data-level="7.2.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#figure-2"><i class="fa fa-check"></i><b>7.2.2</b> Figure 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#data-manipulation"><i class="fa fa-check"></i><b>7.3</b> Data Manipulation</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>7.4</b> Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-in-base-r"><i class="fa fa-check"></i><b>7.5</b> Plotting in Base R</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#scatterplots"><i class="fa fa-check"></i><b>7.5.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.5.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#histograms"><i class="fa fa-check"></i><b>7.5.2</b> Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.7" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#for-loops-and-the-apply-family-of-functions"><i class="fa fa-check"></i><b>7.7</b> For loops and the apply family of functions</a></li>
+<li class="chapter" data-level="7.8" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#group-work-activity-palmer-penguins"><i class="fa fa-check"></i><b>7.8</b> Group Work Activity: Palmer Penguins!</a></li>
+<li class="chapter" data-level="7.9" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#key-points-5"><i class="fa fa-check"></i><b>7.9</b> Key Points</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -270,7 +290,7 @@ a new way, by starting RStudio sessions in OnDemand.</p>
 <li>Organize simple commands into scripts to execute a variant calling pipeline</li>
 <li>Write code in Rstudio through FarmOnDemand</li>
 <li>Understand the different parts of the Rstudio window</li>
-<li>Learn how to work with objects in R and general R operation</li>
+<li>Create and modify objects in R and general R operation</li>
 </ul>
 </div>
 <div id="warmup-part-1-comparing-scripts-with-a-friend" class="section level2 hasAnchor" number="6.2">
@@ -958,8 +978,8 @@ p = 1e-3: 0 sites retained</p>
           </div>
         </div>
       </div>
-<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-6--plotting-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

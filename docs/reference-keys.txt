@@ -184,3 +184,8 @@ warmup-comparing-scripts-with-a-friend
 warmup-part-1-comparing-scripts-with-a-friend
 warmup-part-2-getting-on-the-same-page-post-fastqc-and-cutadapt
 warmup-part-2-ensuring-we-have-well-organized-data
+warmup-interpreting-figures-hard-mode
+warmup-interpreting-figures
+figure-1
+figure-2
+group-work-activity-plotting-with-palmer-penguins

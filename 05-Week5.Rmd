@@ -25,7 +25,7 @@ a new way, by starting RStudio sessions in OnDemand.
 -   Organize simple commands into scripts to execute a variant calling pipeline
 -   Write code in Rstudio through FarmOnDemand
 -   Understand the different parts of the Rstudio window
--   Learn how to work with objects in R and general R operation
+-   Create and modify objects in R and general R operation
 
 ## Warmup Part 1: Comparing scripts with a friend
 
