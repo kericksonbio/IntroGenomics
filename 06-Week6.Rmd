@@ -147,7 +147,7 @@ your reference:
 -   less than `<`
 -   not `!`
 -   and `&`
--   a pipe, which can also indicate "and" `|`.
+-   or `|`.
 
 Reminder there are two assignment operators in R `<-` and a single
 equals sign `=`. The one you use really depends on how you learned to
@@ -275,8 +275,8 @@ plot(msleep$sleep_rem~msleep$sleep_total)
 > variable and the y axis will be the dependent variable. In our graph,
 > we are interested in how rem sleep in mammals changes with the total
 > amount of sleep they get, so we will want the second graph, where
-> `sleep_total` is on the x (dependent variable) and `sleep_rem` is on
-> the y (independent variable).
+> `sleep_total` is on the x (independent variable) and `sleep_rem` is on
+> the y (dependent variable).
 
 -   There are several different arguments within plotting functions that
     can be used to customize your plot.
