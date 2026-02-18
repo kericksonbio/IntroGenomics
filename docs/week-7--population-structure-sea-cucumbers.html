@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 8 Week 7- Population Structure &amp; Sea Cucumbers | 07-Week7</title>
   <meta name="description" content=" 8 Week 7- Population Structure &amp; Sea Cucumbers | 07-Week7" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 8 Week 7- Population Structure &amp; Sea Cucumbers | 07-Week7" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   
   
 
-<meta name="author" content="M. Armstrong" />
+<meta name="author" content="K. Erickson" />
 
 
-<meta name="date" content="2025-08-27" />
+<meta name="date" content="2026-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-6--plotting-in-r.html"/>
-<link rel="next" href="week-8-pcas-mosquitos.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#main-objectives"><i class="fa fa-check"></i><b>2.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell-via-farm-ondemand"><i class="fa fa-check"></i><b>2.2</b> How to access the shell via Farm OnDemand</a></li>
 <li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
 <li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
@@ -160,136 +160,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2- Working with Files</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#main-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Main Objectives:</a></li>
-<li class="chapter" data-level="3.2" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#navigational-shortcuts"><i class="fa fa-check"></i><b>3.2</b> Navigational shortcuts</a></li>
-<li class="chapter" data-level="3.3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#sequencing-pipeline"><i class="fa fa-check"></i><b>3.3</b> Sequencing Pipeline</a></li>
-<li class="chapter" data-level="3.4" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.4</b> Details on the FASTQ format</a></li>
-<li class="chapter" data-level="3.5" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.5</b> Our data set: FASTQ files</a></li>
-<li class="chapter" data-level="3.6" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#wildcards"><i class="fa fa-check"></i><b>3.6</b> Wildcards</a></li>
-<li class="chapter" data-level="3.7" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.7</b> Command History</a></li>
-<li class="chapter" data-level="3.8" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.8</b> Examining Files</a></li>
-<li class="chapter" data-level="3.9" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#group-work-activity--examining-a-fastq-file"><i class="fa fa-check"></i><b>3.9</b> Group Work Activity- Examining a Fastq File</a></li>
-<li class="chapter" data-level="3.10" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#key-points-1"><i class="fa fa-check"></i><b>3.10</b> Key Points</a></li>
+<li class="chapter" data-level="3.1" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#warm-up-find-the-secret-message"><i class="fa fa-check"></i><b>3.2</b> Warm Up: Find the secret message</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#viewing-file-contents"><i class="fa fa-check"></i><b>3.3</b> Viewing file contents</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#more-navigational-shortcuts"><i class="fa fa-check"></i><b>3.4</b> More navigational shortcuts</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#sequencing-pipeline"><i class="fa fa-check"></i><b>3.5</b> Sequencing Pipeline</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.6</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.7</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#wildcards-and-echo"><i class="fa fa-check"></i><b>3.8</b> Wildcards and echo</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.9</b> Command History</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.10</b> Examining Files</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#group-work-activity--examining-a-fastq-file"><i class="fa fa-check"></i><b>3.11</b> Group Work Activity- Examining a Fastq File</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2--working-with-files.html"><a href="week-2--working-with-files.html#key-points-1"><i class="fa fa-check"></i><b>3.12</b> Key Points</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html"><i class="fa fa-check"></i><b>4</b> Week 3- Working with Files Part 2</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#main-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Main Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>4.2</b> Creating, moving, copying, and removing</a>
+<li class="chapter" data-level="4.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#main-objectives"><i class="fa fa-check"></i><b>4.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#warmup-viewing-fastq-files"><i class="fa fa-check"></i><b>4.2</b> Warmup: Viewing fastq files</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>4.3</b> Creating, moving, copying, and removing</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#copying-files"><i class="fa fa-check"></i><b>4.2.1</b> Copying Files</a></li>
-<li class="chapter" data-level="4.2.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-directories"><i class="fa fa-check"></i><b>4.2.2</b> Creating Directories</a></li>
-<li class="chapter" data-level="4.2.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#moving-renaming"><i class="fa fa-check"></i><b>4.2.3</b> Moving / Renaming</a></li>
-<li class="chapter" data-level="4.2.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-permissions"><i class="fa fa-check"></i><b>4.2.4</b> File Permissions</a></li>
-<li class="chapter" data-level="4.2.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#removing"><i class="fa fa-check"></i><b>4.2.5</b> Removing</a></li>
+<li class="chapter" data-level="4.3.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#copying-files"><i class="fa fa-check"></i><b>4.3.1</b> Copying Files</a></li>
+<li class="chapter" data-level="4.3.2" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#creating-directories"><i class="fa fa-check"></i><b>4.3.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="4.3.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#moving-renaming"><i class="fa fa-check"></i><b>4.3.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="4.3.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-permissions"><i class="fa fa-check"></i><b>4.3.4</b> File Permissions</a></li>
+<li class="chapter" data-level="4.3.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#removing"><i class="fa fa-check"></i><b>4.3.5</b> Removing</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#searching-files"><i class="fa fa-check"></i><b>4.3</b> Searching files</a></li>
-<li class="chapter" data-level="4.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#redirecting-output"><i class="fa fa-check"></i><b>4.4</b> Redirecting output</a></li>
-<li class="chapter" data-level="4.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-extensions"><i class="fa fa-check"></i><b>4.5</b> File extensions</a></li>
-<li class="chapter" data-level="4.6" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-for-loops"><i class="fa fa-check"></i><b>4.6</b> Writing for loops</a></li>
-<li class="chapter" data-level="4.7" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>4.7</b> Using Basename in for loops</a></li>
-<li class="chapter" data-level="4.8" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>4.8</b> Writing Scripts and Working with Data</a></li>
-<li class="chapter" data-level="4.9" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-bash"><i class="fa fa-check"></i><b>4.9</b> Writing scripts: Bash</a></li>
-<li class="chapter" data-level="4.10" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-slurm"><i class="fa fa-check"></i><b>4.10</b> Writing scripts: Slurm</a></li>
-<li class="chapter" data-level="4.11" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#group-work-activity--writing-your-own-script"><i class="fa fa-check"></i><b>4.11</b> Group Work Activity- Writing your own script</a></li>
-<li class="chapter" data-level="4.12" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#key-points-2"><i class="fa fa-check"></i><b>4.12</b> Key Points</a></li>
-<li class="chapter" data-level="4.13" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#additional-information"><i class="fa fa-check"></i><b>4.13</b> Additional Information</a>
+<li class="chapter" data-level="4.4" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#searching-files"><i class="fa fa-check"></i><b>4.4</b> Searching files</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#redirecting-output"><i class="fa fa-check"></i><b>4.5</b> Redirecting output</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#file-extensions"><i class="fa fa-check"></i><b>4.6</b> File extensions</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>4.7</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#writing-scripts-bash"><i class="fa fa-check"></i><b>4.8</b> Writing scripts: Bash</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#group-work-activity--writing-your-own-script"><i class="fa fa-check"></i><b>4.9</b> Group Work Activity- Writing your own script</a></li>
+<li class="chapter" data-level="4.10" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#key-points-2"><i class="fa fa-check"></i><b>4.10</b> Key Points</a></li>
+<li class="chapter" data-level="4.11" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#additional-information"><i class="fa fa-check"></i><b>4.11</b> Additional Information</a>
 <ul>
-<li class="chapter" data-level="4.13.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.13.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+<li class="chapter" data-level="4.11.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.11.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
 </ul></li>
-<li class="chapter" data-level="4.14" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#more-ways-to-work-with-files"><i class="fa fa-check"></i><b>4.14</b> More ways to work with files</a>
+<li class="chapter" data-level="4.12" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#more-ways-to-work-with-files"><i class="fa fa-check"></i><b>4.12</b> More ways to work with files</a>
 <ul>
-<li class="chapter" data-level="4.14.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#awk"><i class="fa fa-check"></i><b>4.14.1</b> Awk</a></li>
+<li class="chapter" data-level="4.12.1" data-path="week-3--working-with-files-part-2.html"><a href="week-3--working-with-files-part-2.html#awk"><i class="fa fa-check"></i><b>4.12.1</b> Awk</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html"><i class="fa fa-check"></i><b>5</b> Week 4- What is a Genetic Variant?</a>
+<li class="chapter" data-level="5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><i class="fa fa-check"></i><b>5</b> Week 4- More advanced scripting and introducing genetic variants</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#main-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Main Objectives</a></li>
-<li class="chapter" data-level="5.2" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-1-download-data"><i class="fa fa-check"></i><b>5.2</b> Step 1: Download data</a>
+<li class="chapter" data-level="5.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#main-objectives-1"><i class="fa fa-check"></i><b>5.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#warm-up-runnning-scripts"><i class="fa fa-check"></i><b>5.2</b> Warm up: Runnning scripts</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-for-loops"><i class="fa fa-check"></i><b>5.3</b> Writing for loops</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>5.4</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#writing-scripts-slurm"><i class="fa fa-check"></i><b>5.5</b> Writing scripts: Slurm</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#finding-variants-pipeline"><i class="fa fa-check"></i><b>5.6</b> Finding Variants Pipeline</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#mini-lecture"><i class="fa fa-check"></i><b>5.7</b> Mini Lecture</a></li>
+<li class="chapter" data-level="5.8" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-0-download-data-and-load-programs"><i class="fa fa-check"></i><b>5.8</b> Step 0: Download data and load programs</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>5.2.1</b> Getting data from the cloud</a></li>
-<li class="chapter" data-level="5.2.2" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#tools-for-todays-class"><i class="fa fa-check"></i><b>5.2.2</b> tools for today’s class</a></li>
+<li class="chapter" data-level="5.8.1" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#download-data"><i class="fa fa-check"></i><b>5.8.1</b> Download Data</a></li>
+<li class="chapter" data-level="5.8.2" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#load-programs"><i class="fa fa-check"></i><b>5.8.2</b> Load programs</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-1.2-raw-read-quality-control"><i class="fa fa-check"></i><b>5.3</b> Step 1.2: Raw read quality control</a></li>
-<li class="chapter" data-level="5.4" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-2-trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.4</b> Step 2: Trimming to remove adapters</a></li>
-<li class="chapter" data-level="5.5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-3-building-an-index-of-our-genome"><i class="fa fa-check"></i><b>5.5</b> Step 3: Building an index of our genome</a></li>
-<li class="chapter" data-level="5.6" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-4-map-reads-to-the-genome"><i class="fa fa-check"></i><b>5.6</b> Step 4: Map reads to the genome</a></li>
-<li class="chapter" data-level="5.7" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-5-sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>5.7</b> Step 5: sam to bam file conversion</a></li>
-<li class="chapter" data-level="5.8" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#step-6-genotype-likelihoods"><i class="fa fa-check"></i><b>5.8</b> Step 6: Genotype likelihoods</a></li>
-<li class="chapter" data-level="5.9" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#group-work-activity--calling-variants-at-a-larger-scale"><i class="fa fa-check"></i><b>5.9</b> Group Work Activity- Calling Variants at a Larger Scale</a></li>
-<li class="chapter" data-level="5.10" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#key-points-3"><i class="fa fa-check"></i><b>5.10</b> Key Points</a></li>
+<li class="chapter" data-level="5.9" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-1-raw-read-quality-control"><i class="fa fa-check"></i><b>5.9</b> Step 1: Raw read quality control</a></li>
+<li class="chapter" data-level="5.10" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#step-2-trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.10</b> Step 2: Trimming to remove adapters</a></li>
+<li class="chapter" data-level="5.11" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#group-work-activity--calling-variants-at-a-larger-scale"><i class="fa fa-check"></i><b>5.11</b> Group Work Activity- Calling Variants at a Larger Scale</a></li>
+<li class="chapter" data-level="5.12" data-path="week-4--more-advanced-scripting-and-introducing-genetic-variants.html"><a href="week-4--more-advanced-scripting-and-introducing-genetic-variants.html#key-points-3"><i class="fa fa-check"></i><b>5.12</b> Key Points</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html"><i class="fa fa-check"></i><b>6</b> Week 5- Welcome to the R environment!</a>
+<li class="chapter" data-level="6" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><i class="fa fa-check"></i><b>6</b> Week 5- Finishing Variant Calling, then a pivot to R!</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#main-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Main Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#orientation-to-r"><i class="fa fa-check"></i><b>6.2</b> Orientation to R</a></li>
-<li class="chapter" data-level="6.3" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>6.3</b> Manipulating a vector object</a></li>
-<li class="chapter" data-level="6.4" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.4</b> Operations act on each element of a vector:</a></li>
-<li class="chapter" data-level="6.5" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.5</b> Operations can also work with two vectors:</a></li>
-<li class="chapter" data-level="6.6" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.6</b> A few tips below for working with objects:</a></li>
-<li class="chapter" data-level="6.7" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.7</b> Characterizing a dataframe</a></li>
-<li class="chapter" data-level="6.8" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.8</b> How to access parts of the data:</a></li>
-<li class="chapter" data-level="6.9" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#data-manipulation"><i class="fa fa-check"></i><b>6.9</b> Data Manipulation</a></li>
-<li class="chapter" data-level="6.10" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#group-work-activity-practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>6.10</b> Group Work Activity: practice exploring a dataframe</a></li>
-<li class="chapter" data-level="6.11" data-path="week-5--welcome-to-the-r-environment.html"><a href="week-5--welcome-to-the-r-environment.html#key-points-4"><i class="fa fa-check"></i><b>6.11</b> Key Points</a></li>
+<li class="chapter" data-level="6.1" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#main-objectives-2"><i class="fa fa-check"></i><b>6.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-1-comparing-scripts-with-a-friend"><i class="fa fa-check"></i><b>6.2</b> Warmup Part 1: Comparing scripts with a friend</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#warmup-part-2-ensuring-we-have-well-organized-data"><i class="fa fa-check"></i><b>6.3</b> Warmup Part 2: Ensuring we have well organized data!</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-3-building-an-index-of-our-genome"><i class="fa fa-check"></i><b>6.4</b> Step 3: Building an index of our genome</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-4-map-reads-to-the-genome"><i class="fa fa-check"></i><b>6.5</b> Step 4: Map reads to the genome</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-5-sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>6.6</b> Step 5: sam to bam file conversion</a></li>
+<li class="chapter" data-level="6.7" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#step-6-genotype-likelihoods"><i class="fa fa-check"></i><b>6.7</b> Step 6: Genotype likelihoods</a></li>
+<li class="chapter" data-level="6.8" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#orientation-to-r"><i class="fa fa-check"></i><b>6.8</b> Orientation to R</a></li>
+<li class="chapter" data-level="6.9" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>6.9</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="6.10" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.10</b> Operations act on each element of a vector</a></li>
+<li class="chapter" data-level="6.11" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.11</b> Operations can also work with two vectors</a></li>
+<li class="chapter" data-level="6.12" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.12</b> A few tips below for working with objects</a></li>
+<li class="chapter" data-level="6.13" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.13</b> Characterizing a dataframe</a></li>
+<li class="chapter" data-level="6.14" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.14</b> How to access parts of the data</a></li>
+<li class="chapter" data-level="6.15" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#group-work-activity-practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>6.15</b> Group Work Activity: practice exploring a dataframe</a></li>
+<li class="chapter" data-level="6.16" data-path="week-5--finishing-variant-calling-then-a-pivot-to-r.html"><a href="week-5--finishing-variant-calling-then-a-pivot-to-r.html#key-points-4"><i class="fa fa-check"></i><b>6.16</b> Key Points</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html"><i class="fa fa-check"></i><b>7</b> Week 6- Plotting in R</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#main-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Main Objectives</a></li>
-<li class="chapter" data-level="7.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>7.2</b> Subsetting datasets &amp; logicals</a></li>
-<li class="chapter" data-level="7.3" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-in-base-r"><i class="fa fa-check"></i><b>7.3</b> Plotting in Base R</a>
+<li class="chapter" data-level="7.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#main-objectives-3"><i class="fa fa-check"></i><b>7.1</b> Main Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#warmup-interpreting-figures"><i class="fa fa-check"></i><b>7.2</b> Warmup: Interpreting Figures</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#scatterplots"><i class="fa fa-check"></i><b>7.3.1</b> Scatterplots</a></li>
-<li class="chapter" data-level="7.3.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#histograms"><i class="fa fa-check"></i><b>7.3.2</b> Histograms</a></li>
+<li class="chapter" data-level="7.2.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#figure-1"><i class="fa fa-check"></i><b>7.2.1</b> Figure 1</a></li>
+<li class="chapter" data-level="7.2.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#figure-2"><i class="fa fa-check"></i><b>7.2.2</b> Figure 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.4</b> Plotting with ggplot2</a></li>
-<li class="chapter" data-level="7.5" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#for-loops-and-the-apply-family-of-functions"><i class="fa fa-check"></i><b>7.5</b> For loops and the apply family of functions</a></li>
-<li class="chapter" data-level="7.6" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#group-work-activity-palmer-penguins"><i class="fa fa-check"></i><b>7.6</b> Group Work Activity: Palmer Penguins!</a></li>
-<li class="chapter" data-level="7.7" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#key-points-5"><i class="fa fa-check"></i><b>7.7</b> Key Points</a></li>
+<li class="chapter" data-level="7.3" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#data-manipulation"><i class="fa fa-check"></i><b>7.3</b> Data Manipulation</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>7.4</b> Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-in-base-r"><i class="fa fa-check"></i><b>7.5</b> Plotting in Base R</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#scatterplots"><i class="fa fa-check"></i><b>7.5.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.5.2" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#histograms"><i class="fa fa-check"></i><b>7.5.2</b> Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.7" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#for-loops-and-the-apply-family-of-functions"><i class="fa fa-check"></i><b>7.7</b> For loops and the apply family of functions</a></li>
+<li class="chapter" data-level="7.8" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#group-work-activity-plotting-with-palmer-penguins"><i class="fa fa-check"></i><b>7.8</b> Group Work Activity: Plotting with Palmer Penguins!</a></li>
+<li class="chapter" data-level="7.9" data-path="week-6--plotting-in-r.html"><a href="week-6--plotting-in-r.html#key-points-5"><i class="fa fa-check"></i><b>7.9</b> Key Points</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html"><i class="fa fa-check"></i><b>8</b> Week 7- Population Structure &amp; Sea Cucumbers</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#main-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Main Objectives:</a></li>
-<li class="chapter" data-level="8.2" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#download-the-data-in-terminal"><i class="fa fa-check"></i><b>8.2</b> Download the data in terminal</a></li>
-<li class="chapter" data-level="8.3" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#moving-to-r"><i class="fa fa-check"></i><b>8.3</b> Moving to R:</a></li>
-<li class="chapter" data-level="8.4" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#installing-packages"><i class="fa fa-check"></i><b>8.4</b> Installing Packages</a></li>
-<li class="chapter" data-level="8.5" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#set-working-directory"><i class="fa fa-check"></i><b>8.5</b> Set Working Directory</a></li>
-<li class="chapter" data-level="8.6" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#read-vcf-file"><i class="fa fa-check"></i><b>8.6</b> read vcf file</a></li>
-<li class="chapter" data-level="8.7" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#read-in-the-metadata"><i class="fa fa-check"></i><b>8.7</b> read in the metadata</a></li>
-<li class="chapter" data-level="8.8" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#population-structure-with-tess3r"><i class="fa fa-check"></i><b>8.8</b> population structure with tess3r</a></li>
-<li class="chapter" data-level="8.9" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#but-how-do-we-know-which-k-to-pick"><i class="fa fa-check"></i><b>8.9</b> But how do we know which K to pick?</a></li>
-<li class="chapter" data-level="8.10" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#visualizing-population-structure-with-pophelper"><i class="fa fa-check"></i><b>8.10</b> Visualizing population structure with pophelper!</a></li>
-<li class="chapter" data-level="8.11" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#adding-more-meaning-to-our-plot"><i class="fa fa-check"></i><b>8.11</b> Adding more meaning to our plot</a></li>
-<li class="chapter" data-level="8.12" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#group-work-activity--adding-even-more-context-to-our-plot"><i class="fa fa-check"></i><b>8.12</b> Group Work Activity- Adding even more context to our plot</a></li>
-<li class="chapter" data-level="8.13" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#key-points-6"><i class="fa fa-check"></i><b>8.13</b> Key Points</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html"><i class="fa fa-check"></i><b>9</b> Week 8: PCAs &amp; Mosquitos</a>
+<li class="chapter" data-level="8.1" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#main-objectives-4"><i class="fa fa-check"></i><b>8.1</b> Main Objectives:</a></li>
+<li class="chapter" data-level="8.2" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#warmup-joining-command-line-and-r"><i class="fa fa-check"></i><b>8.2</b> Warmup: Joining command line and R</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#main-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Main Objectives:</a></li>
-<li class="chapter" data-level="9.2" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#download-the-data-in-terminal-1"><i class="fa fa-check"></i><b>9.2</b> Download the data in terminal</a></li>
-<li class="chapter" data-level="9.3" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#moving-to-r-installing-packages"><i class="fa fa-check"></i><b>9.3</b> Moving to R &amp; Installing Packages</a></li>
-<li class="chapter" data-level="9.4" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#set-working-directory-1"><i class="fa fa-check"></i><b>9.4</b> Set Working Directory</a></li>
-<li class="chapter" data-level="9.5" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#read-vcf-file-1"><i class="fa fa-check"></i><b>9.5</b> read vcf file</a></li>
-<li class="chapter" data-level="9.6" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#read-in-metadata"><i class="fa fa-check"></i><b>9.6</b> Read in Metadata</a></li>
-<li class="chapter" data-level="9.7" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#prepare-for-plotting"><i class="fa fa-check"></i><b>9.7</b> Prepare for Plotting</a></li>
-<li class="chapter" data-level="9.8" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#group-work-activity--what-can-the-other-pc-axes-tell-us"><i class="fa fa-check"></i><b>9.8</b> Group Work Activity- What can the other PC axes tell us?</a></li>
-<li class="chapter" data-level="9.9" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#key-point"><i class="fa fa-check"></i><b>9.9</b> Key Point</a></li>
+<li class="chapter" data-level="8.2.1" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#steps-1-through-3-getting-the-data-onto-the-cluster"><i class="fa fa-check"></i><b>8.2.1</b> Steps 1 through 3: Getting the data onto the cluster</a></li>
+<li class="chapter" data-level="8.2.2" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#steps-4-through-7-getting-set-up-in-r"><i class="fa fa-check"></i><b>8.2.2</b> Steps 4 through 7: Getting set up in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html"><i class="fa fa-check"></i><b>10</b> Week 9: F<sub>st</sub> outlier analysis and chunky quails</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#main-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Main Objectives:</a></li>
-<li class="chapter" data-level="10.2" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#download-the-data"><i class="fa fa-check"></i><b>10.2</b> Download the data</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#on-farm"><i class="fa fa-check"></i><b>10.2.1</b> On Farm</a></li>
-<li class="chapter" data-level="10.2.2" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#on-your-own-computer"><i class="fa fa-check"></i><b>10.2.2</b> On Your Own Computer</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#unzip-the-folder-look-at-data"><i class="fa fa-check"></i><b>10.3</b> Unzip the Folder &amp; Look at Data</a></li>
-<li class="chapter" data-level="10.4" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#downloading-r-packages"><i class="fa fa-check"></i><b>10.4</b> Downloading R Packages</a></li>
-<li class="chapter" data-level="10.5" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#r-hygiene"><i class="fa fa-check"></i><b>10.5</b> R hygiene</a></li>
-<li class="chapter" data-level="10.6" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#finding-outliers-using-outflank"><i class="fa fa-check"></i><b>10.6</b> Finding outliers using OutFLANK</a></li>
-<li class="chapter" data-level="10.7" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#pulling-snp-data-from-the-gds-file"><i class="fa fa-check"></i><b>10.7</b> Pulling SNP data from the gds file</a></li>
-<li class="chapter" data-level="10.8" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#calculating-fst-and-identifying-outliers"><i class="fa fa-check"></i><b>10.8</b> Calculating F<sub>st</sub> and identifying outliers</a></li>
-<li class="chapter" data-level="10.9" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#group-work-activity-pca-outflank"><i class="fa fa-check"></i><b>10.9</b> Group Work Activity: PCA &amp; Outflank</a></li>
-<li class="chapter" data-level="10.10" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#key-points-7"><i class="fa fa-check"></i><b>10.10</b> Key Points</a></li>
+<li class="chapter" data-level="8.3" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#setting-your-working-directory-in-r"><i class="fa fa-check"></i><b>8.3</b> Setting your Working Directory in R</a></li>
+<li class="chapter" data-level="8.4" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#reading-in-vcfs"><i class="fa fa-check"></i><b>8.4</b> Reading in vcfs</a></li>
+<li class="chapter" data-level="8.5" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#reading-in-csvs"><i class="fa fa-check"></i><b>8.5</b> Reading in csvs</a></li>
+<li class="chapter" data-level="8.6" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#mini-lecture-interpreting-structure-plots"><i class="fa fa-check"></i><b>8.6</b> Mini Lecture: Interpreting Structure Plots</a></li>
+<li class="chapter" data-level="8.7" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#population-structure-with-tess3r"><i class="fa fa-check"></i><b>8.7</b> population structure with tess3r</a></li>
+<li class="chapter" data-level="8.8" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#how-do-we-know-which-k-to-pick"><i class="fa fa-check"></i><b>8.8</b> How do we know which K to pick?</a></li>
+<li class="chapter" data-level="8.9" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#visualizing-population-structure-with-pophelper"><i class="fa fa-check"></i><b>8.9</b> Visualizing population structure with pophelper!</a></li>
+<li class="chapter" data-level="8.10" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#manipulating-our-metadata-with-dplyr"><i class="fa fa-check"></i><b>8.10</b> Manipulating our metadata with dplyr</a></li>
+<li class="chapter" data-level="8.11" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#group-work-activity--adding-even-more-context-to-our-plot"><i class="fa fa-check"></i><b>8.11</b> Group Work Activity- Adding even more context to our plot</a></li>
+<li class="chapter" data-level="8.12" data-path="week-7--population-structure-sea-cucumbers.html"><a href="week-7--population-structure-sea-cucumbers.html#key-points-6"><i class="fa fa-check"></i><b>8.12</b> Key Points</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -317,160 +304,173 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 californicus</em> titled <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589">“Asymmetric oceanographic processes mediate
 connectivity and population genetic structure, as revealed by RADseq, in
 a highly dispersive marine invertebrate (<em>Parastichopus
-californicus</em>)”</a>.
-More information on the paper and it’s findings are in the lecture
-slides here: <a href="./figs/W7-structure%20plots.pdf">Week 7 Slides</a></p>
-<div class="float">
-<img src="figs/sea.cuke.jpg" alt="http://galleries.neaq.org/2016/06/sea-cucumbers-east-meets-west.html" />
-<div class="figcaption"><a href="http://galleries.neaq.org/2016/06/sea-cucumbers-east-meets-west.html" class="uri">http://galleries.neaq.org/2016/06/sea-cucumbers-east-meets-west.html</a></div>
+californicus</em>)”</a>.</p>
+<div class="figure">
+<img src="figs/sea.cuke.jpg" alt="" />
+<p class="caption"><a href="http://galleries.neaq.org/2016/06/sea-cucumbers-east-meets-west.html" class="uri">http://galleries.neaq.org/2016/06/sea-cucumbers-east-meets-west.html</a></p>
 </div>
 <p>SNP data from this study will be used today in order to learn how to
 identify population structure in sea cucumber populations and make
 structure plots using tess3r and pophelper. This data is SNP data from
 15 individuals per site across 7 collection sites:</p>
-<div class="float">
-<img src="figs/cukes_map.png" alt="Map of sampling locations in coastal British Columbia (1–20) and southeastern Alaska (21–24)." />
-<div class="figcaption">Map of sampling locations in coastal British Columbia (1–20) and
-southeastern Alaska (21–24).</div>
+<div class="figure">
+<img src="figs/cukes_map.png" alt="" />
+<p class="caption">Map of sampling locations in coastal British Columbia (1–20) and
+southeastern Alaska (21–24).</p>
 </div>
-<div id="main-objectives-6" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Main Objectives:<a href="week-7--population-structure-sea-cucumbers.html#main-objectives-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="main-objectives-4" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Main Objectives:<a href="week-7--population-structure-sea-cucumbers.html#main-objectives-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Learn what a structure plot is and how it can give us useful
-information on population structure in our dataset</li>
-<li>Learn how to make a structure plot using tess3r and pophelper</li>
 <li>Practice moving from terminal to R when working with big data</li>
+<li>Interpret structure plots</li>
+<li>Create structure plots of genomic data in R</li>
 </ul>
 </div>
-<div id="download-the-data-in-terminal" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Download the data in terminal<a href="week-7--population-structure-sea-cucumbers.html#download-the-data-in-terminal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We first need to download the data in terminal. So navigate to your
+<div id="warmup-joining-command-line-and-r" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Warmup: Joining command line and R<a href="week-7--population-structure-sea-cucumbers.html#warmup-joining-command-line-and-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So, far, we’ve mostly been working with datasets that are available to download in R;
+but a common practice in genomics is to work with large datasets (like sequencing
+reads) on a cluster and once the data is processed into a smaller format, working
+with downstream files in R.</p>
+<p>Here is a brief overview of our goals for the warmup:</p>
+<ol style="list-style-type: decimal">
+<li>Create a new folder in your personal directory on farm called <code>week7</code></li>
+<li>Download genomic data into this folder using <code>wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week7.zip</code></li>
+<li>Unzip the data folder and vcf</li>
+<li>Create an RStudio OnDemand Session</li>
+<li>Make a script called <code>week7</code> and save it in your <code>week7</code> directory</li>
+<li>Install and load the following R packages:</li>
+</ol>
+<ul>
+<li><code>ggplot2</code></li>
+<li><code>vcfR</code></li>
+<li><code>devtools</code></li>
+<li><code>remotes</code></li>
+<li><code>gridExtra</code></li>
+<li><code>dplyr</code></li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li>Use <code>devtools</code> and <code>remotes</code> to install the following packages from github:</li>
+</ol>
+<ul>
+<li><code>pophelper</code></li>
+<li><code>tess3r</code></li>
+</ul>
+<p>A more thorough walk through of the warm up can be followed below.</p>
+<div id="steps-1-through-3-getting-the-data-onto-the-cluster" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Steps 1 through 3: Getting the data onto the cluster<a href="week-7--population-structure-sea-cucumbers.html#steps-1-through-3-getting-the-data-onto-the-cluster" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We first need to download the data in terminal. Start an OnDemand session. Navigate to your
 directory and do the following command to get the vcf file we need onto
-your farm desktop. I got the data from the dryad (data repository) for
-this paper and zipped it to be more easily downloaded:
+your farm desktop. We will download a zipped version of this data to make the
+download easier, but note that you can almost always download published genomic
+data from online repositories like dryad or NCBI. This data set is available on dryad here:
 <a href="https://datadryad.org/dataset/doi:10.5061/dryad.db6177b" class="uri">https://datadryad.org/dataset/doi:10.5061/dryad.db6177b</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-7--population-structure-sea-cucumbers.html#cb1-1" tabindex="-1"></a>cd /group/rbaygrp/eve198-genomics/yourdirectory</span>
-<span id="cb1-2"><a href="week-7--population-structure-sea-cucumbers.html#cb1-2" tabindex="-1"></a>wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week7.zip</span></code></pre></div>
-<p>Unzip the week7 directory and navigate inside. There should be three
-files: a vcf file (with our genetic data), a csv file (with our samples
-and coordinate data) and a README.txt file. The README.txt gives you
-information on the dataset you just downloaded. The .csv file in this
-folder is our metadata, with coordinates for each of our sample sites
-along with sample names. This will be useful for understanding
-population structure between populations and across space!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-7--population-structure-sea-cucumbers.html#cb1-1" aria-hidden="true" tabindex="-1"></a>cd /group/rbaygrp/eve198-genomics/yourdirectory</span>
+<span id="cb1-2"><a href="week-7--population-structure-sea-cucumbers.html#cb1-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/mlarmstrong/IntroGenomics_Data/main/week7.zip</span></code></pre></div>
+<p>Unzip the week7 directory with <code>unzip week7.zip</code> and navigate inside with <code>cd week7</code>.
+There should be three files:</p>
+<ul>
+<li>The README.txt gives you information on the dataset you just downloaded.</li>
+<li>The .csv file in this folder is our metadata, with coordinates for each of our sample sites
+along with sample names. This will be useful for understanding population structure
+between populations and across space!</li>
+<li>The vcf file contains SNPs, similar to one we produced with our variant calling
+pipeline a few weeks ago! If you file has the extensions .zip, that means that
+even though your folder is unzipped, this file is still compressed. You can run
+<code>unzip filtered_2719neutral_snps.recode.vcf.zip</code> to unzip it!</li>
+</ul>
 </div>
-<div id="moving-to-r" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Moving to R:<a href="week-7--population-structure-sea-cucumbers.html#moving-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now we will move to R! We will need quite a few packages today since we
-will be using <code>tess3r</code> to identify population structure and then
+<div id="steps-4-through-7-getting-set-up-in-r" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Steps 4 through 7: Getting set up in R<a href="week-7--population-structure-sea-cucumbers.html#steps-4-through-7-getting-set-up-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we will move to R! Start by creating an OnDemand R Studio session.</p>
+<p>Go to file&gt;new to create a new R script. Name it <code>week7.R</code> and save it within
+the <code>week7</code> folder you created in your personal directory above.</p>
+<p>We will need quite a few packages today since genomic datasets require special tools!</p>
+<p>We will be using <code>tess3r</code> to identify population structure and then
 <code>pophelper</code> to visualize that structure in a more organized way. We also
-need to be able to read in a vcf file, so <code>vcfR</code> is a useful package for
-that. <code>adegenet()</code> is a package that will help us do additional analyses
-on our genetic data.</p>
+need to be able to read in a vcf file, so <code>vcfR</code> is a useful package for</p>
+<p>Most packages can be installed using <code>install.packages()</code> and then loaded using
+<code>library()</code>. Let’s do this for <code>ggplot2</code>, <code>vcfR</code>, <code>devtools</code> and <code>remotes</code>.
+<code>devtools</code> and <code>remotes</code> are R packages that allow us to install even more
+packages than can be installed using base R. More on that below!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-7--population-structure-sea-cucumbers.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;vcfR&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;remotes&quot;</span>, <span class="st">&quot;gridExtra&quot;</span>, <span class="st">&quot;dplyr&quot;</span>)) <span class="co">#only run this line once, it might take a few minutes</span></span>
+<span id="cb2-2"><a href="week-7--population-structure-sea-cucumbers.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="week-7--population-structure-sea-cucumbers.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span>
+<span id="cb2-4"><a href="week-7--population-structure-sea-cucumbers.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="week-7--population-structure-sea-cucumbers.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb2-6"><a href="week-7--population-structure-sea-cucumbers.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb2-7"><a href="week-7--population-structure-sea-cucumbers.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>You can need to use devtools to install <code>tess3r</code>, but then it can be loaded using
+<code>library()</code>, just like other packages.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-7--population-structure-sea-cucumbers.html#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;bcm-uga/TESS3_encho_sen&quot;</span>) <span class="co">#only run once, you can press &#39;enter&#39; to skip updates</span></span>
+<span id="cb3-2"><a href="week-7--population-structure-sea-cucumbers.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tess3r)</span></code></pre></div>
+<p>Similarly to <code>devtools</code>, <code>remotes</code> is a package you can load in R and use to install
+other packages that are available on github, like you <code>pophelper</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-7--population-structure-sea-cucumbers.html#cb4-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;royfrancis/pophelper&#39;</span>) <span class="co">#only run once, this might take a few minutes!</span></span>
+<span id="cb4-2"><a href="week-7--population-structure-sea-cucumbers.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pophelper)</span></code></pre></div>
 </div>
-<div id="installing-packages" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Installing Packages<a href="week-7--population-structure-sea-cucumbers.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Remember that you first need <code>install.packages()</code> and then use
-<code>library()</code> to load each package! This can be done for <code>ggplot2</code> and
-<code>vcfR</code>. The package <code>devtools</code> will also be used to install <code>tess3r</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-7--population-structure-sea-cucumbers.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span></code></pre></div>
-<pre><code>#&gt; 
-#&gt;    *****       ***   vcfR   ***       *****
-#&gt;    This is vcfR 1.15.0 
-#&gt;      browseVignettes(&#39;vcfR&#39;) # Documentation
-#&gt;      citation(&#39;vcfR&#39;) # Citation
-#&gt;    *****       *****      *****       *****</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-7--population-structure-sea-cucumbers.html#cb4-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
-<pre><code>#&gt; Warning: package &#39;ggplot2&#39; was built under R version 4.4.1</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-7--population-structure-sea-cucumbers.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code></pre></div>
-<pre><code>#&gt; Loading required package: usethis</code></pre>
-<pre><code>#&gt; Warning: package &#39;usethis&#39; was built under R version 4.4.1</code></pre>
-<p>You will need to use
-<code>devtools::install_github("bcm-uga/TESS3_encho_sen")</code> to install
-<code>tess3r()</code>. After you have loaded each package you can get more
-information on each of them by doing <code>?tess3r()</code>. For <code>pophelper()</code> you
-will need to install dependencies first with
-<code>install.packages(c("ggplot2","gridExtra","label.switching","tidyr","remotes"),repos="https://cloud.r-project.org")</code>
-then install pophelper
-<code>remotes::install_github('royfrancis/pophelper')</code>. This might take a
-while!</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-7--population-structure-sea-cucumbers.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(tess3r)</span>
-<span id="cb9-2"><a href="week-7--population-structure-sea-cucumbers.html#cb9-2" tabindex="-1"></a><span class="fu">library</span>(pophelper)</span></code></pre></div>
-<pre><code>#&gt; pophelper v2.3.1 ready.</code></pre>
 </div>
-<div id="set-working-directory" class="section level2 hasAnchor" number="8.5">
-<h2><span class="header-section-number">8.5</span> Set Working Directory<a href="week-7--population-structure-sea-cucumbers.html#set-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now that we are working with downloaded data it is important to set your
-working directory in R so you know where to store your files. I would
-recommend just saving your script and all of the data for today into
-your week6 directory in your named directory. To set your working
-directory you can do the following:
-<code>setwd("~/where/you/are/storing/data/week7")</code></p>
-<p>If you click the files tab on the right you should be able to see all of
-the files in your working directory too!</p>
+<div id="setting-your-working-directory-in-r" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Setting your Working Directory in R<a href="week-7--population-structure-sea-cucumbers.html#setting-your-working-directory-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We downloaded data and created a script in the folder called <code>week7</code>, and we want
+to make sure that R recognizes this as our working directory. You can think of
+this process as similar to when you <code>cd</code> to change directories on the command line.
+To set your working directory you can do the following:
+<code>setwd("/group/rbaygrp/eve198-genomics/yourpersonalfolder/week7")</code></p>
+<p>A few pro tips:</p>
+<ul>
+<li>You can use tab complete to fill in your path to your folder!</li>
+<li>You can check your current directory with the command <code>getwd()</code></li>
+</ul>
 </div>
-<div id="read-vcf-file" class="section level2 hasAnchor" number="8.6">
-<h2><span class="header-section-number">8.6</span> read vcf file<a href="week-7--population-structure-sea-cucumbers.html#read-vcf-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reading-in-vcfs" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Reading in vcfs<a href="week-7--population-structure-sea-cucumbers.html#reading-in-vcfs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now let’s read in our data! This will take a second and you will get
 information on the file in your console as it is read in. The number of
 variants that are processed should be 2,719. Then you can extract the
 genotypes with the second line of code.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-7--population-structure-sea-cucumbers.html#cb11-1" tabindex="-1"></a>vcf_cukes<span class="ot">&lt;-</span><span class="fu">read.vcfR</span>(<span class="st">&quot;filtered_2719neutral_snps.recode.vcf&quot;</span>)</span></code></pre></div>
-<pre><code>#&gt; Scanning file to determine attributes.
-#&gt; File attributes:
-#&gt;   meta lines: 9
-#&gt;   header_line: 10
-#&gt;   variant count: 2719
-#&gt;   column count: 726
-#&gt; Meta line 9 read in.
-#&gt; All meta lines processed.
-#&gt; gt matrix initialized.
-#&gt; Character matrix gt created.
-#&gt;   Character matrix gt rows: 2719
-#&gt;   Character matrix gt cols: 726
-#&gt;   skip: 0
-#&gt;   nrows: 2719
-#&gt;   row_num: 0
-#&gt; Processed variant 1000Processed variant 2000Processed variant: 2719
-#&gt; All variants processed</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-7--population-structure-sea-cucumbers.html#cb13-1" tabindex="-1"></a>genotypes_raw<span class="ot">&lt;-</span><span class="fu">extract.gt</span>(vcf_cukes)</span></code></pre></div>
-<p>If you do <code>head(genos_raw)</code> you can see that the format is 0/0 or 1/1
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-7--population-structure-sea-cucumbers.html#cb5-1" aria-hidden="true" tabindex="-1"></a>vcf_cukes<span class="ot">&lt;-</span><span class="fu">read.vcfR</span>(<span class="st">&quot;filtered_2719neutral_snps.recode.vcf&quot;</span>)</span>
+<span id="cb5-2"><a href="week-7--population-structure-sea-cucumbers.html#cb5-2" aria-hidden="true" tabindex="-1"></a>genotypes_raw<span class="ot">&lt;-</span><span class="fu">extract.gt</span>(vcf_cukes)</span></code></pre></div>
+<p>If you do <code>head(genotypes_raw)</code> you can see that the format is 0/0 or 1/1
 for homozygotes and 0/1 for heterozygotes. We actually want to convert
 this to instead be 0 for homozyous reference, 1 for heterozygotes and 2
 for homozyogous alternate. To do this, you can run the following code:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-7--population-structure-sea-cucumbers.html#cb14-1" tabindex="-1"></a><span class="do">## Replace genotype codes with numeric values</span></span>
-<span id="cb14-2"><a href="week-7--population-structure-sea-cucumbers.html#cb14-2" tabindex="-1"></a>genotypes_cleaned <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">apply</span>(genotypes_raw, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="cf">function</span>(x) {</span>
-<span id="cb14-3"><a href="week-7--population-structure-sea-cucumbers.html#cb14-3" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/0&quot;</span>, <span class="st">&quot;0|0&quot;</span>)) <span class="fu">return</span>(<span class="dv">0</span>)    <span class="co"># Homozygous reference → 0</span></span>
-<span id="cb14-4"><a href="week-7--population-structure-sea-cucumbers.html#cb14-4" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/1&quot;</span>, <span class="st">&quot;1/0&quot;</span>, <span class="st">&quot;0|1&quot;</span>, <span class="st">&quot;1|0&quot;</span>)) <span class="fu">return</span>(<span class="dv">1</span>)  <span class="co"># Heterozygous → 1</span></span>
-<span id="cb14-5"><a href="week-7--population-structure-sea-cucumbers.html#cb14-5" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1/1&quot;</span>, <span class="st">&quot;1|1&quot;</span>)) <span class="fu">return</span>(<span class="dv">2</span>)    <span class="co"># Homozygous alternate → 2</span></span>
-<span id="cb14-6"><a href="week-7--population-structure-sea-cucumbers.html#cb14-6" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NA</span>)             <span class="co"># Handle missing or other cases</span></span>
-<span id="cb14-7"><a href="week-7--population-structure-sea-cucumbers.html#cb14-7" tabindex="-1"></a>}))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-7--population-structure-sea-cucumbers.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Replace genotype codes with numeric values</span></span>
+<span id="cb6-2"><a href="week-7--population-structure-sea-cucumbers.html#cb6-2" aria-hidden="true" tabindex="-1"></a>genotypes_cleaned <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">apply</span>(genotypes_raw, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="cf">function</span>(x) {</span>
+<span id="cb6-3"><a href="week-7--population-structure-sea-cucumbers.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/0&quot;</span>, <span class="st">&quot;0|0&quot;</span>)) <span class="fu">return</span>(<span class="dv">0</span>)    <span class="co"># Homozygous reference → 0</span></span>
+<span id="cb6-4"><a href="week-7--population-structure-sea-cucumbers.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/1&quot;</span>, <span class="st">&quot;1/0&quot;</span>, <span class="st">&quot;0|1&quot;</span>, <span class="st">&quot;1|0&quot;</span>)) <span class="fu">return</span>(<span class="dv">1</span>)  <span class="co"># Heterozygous → 1</span></span>
+<span id="cb6-5"><a href="week-7--population-structure-sea-cucumbers.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1/1&quot;</span>, <span class="st">&quot;1|1&quot;</span>)) <span class="fu">return</span>(<span class="dv">2</span>)    <span class="co"># Homozygous alternate → 2</span></span>
+<span id="cb6-6"><a href="week-7--population-structure-sea-cucumbers.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NA</span>)             <span class="co"># Handle missing or other cases</span></span>
+<span id="cb6-7"><a href="week-7--population-structure-sea-cucumbers.html#cb6-7" aria-hidden="true" tabindex="-1"></a>}))</span></code></pre></div>
 <p>Check to see that it worked by doing <code>View(genotypes_cleaned)</code> or
 <code>head(genotypes_cleaned)</code>. The genotypes should be coded as 0, 1 or 2.
 Finally let’s check the dimensions of our genotype data. The number of
 individuals should be on the left and the genotypes should be on the
 right.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-7--population-structure-sea-cucumbers.html#cb15-1" tabindex="-1"></a><span class="fu">dim</span>(genotypes_cleaned) <span class="co">#indiv should be on left, genotypes on right</span></span></code></pre></div>
-<pre><code>#&gt; [1] 2719  717</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-7--population-structure-sea-cucumbers.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(genotypes_cleaned) <span class="co">#indiv should be on left, genotypes on right</span></span></code></pre></div>
 <p>It looks like it is actually flipped, so let’s fix that! The command
 <code>t()</code> will help us transpose our data</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-7--population-structure-sea-cucumbers.html#cb17-1" tabindex="-1"></a>genotypes<span class="ot">&lt;-</span> <span class="fu">t</span>(genotypes_cleaned) </span>
-<span id="cb17-2"><a href="week-7--population-structure-sea-cucumbers.html#cb17-2" tabindex="-1"></a><span class="fu">dim</span>(genotypes) <span class="co">#now it is right!</span></span></code></pre></div>
-<pre><code>#&gt; [1]  717 2719</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-7--population-structure-sea-cucumbers.html#cb8-1" aria-hidden="true" tabindex="-1"></a>genotypes<span class="ot">&lt;-</span> <span class="fu">t</span>(genotypes_cleaned) </span>
+<span id="cb8-2"><a href="week-7--population-structure-sea-cucumbers.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(genotypes) <span class="co">#now it is right!</span></span></code></pre></div>
 </div>
-<div id="read-in-the-metadata" class="section level2 hasAnchor" number="8.7">
-<h2><span class="header-section-number">8.7</span> read in the metadata<a href="week-7--population-structure-sea-cucumbers.html#read-in-the-metadata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reading-in-csvs" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Reading in csvs<a href="week-7--population-structure-sea-cucumbers.html#reading-in-csvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now let’s read in the coordinate data for our sample sites! We will also
 make an object “coordinates” to hold our lat/long data for the tess3
 object later. Our <code>sites.data</code> should a length of 717 to match our
 genotype data.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-7--population-structure-sea-cucumbers.html#cb19-1" tabindex="-1"></a>sites.data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&#39;strata.cucumbers.717ind.csv&#39;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
-<span id="cb19-2"><a href="week-7--population-structure-sea-cucumbers.html#cb19-2" tabindex="-1"></a>coordinates<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">cbind</span>(sites.data<span class="sc">$</span>LAT, sites.data<span class="sc">$</span>LONG))</span>
-<span id="cb19-3"><a href="week-7--population-structure-sea-cucumbers.html#cb19-3" tabindex="-1"></a><span class="fu">dim</span>(sites.data)</span></code></pre></div>
-<pre><code>#&gt; [1] 717   5</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-7--population-structure-sea-cucumbers.html#cb9-1" aria-hidden="true" tabindex="-1"></a>sites.data<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&#39;strata.cucumbers.717ind.csv&#39;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb9-2"><a href="week-7--population-structure-sea-cucumbers.html#cb9-2" aria-hidden="true" tabindex="-1"></a>coordinates<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">cbind</span>(sites.data<span class="sc">$</span>LAT, sites.data<span class="sc">$</span>LONG))</span>
+<span id="cb9-3"><a href="week-7--population-structure-sea-cucumbers.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(sites.data)</span></code></pre></div>
 </div>
-<div id="population-structure-with-tess3r" class="section level2 hasAnchor" number="8.8">
-<h2><span class="header-section-number">8.8</span> population structure with tess3r<a href="week-7--population-structure-sea-cucumbers.html#population-structure-with-tess3r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mini-lecture-interpreting-structure-plots" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Mini Lecture: Interpreting Structure Plots<a href="week-7--population-structure-sea-cucumbers.html#mini-lecture-interpreting-structure-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s spend a bit more time getting oriented to the sea cucumber paper and
+understanding more generally what information is represented with structure plots!</p>
+<p>You can follow along with the slides <a href="./figs/W7-structure%20plots.pdf">here</a></p>
+</div>
+<div id="population-structure-with-tess3r" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> population structure with tess3r<a href="week-7--population-structure-sea-cucumbers.html#population-structure-with-tess3r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can learn more about this package on their tutorial page
 (<a href="https://bcm-uga.github.io/TESS3_encho_sen/articles/main-vignette.html" class="uri">https://bcm-uga.github.io/TESS3_encho_sen/articles/main-vignette.html</a>),
 but in short tess3 is a function that computes population structure by
@@ -482,69 +482,34 @@ replications for cross validation that we are calling the ancestry
 correctly for each sample</p>
 <p>Normally we would want multiple reps to ensure things are being
 calculated correctly, but for class we will only do 2.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-7--population-structure-sea-cucumbers.html#cb21-1" tabindex="-1"></a>tess3.cukes <span class="ot">&lt;-</span> <span class="fu">tess3</span>(<span class="at">X=</span>genotypes, <span class="at">coord =</span><span class="fu">as.matrix</span>(<span class="fu">cbind</span>(sites.data<span class="sc">$</span>LAT, sites.data<span class="sc">$</span>LONG)), <span class="at">K=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,</span>
-<span id="cb21-2"><a href="week-7--population-structure-sea-cucumbers.html#cb21-2" tabindex="-1"></a>                     <span class="at">ploidy=</span><span class="dv">2</span>, <span class="at">lambda=</span><span class="dv">0</span>, <span class="at">keep=</span><span class="st">&quot;best&quot;</span>,<span class="at">rep=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done
-#&gt; == Computing spectral decomposition of graph laplacian matrix: done
-#&gt; Main loop: done</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-7--population-structure-sea-cucumbers.html#cb10-1" aria-hidden="true" tabindex="-1"></a>tess3.cukes <span class="ot">&lt;-</span> <span class="fu">tess3</span>(<span class="at">X=</span>genotypes, <span class="at">coord =</span><span class="fu">as.matrix</span>(<span class="fu">cbind</span>(sites.data<span class="sc">$</span>LAT, sites.data<span class="sc">$</span>LONG)), <span class="at">K=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,</span>
+<span id="cb10-2"><a href="week-7--population-structure-sea-cucumbers.html#cb10-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ploidy=</span><span class="dv">2</span>, <span class="at">lambda=</span><span class="dv">0</span>, <span class="at">keep=</span><span class="st">&quot;best&quot;</span>,<span class="at">rep=</span><span class="dv">2</span>)</span></code></pre></div>
 <p>This will take a second since it is real genomic data! We started with 8
 clusters.</p>
 <p>Next to make a structure plot, we need to first call the data and assign
 how many K “clusters” we want. For example, if we want to assign 8
 clusters we would run the following:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-7--population-structure-sea-cucumbers.html#cb23-1" tabindex="-1"></a><span class="co"># retrieve tess3 Q matrix for K = 8 clusters </span></span>
-<span id="cb23-2"><a href="week-7--population-structure-sea-cucumbers.html#cb23-2" tabindex="-1"></a>cukes.matrix <span class="ot">&lt;-</span> <span class="fu">qmatrix</span>(tess3.cukes, <span class="at">K =</span> <span class="dv">8</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="week-7--population-structure-sea-cucumbers.html#cb24-1" tabindex="-1"></a><span class="co">#now the barplot</span></span>
-<span id="cb24-2"><a href="week-7--population-structure-sea-cucumbers.html#cb24-2" tabindex="-1"></a><span class="fu">barplot</span>(cukes.matrix, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">space =</span> <span class="dv">0</span>, </span>
-<span id="cb24-3"><a href="week-7--population-structure-sea-cucumbers.html#cb24-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Individuals&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Ancestry proportions&quot;</span>, </span>
-<span id="cb24-4"><a href="week-7--population-structure-sea-cucumbers.html#cb24-4" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Ancestry matrix&quot;</span>) <span class="ot">-&gt;</span> bp</span></code></pre></div>
-<pre><code>#&gt; Use CreatePalette() to define color palettes.</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="week-7--population-structure-sea-cucumbers.html#cb26-1" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cukes.matrix), <span class="at">labels =</span> sites.data<span class="sc">$</span>Sample,<span class="at">las =</span> <span class="dv">3</span>, <span class="at">cex.axis =</span> .<span class="dv">4</span>) </span></code></pre></div>
-<p><img src="_main_files/figure-html/7.2-1.png" width="768" /></p>
-<p>Yay our first structure plot! It isn’t ordered by site though and it is
-not as easily interpreted for why different individuals might vary.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-7--population-structure-sea-cucumbers.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve tess3 Q matrix for K = 8 clusters </span></span>
+<span id="cb11-2"><a href="week-7--population-structure-sea-cucumbers.html#cb11-2" aria-hidden="true" tabindex="-1"></a>cukes.matrix <span class="ot">&lt;-</span> <span class="fu">qmatrix</span>(tess3.cukes, <span class="at">K =</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-7--population-structure-sea-cucumbers.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#now the barplot</span></span>
+<span id="cb12-2"><a href="week-7--population-structure-sea-cucumbers.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(cukes.matrix, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">space =</span> <span class="dv">0</span>, </span>
+<span id="cb12-3"><a href="week-7--population-structure-sea-cucumbers.html#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Individuals&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Ancestry proportions&quot;</span>, </span>
+<span id="cb12-4"><a href="week-7--population-structure-sea-cucumbers.html#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Ancestry matrix&quot;</span>) <span class="ot">-&gt;</span> bp</span>
+<span id="cb12-5"><a href="week-7--population-structure-sea-cucumbers.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cukes.matrix), <span class="at">labels =</span> sites.data<span class="sc">$</span>Sample,<span class="at">las =</span> <span class="dv">3</span>, <span class="at">cex.axis =</span> .<span class="dv">4</span>) </span></code></pre></div>
+<p>Yay our first structure plot! But it isn’t ordered by site (yet!), so it’s hard to
+see if there are differences across sites.</p>
 </div>
-<div id="but-how-do-we-know-which-k-to-pick" class="section level2 hasAnchor" number="8.9">
-<h2><span class="header-section-number">8.9</span> But how do we know which K to pick?<a href="week-7--population-structure-sea-cucumbers.html#but-how-do-we-know-which-k-to-pick" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="how-do-we-know-which-k-to-pick" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> How do we know which K to pick?<a href="week-7--population-structure-sea-cucumbers.html#how-do-we-know-which-k-to-pick" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In order to get an accurate estimate of the “best” K for our data we
 first need to run a larger range of K, here 1:8, and then look at our
 data and see how the cross-validation score compares to the number of
 predicted ancestral populations. We can do that with the code below:</p>
 <p>The plot function generates a plot for root mean-squared errors computed
 on a subset of loci used for cross-validation:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-7--population-structure-sea-cucumbers.html#cb27-1" tabindex="-1"></a><span class="fu">plot</span>(tess3.cukes, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;orange&quot;</span>,</span>
-<span id="cb27-2"><a href="week-7--population-structure-sea-cucumbers.html#cb27-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Number of ancestral populations&quot;</span>,</span>
-<span id="cb27-3"><a href="week-7--population-structure-sea-cucumbers.html#cb27-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Cross-validation score&quot;</span>) </span></code></pre></div>
-<p><img src="_main_files/figure-html/7.1-1.png" width="768" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-7--population-structure-sea-cucumbers.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tess3.cukes, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;orange&quot;</span>,</span>
+<span id="cb13-2"><a href="week-7--population-structure-sea-cucumbers.html#cb13-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Number of ancestral populations&quot;</span>,</span>
+<span id="cb13-3"><a href="week-7--population-structure-sea-cucumbers.html#cb13-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Cross-validation score&quot;</span>) </span></code></pre></div>
 <blockquote>
 <h2 id="class-exercise-1" class="hasAnchor">Class Exercise 1<a href="week-7--population-structure-sea-cucumbers.html#class-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Where the cross-validation score drops is which K is likely the best
@@ -556,23 +521,21 @@ by changing the K value and rerunning the plots.</p>
 <p>Now that we have determined the best K for our dataset, let’s visualize
 things!</p>
 </div>
-<div id="visualizing-population-structure-with-pophelper" class="section level2 hasAnchor" number="8.10">
-<h2><span class="header-section-number">8.10</span> Visualizing population structure with pophelper!<a href="week-7--population-structure-sea-cucumbers.html#visualizing-population-structure-with-pophelper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="visualizing-population-structure-with-pophelper" class="section level2 hasAnchor" number="8.9">
+<h2><span class="header-section-number">8.9</span> Visualizing population structure with pophelper!<a href="week-7--population-structure-sea-cucumbers.html#visualizing-population-structure-with-pophelper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pophelper is a really useful tool for visualizing population structure
 graphs. You can view the tutorial here for more information:
 <a href="https://www.royfrancis.com/pophelper/articles/index.html#plotting-1" class="uri">https://www.royfrancis.com/pophelper/articles/index.html#plotting-1</a>.
 We can do a lot of customization in pophelper, and this figure shows
 what our final result will look like!</p>
-<div class="float">
-<img src="figs/plotq-overview.png" alt="Pophelper Overview" />
-<div class="figcaption">Pophelper Overview</div>
+<div class="figure">
+<img src="figs/plotq-overview.png" alt="" />
+<p class="caption">Pophelper Overview</p>
 </div>
 <ol style="list-style-type: decimal">
 <li>First we need to convert our tess3 object to a qlist for pophelper</li>
 </ol>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-7--population-structure-sea-cucumbers.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(pophelper) <span class="co">#install this package first</span></span>
-<span id="cb28-2"><a href="week-7--population-structure-sea-cucumbers.html#cb28-2" tabindex="-1"></a>qlist.cukes <span class="ot">&lt;-</span> <span class="fu">readQTess3</span>(<span class="at">t3list=</span>tess3.cukes)</span>
-<span id="cb28-3"><a href="week-7--population-structure-sea-cucumbers.html#cb28-3" tabindex="-1"></a><span class="fu">is.qlist</span>(<span class="at">qlist=</span>qlist.cukes)<span class="co">#verify format</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-7--population-structure-sea-cucumbers.html#cb14-1" aria-hidden="true" tabindex="-1"></a>qlist.cukes <span class="ot">&lt;-</span> <span class="fu">readQTess3</span>(<span class="at">t3list=</span>tess3.cukes)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Then we need to specify the order that we want our sites to be in
 and the different labels for our structure plot. The first is our
@@ -580,71 +543,54 @@ population order. We want it to match the map figure and the table
 in the paper, so let’s order from South to North. To get the same of
 the sites we can do the following:</li>
 </ol>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-7--population-structure-sea-cucumbers.html#cb29-1" tabindex="-1"></a><span class="fu">unique</span>(sites.data<span class="sc">$</span>SITE)</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;OGD&quot; &quot;SGI&quot; &quot;LAS&quot; &quot;JER&quot; &quot;TOF&quot; &quot;CRA&quot; &quot;RBY&quot; &quot;SHE&quot; &quot;MAL&quot; &quot;QUA&quot; &quot;HOP&quot; &quot;TBL&quot;
-#&gt; [13] &quot;CAL&quot; &quot;TOL&quot; &quot;PRI&quot; &quot;LEG&quot; &quot;JUA&quot; &quot;SEL&quot; &quot;REN&quot; &quot;MAZ&quot; &quot;AK1&quot; &quot;AK2&quot; &quot;AK3&quot; &quot;AK4&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-7--population-structure-sea-cucumbers.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(sites.data<span class="sc">$</span>SITE)</span></code></pre></div>
 <p>Our sites are “OGD” “SGI” “LAS” “JER” “TOF” “CRA” “RBY” “SHE” “MAL”
 “QUA” “HOP” “TBL” “CAL” “TOL” “PRI” “LEG” “JUA” “SEL” “REN” “MAZ” “AK1”
 “AK2” “AK3” “AK4”.</p>
-<div class="float">
-<img src="figs/table_sites.png" alt="Table 1 from Xuereb et al., 2018" />
-<div class="figcaption"><em>Table 1 from Xuereb et al., 2018</em></div>
+<div class="figure">
+<img src="figs/table_sites.png" alt="" />
+<p class="caption"><em>Table 1 from Xuereb et al., 2018</em></p>
 </div>
 <p>Table 1 from the paper shows the sites south to north. Luckily the
 dataset is already sorted appropriately, so now we can just put this
 into a new object!</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="week-7--population-structure-sea-cucumbers.html#cb31-1" tabindex="-1"></a>ordered.sites<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;OGD&quot;</span>, <span class="st">&quot;SGI&quot;</span>, <span class="st">&quot;LAS&quot;</span> ,<span class="st">&quot;JER&quot;</span> ,<span class="st">&quot;TOF&quot;</span> ,<span class="st">&quot;CRA&quot;</span> ,<span class="st">&quot;RBY&quot;</span>, <span class="st">&quot;SHE&quot;</span>, <span class="st">&quot;MAL&quot;</span>, <span class="st">&quot;QUA&quot;</span>, <span class="st">&quot;HOP&quot;</span>, <span class="st">&quot;TBL&quot;</span>, <span class="st">&quot;CAL&quot;</span>, <span class="st">&quot;TOL&quot;</span>, <span class="st">&quot;PRI&quot;</span>, <span class="st">&quot;LEG&quot;</span>, <span class="st">&quot;JUA&quot;</span>, <span class="st">&quot;SEL&quot;</span>, <span class="st">&quot;REN&quot;</span>, <span class="st">&quot;MAZ&quot;</span>, <span class="st">&quot;AK1&quot;</span>, <span class="st">&quot;AK2&quot;</span> ,<span class="st">&quot;AK3&quot;</span>, <span class="st">&quot;AK4&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-7--population-structure-sea-cucumbers.html#cb16-1" aria-hidden="true" tabindex="-1"></a>ordered.sites<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;OGD&quot;</span>, <span class="st">&quot;SGI&quot;</span>, <span class="st">&quot;LAS&quot;</span> ,<span class="st">&quot;JER&quot;</span> ,<span class="st">&quot;TOF&quot;</span> ,<span class="st">&quot;CRA&quot;</span> ,<span class="st">&quot;RBY&quot;</span>, <span class="st">&quot;SHE&quot;</span>, <span class="st">&quot;MAL&quot;</span>, <span class="st">&quot;QUA&quot;</span>, <span class="st">&quot;HOP&quot;</span>, <span class="st">&quot;TBL&quot;</span>, <span class="st">&quot;CAL&quot;</span>, <span class="st">&quot;TOL&quot;</span>, <span class="st">&quot;PRI&quot;</span>, <span class="st">&quot;LEG&quot;</span>, <span class="st">&quot;JUA&quot;</span>, <span class="st">&quot;SEL&quot;</span>, <span class="st">&quot;REN&quot;</span>, <span class="st">&quot;MAZ&quot;</span>, <span class="st">&quot;AK1&quot;</span>, <span class="st">&quot;AK2&quot;</span> ,<span class="st">&quot;AK3&quot;</span>, <span class="st">&quot;AK4&quot;</span>)</span></code></pre></div>
 <p>We also want to label our two structure plots with what K equals, so add
 that with the object “labels”</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-7--population-structure-sea-cucumbers.html#cb32-1" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;K=2&quot;</span>, <span class="st">&quot;K=3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-7--population-structure-sea-cucumbers.html#cb17-1" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;K=2&quot;</span>, <span class="st">&quot;K=3&quot;</span>)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Now that we have our labels we can pull the data that we want from
 our different files</li>
 </ol>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="week-7--population-structure-sea-cucumbers.html#cb33-1" tabindex="-1"></a>slist.cukes <span class="ot">&lt;-</span> <span class="fu">alignK</span>(qlist.cukes[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>],<span class="at">type=</span><span class="st">&quot;auto&quot;</span>)</span>
-<span id="cb33-2"><a href="week-7--population-structure-sea-cucumbers.html#cb33-2" tabindex="-1"></a>labset<span class="ot">&lt;-</span><span class="fu">data.frame</span>(sites.data)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-7--population-structure-sea-cucumbers.html#cb18-1" aria-hidden="true" tabindex="-1"></a>slist.cukes <span class="ot">&lt;-</span> <span class="fu">alignK</span>(qlist.cukes[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>],<span class="at">type=</span><span class="st">&quot;auto&quot;</span>)</span>
+<span id="cb18-2"><a href="week-7--population-structure-sea-cucumbers.html#cb18-2" aria-hidden="true" tabindex="-1"></a>labset<span class="ot">&lt;-</span><span class="fu">data.frame</span>(sites.data)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Now we can plot our data! To visualize we can load one final
-library, <code>gridExtra()</code></li>
+<li>Now we can plot our data!</li>
 </ol>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-7--population-structure-sea-cucumbers.html#cb34-1" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb34-2"><a href="week-7--population-structure-sea-cucumbers.html#cb34-2" tabindex="-1"></a><span class="co">#plot samples separated by site</span></span>
-<span id="cb34-3"><a href="week-7--population-structure-sea-cucumbers.html#cb34-3" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">plotQ</span>(slist.cukes,<span class="at">imgoutput=</span><span class="st">&quot;join&quot;</span>,<span class="at">returnplot=</span><span class="cn">TRUE</span>,<span class="at">exportplot=</span><span class="cn">FALSE</span>,<span class="at">basesize=</span><span class="dv">11</span>,</span>
-<span id="cb34-4"><a href="week-7--population-structure-sea-cucumbers.html#cb34-4" tabindex="-1"></a>            <span class="at">splabsize=</span><span class="dv">7</span>,<span class="at">height=</span><span class="dv">7</span>,</span>
-<span id="cb34-5"><a href="week-7--population-structure-sea-cucumbers.html#cb34-5" tabindex="-1"></a>            <span class="at">grplab=</span><span class="fu">data.frame</span>(<span class="at">SITE=</span>labset<span class="sc">$</span>SITE),<span class="at">subsetgrp=</span>ordered.sites,</span>
-<span id="cb34-6"><a href="week-7--population-structure-sea-cucumbers.html#cb34-6" tabindex="-1"></a>            <span class="at">grplabsize=</span><span class="dv">3</span>,<span class="at">linesize=</span><span class="dv">1</span>,<span class="at">pointsize=</span><span class="dv">3</span>,<span class="at">splab=</span>labels,<span class="at">grplabangle=</span><span class="dv">0</span>,</span>
-<span id="cb34-7"><a href="week-7--population-structure-sea-cucumbers.html#cb34-7" tabindex="-1"></a>            <span class="at">grplabheight =</span> <span class="dv">5</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="week-7--population-structure-sea-cucumbers.html#cb35-1" tabindex="-1"></a><span class="fu">grid.arrange</span>(p<span class="sc">$</span>plot[[<span class="dv">1</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/7.4-1.png" width="768" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-7--population-structure-sea-cucumbers.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot samples separated by site</span></span>
+<span id="cb19-2"><a href="week-7--population-structure-sea-cucumbers.html#cb19-2" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">plotQ</span>(slist.cukes,<span class="at">imgoutput=</span><span class="st">&quot;join&quot;</span>,<span class="at">returnplot=</span><span class="cn">TRUE</span>,<span class="at">exportplot=</span><span class="cn">FALSE</span>,<span class="at">basesize=</span><span class="dv">11</span>,</span>
+<span id="cb19-3"><a href="week-7--population-structure-sea-cucumbers.html#cb19-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">splabsize=</span><span class="dv">7</span>,<span class="at">height=</span><span class="dv">7</span>,</span>
+<span id="cb19-4"><a href="week-7--population-structure-sea-cucumbers.html#cb19-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplab=</span><span class="fu">data.frame</span>(<span class="at">SITE=</span>labset<span class="sc">$</span>SITE),<span class="at">subsetgrp=</span>ordered.sites,</span>
+<span id="cb19-5"><a href="week-7--population-structure-sea-cucumbers.html#cb19-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplabsize=</span><span class="dv">3</span>,<span class="at">linesize=</span><span class="dv">1</span>,<span class="at">pointsize=</span><span class="dv">3</span>,<span class="at">splab=</span>labels,<span class="at">grplabangle=</span><span class="dv">0</span>,</span>
+<span id="cb19-6"><a href="week-7--population-structure-sea-cucumbers.html#cb19-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplabheight =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-7--population-structure-sea-cucumbers.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p<span class="sc">$</span>plot[[<span class="dv">1</span>]])</span></code></pre></div>
 </div>
-<div id="adding-more-meaning-to-our-plot" class="section level2 hasAnchor" number="8.11">
-<h2><span class="header-section-number">8.11</span> Adding more meaning to our plot<a href="week-7--population-structure-sea-cucumbers.html#adding-more-meaning-to-our-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="manipulating-our-metadata-with-dplyr" class="section level2 hasAnchor" number="8.10">
+<h2><span class="header-section-number">8.10</span> Manipulating our metadata with dplyr<a href="week-7--population-structure-sea-cucumbers.html#manipulating-our-metadata-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The site names may mean something if you are familiar with this area or
 have read the paper, but how can we make our plot easier to understand?
 One way could be to add what countries these samples were taken in so
-you can get a sense of sampling area. A really useful package for data
-manipulation that we haven’t used yet is called <code>dplyr()</code>. Remember to
-install it with <code>install.packages()</code> and then load it with <code>library()</code></p>
+you can get a sense of sampling area. To work with this dataset, we’ll use a
+really useful package for data manipulation that we haven’t used yet, called <code>dplyr()</code>.</p>
 <p>The newest thing that you will see with dplyr is <code>%&gt;%</code>. This is called a
 pipe, and connects lines of code together.</p>
 <p>To add a new column we will need to define what the new column will be
 named and then provide information to fill that column</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-7--population-structure-sea-cucumbers.html#cb36-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<pre><code>#&gt; 
-#&gt; Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>#&gt; The following object is masked from &#39;package:gridExtra&#39;:
-#&gt; 
-#&gt;     combine</code></pre>
-<pre><code>#&gt; The following objects are masked from &#39;package:stats&#39;:
-#&gt; 
-#&gt;     filter, lag</code></pre>
-<pre><code>#&gt; The following objects are masked from &#39;package:base&#39;:
-#&gt; 
-#&gt;     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-7--population-structure-sea-cucumbers.html#cb41-1" tabindex="-1"></a>sites.data<span class="ot">&lt;-</span>sites.data <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="week-7--population-structure-sea-cucumbers.html#cb41-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Country=</span><span class="fu">case_when</span>(</span>
-<span id="cb41-3"><a href="week-7--population-structure-sea-cucumbers.html#cb41-3" tabindex="-1"></a>    SITE <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;OGD&quot;</span>, <span class="st">&quot;SGI&quot;</span>, <span class="st">&quot;LAS&quot;</span> ,<span class="st">&quot;JER&quot;</span> ,<span class="st">&quot;TOF&quot;</span> ,<span class="st">&quot;CRA&quot;</span> ,<span class="st">&quot;RBY&quot;</span>, <span class="st">&quot;SHE&quot;</span>, <span class="st">&quot;MAL&quot;</span>, <span class="st">&quot;QUA&quot;</span>, <span class="st">&quot;HOP&quot;</span>, <span class="st">&quot;TBL&quot;</span>, <span class="st">&quot;CAL&quot;</span>, <span class="st">&quot;TOL&quot;</span>, <span class="st">&quot;PRI&quot;</span>, <span class="st">&quot;LEG&quot;</span>, <span class="st">&quot;JUA&quot;</span>, <span class="st">&quot;SEL&quot;</span>, <span class="st">&quot;REN&quot;</span>, <span class="st">&quot;MAZ&quot;</span>) <span class="sc">~</span><span class="st">&quot;British Columbia, Canada&quot;</span>,</span>
-<span id="cb41-4"><a href="week-7--population-structure-sea-cucumbers.html#cb41-4" tabindex="-1"></a>    SITE <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;AK1&quot;</span>, <span class="st">&quot;AK2&quot;</span> ,<span class="st">&quot;AK3&quot;</span>, <span class="st">&quot;AK4&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Alaska, USA&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-7--population-structure-sea-cucumbers.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-2"><a href="week-7--population-structure-sea-cucumbers.html#cb21-2" aria-hidden="true" tabindex="-1"></a>sites.data<span class="ot">&lt;-</span>sites.data <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="week-7--population-structure-sea-cucumbers.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Country=</span><span class="fu">case_when</span>(</span>
+<span id="cb21-4"><a href="week-7--population-structure-sea-cucumbers.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    SITE <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;OGD&quot;</span>, <span class="st">&quot;SGI&quot;</span>, <span class="st">&quot;LAS&quot;</span> ,<span class="st">&quot;JER&quot;</span> ,<span class="st">&quot;TOF&quot;</span> ,<span class="st">&quot;CRA&quot;</span> ,<span class="st">&quot;RBY&quot;</span>, <span class="st">&quot;SHE&quot;</span>, <span class="st">&quot;MAL&quot;</span>, <span class="st">&quot;QUA&quot;</span>, <span class="st">&quot;HOP&quot;</span>, <span class="st">&quot;TBL&quot;</span>, <span class="st">&quot;CAL&quot;</span>, <span class="st">&quot;TOL&quot;</span>, <span class="st">&quot;PRI&quot;</span>, <span class="st">&quot;LEG&quot;</span>, <span class="st">&quot;JUA&quot;</span>, <span class="st">&quot;SEL&quot;</span>, <span class="st">&quot;REN&quot;</span>, <span class="st">&quot;MAZ&quot;</span>) <span class="sc">~</span><span class="st">&quot;British Columbia, Canada&quot;</span>,</span>
+<span id="cb21-5"><a href="week-7--population-structure-sea-cucumbers.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    SITE <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;AK1&quot;</span>, <span class="st">&quot;AK2&quot;</span> ,<span class="st">&quot;AK3&quot;</span>, <span class="st">&quot;AK4&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Alaska, USA&quot;</span>))</span></code></pre></div>
 <p>View <code>sites.data</code> before moving on to ensure you got the column!</p>
 <blockquote>
 <h2 id="class-exercise-2" class="hasAnchor">Class Exercise 2<a href="week-7--population-structure-sea-cucumbers.html#class-exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -652,30 +598,30 @@ named and then provide information to fill that column</p>
 structure plot with “Site” and “Country” labels.</p>
 </blockquote>
 </div>
-<div id="group-work-activity--adding-even-more-context-to-our-plot" class="section level2 hasAnchor" number="8.12">
-<h2><span class="header-section-number">8.12</span> Group Work Activity- Adding even more context to our plot<a href="week-7--population-structure-sea-cucumbers.html#group-work-activity--adding-even-more-context-to-our-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="group-work-activity--adding-even-more-context-to-our-plot" class="section level2 hasAnchor" number="8.11">
+<h2><span class="header-section-number">8.11</span> Group Work Activity- Adding even more context to our plot<a href="week-7--population-structure-sea-cucumbers.html#group-work-activity--adding-even-more-context-to-our-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The structure plot is now more organized with samples from south to
 north, but what if we want clear labels for how those sites split?
 Remember that Table 1 grouped sites by region, with Ogden Point to Table
 Island as the “South Region” and Calvert Island to Alaska site 4 as the
 “North Region”.</p>
-<div class="float">
-<img src="figs/table_sites.png" alt="Table 1 from Xuereb et al., 2018" />
-<div class="figcaption"><em>Table 1 from Xuereb et al., 2018</em></div>
+<div class="figure">
+<img src="figs/table_sites.png" alt="" />
+<p class="caption"><em>Table 1 from Xuereb et al., 2018</em></p>
 </div>
 <ol style="list-style-type: decimal">
 <li>Add a column for “Region” in sites.data dataset.</li>
 <li>Make a new structure plot with a label for <code>SITE</code> and <code>Region</code>.</li>
-<li>Modify the color scheme however you’d like! View the pophelper page
-for more information on how to do so. Think of how you can use color
-to convey a message with your plot. A few color schemes from
-<code>pophelper()</code> here:
-<a href="https://www.royfrancis.com/pophelper/articles/index.html#plotting-1" class="uri">https://www.royfrancis.com/pophelper/articles/index.html#plotting-1</a></li>
+<li>Modify the color scheme however you’d like (but make it distinct from the preset
+colors, please!) View the pophelper page for more information on how to do so.
+Think of how you can use color to convey a message with your plot.
+You can check out a few color schemes from<code>pophelper()</code>
+<a href="%3Chttps://www.royfrancis.com/pophelper/articles/index.html#plotting-1">here</a></li>
 </ol>
 <p>Submit your code and a photo of your structure plot to canvas.</p>
 </div>
-<div id="key-points-6" class="section level2 hasAnchor" number="8.13">
-<h2><span class="header-section-number">8.13</span> Key Points<a href="week-7--population-structure-sea-cucumbers.html#key-points-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-points-6" class="section level2 hasAnchor" number="8.12">
+<h2><span class="header-section-number">8.12</span> Key Points<a href="week-7--population-structure-sea-cucumbers.html#key-points-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Moving from terminal to R is important when working with genomic
 data</li>
@@ -700,30 +646,27 @@ coefficients, aka the matrix of relatedness between our samples! Our
 qmatrix will be called <code>cukes.matrix</code></p>
 </blockquote>
 </blockquote>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-7--population-structure-sea-cucumbers.html#cb42-1" tabindex="-1"></a><span class="co"># retrieve tess3 Q matrix for K = 2 clusters </span></span>
-<span id="cb42-2"><a href="week-7--population-structure-sea-cucumbers.html#cb42-2" tabindex="-1"></a>cukes.matrix <span class="ot">&lt;-</span> <span class="fu">qmatrix</span>(tess3.cukes, <span class="at">K =</span> <span class="dv">2</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-7--population-structure-sea-cucumbers.html#cb43-1" tabindex="-1"></a><span class="co">#now the barplot</span></span>
-<span id="cb43-2"><a href="week-7--population-structure-sea-cucumbers.html#cb43-2" tabindex="-1"></a><span class="fu">barplot</span>(cukes.matrix, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">space =</span> <span class="dv">0</span>, </span>
-<span id="cb43-3"><a href="week-7--population-structure-sea-cucumbers.html#cb43-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Individuals&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Ancestry proportions&quot;</span>, </span>
-<span id="cb43-4"><a href="week-7--population-structure-sea-cucumbers.html#cb43-4" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Ancestry matrix&quot;</span>) <span class="ot">-&gt;</span> bp</span></code></pre></div>
-<pre><code>#&gt; Use CreatePalette() to define color palettes.</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="week-7--population-structure-sea-cucumbers.html#cb45-1" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cukes.matrix), <span class="at">labels =</span> sites.data<span class="sc">$</span>Sample,<span class="at">las =</span> <span class="dv">3</span>, <span class="at">cex.axis =</span> .<span class="dv">4</span>) </span></code></pre></div>
-<p><img src="_main_files/figure-html/7.5-1.png" width="768" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-7--population-structure-sea-cucumbers.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve tess3 Q matrix for K = 2 clusters </span></span>
+<span id="cb22-2"><a href="week-7--population-structure-sea-cucumbers.html#cb22-2" aria-hidden="true" tabindex="-1"></a>cukes.matrix <span class="ot">&lt;-</span> <span class="fu">qmatrix</span>(tess3.cukes, <span class="at">K =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-7--population-structure-sea-cucumbers.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#now the barplot</span></span>
+<span id="cb23-2"><a href="week-7--population-structure-sea-cucumbers.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(cukes.matrix, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">space =</span> <span class="dv">0</span>, </span>
+<span id="cb23-3"><a href="week-7--population-structure-sea-cucumbers.html#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Individuals&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Ancestry proportions&quot;</span>, </span>
+<span id="cb23-4"><a href="week-7--population-structure-sea-cucumbers.html#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Ancestry matrix&quot;</span>) <span class="ot">-&gt;</span> bp</span>
+<span id="cb23-5"><a href="week-7--population-structure-sea-cucumbers.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cukes.matrix), <span class="at">labels =</span> sites.data<span class="sc">$</span>Sample,<span class="at">las =</span> <span class="dv">3</span>, <span class="at">cex.axis =</span> .<span class="dv">4</span>) </span></code></pre></div>
 <blockquote>
 <blockquote>
 <h2 id="exercise-2" class="hasAnchor">Exercise 2<a href="week-7--population-structure-sea-cucumbers.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>structure plot with site and country labels</p>
 </blockquote>
 </blockquote>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-7--population-structure-sea-cucumbers.html#cb46-1" tabindex="-1"></a>labset<span class="ot">&lt;-</span><span class="fu">data.frame</span>(sites.data)</span>
-<span id="cb46-2"><a href="week-7--population-structure-sea-cucumbers.html#cb46-2" tabindex="-1"></a><span class="fu">verifyGrplab</span>(<span class="at">grplab=</span>labset[,<span class="fu">c</span>(<span class="st">&quot;SITE&quot;</span>, <span class="st">&quot;Country&quot;</span>)]) <span class="co"># to make sure it is there</span></span>
-<span id="cb46-3"><a href="week-7--population-structure-sea-cucumbers.html#cb46-3" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">plotQ</span>(slist.cukes,<span class="at">imgoutput=</span><span class="st">&quot;join&quot;</span>,<span class="at">returnplot=</span><span class="cn">TRUE</span>,<span class="at">exportplot=</span><span class="cn">FALSE</span>,<span class="at">basesize=</span><span class="dv">11</span>,</span>
-<span id="cb46-4"><a href="week-7--population-structure-sea-cucumbers.html#cb46-4" tabindex="-1"></a>            <span class="at">splabsize=</span><span class="dv">7</span>,<span class="at">height=</span><span class="dv">7</span>,</span>
-<span id="cb46-5"><a href="week-7--population-structure-sea-cucumbers.html#cb46-5" tabindex="-1"></a>            <span class="at">grplab=</span>labset[,<span class="fu">c</span>(<span class="st">&quot;SITE&quot;</span>, <span class="st">&quot;Country&quot;</span>)],<span class="at">subsetgrp=</span>ordered.sites,</span>
-<span id="cb46-6"><a href="week-7--population-structure-sea-cucumbers.html#cb46-6" tabindex="-1"></a>            <span class="at">grplabsize=</span><span class="dv">3</span>,<span class="at">linesize=</span><span class="dv">1</span>,<span class="at">pointsize=</span><span class="dv">3</span>,<span class="at">splab=</span>labels,<span class="at">grplabangle=</span><span class="dv">0</span>,</span>
-<span id="cb46-7"><a href="week-7--population-structure-sea-cucumbers.html#cb46-7" tabindex="-1"></a>            <span class="at">grplabheight =</span> <span class="dv">5</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="week-7--population-structure-sea-cucumbers.html#cb47-1" tabindex="-1"></a><span class="fu">grid.arrange</span>(p2<span class="sc">$</span>plot[[<span class="dv">1</span>]])</span></code></pre></div>
-<p><img src="_main_files/figure-html/7.7-1.png" width="768" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="week-7--population-structure-sea-cucumbers.html#cb24-1" aria-hidden="true" tabindex="-1"></a>labset<span class="ot">&lt;-</span><span class="fu">data.frame</span>(sites.data)</span>
+<span id="cb24-2"><a href="week-7--population-structure-sea-cucumbers.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verifyGrplab</span>(<span class="at">grplab=</span>labset[,<span class="fu">c</span>(<span class="st">&quot;SITE&quot;</span>, <span class="st">&quot;Country&quot;</span>)]) <span class="co"># to make sure it is there</span></span>
+<span id="cb24-3"><a href="week-7--population-structure-sea-cucumbers.html#cb24-3" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">plotQ</span>(slist.cukes,<span class="at">imgoutput=</span><span class="st">&quot;join&quot;</span>,<span class="at">returnplot=</span><span class="cn">TRUE</span>,<span class="at">exportplot=</span><span class="cn">FALSE</span>,<span class="at">basesize=</span><span class="dv">11</span>,</span>
+<span id="cb24-4"><a href="week-7--population-structure-sea-cucumbers.html#cb24-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">splabsize=</span><span class="dv">7</span>,<span class="at">height=</span><span class="dv">7</span>,</span>
+<span id="cb24-5"><a href="week-7--population-structure-sea-cucumbers.html#cb24-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplab=</span>labset[,<span class="fu">c</span>(<span class="st">&quot;SITE&quot;</span>, <span class="st">&quot;Country&quot;</span>)],<span class="at">subsetgrp=</span>ordered.sites,</span>
+<span id="cb24-6"><a href="week-7--population-structure-sea-cucumbers.html#cb24-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplabsize=</span><span class="dv">3</span>,<span class="at">linesize=</span><span class="dv">1</span>,<span class="at">pointsize=</span><span class="dv">3</span>,<span class="at">splab=</span>labels,<span class="at">grplabangle=</span><span class="dv">0</span>,</span>
+<span id="cb24-7"><a href="week-7--population-structure-sea-cucumbers.html#cb24-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">grplabheight =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-7--population-structure-sea-cucumbers.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p2<span class="sc">$</span>plot[[<span class="dv">1</span>]])</span></code></pre></div>
 </p>
 </details>
 
@@ -734,8 +677,8 @@ qmatrix will be called <code>cukes.matrix</code></p>
           </div>
         </div>
       </div>
-<a href="week-6--plotting-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-8-pcas-mosquitos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-6--plotting-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

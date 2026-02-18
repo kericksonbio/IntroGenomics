@@ -189,3 +189,12 @@ warmup-interpreting-figures
 figure-1
 figure-2
 group-work-activity-plotting-with-palmer-penguins
+warmup-downloading-data-in-the-terminal-and-accessing-it-in-r
+steps-1-through-3-getting-the-data-onto-the-cluster
+steps-4-through-7-getting-set-up-in-r
+warmup-joining-command-line-and-r
+setting-your-working-directory-in-r
+reading-in-vcfs
+reading-in-csvs
+mini-lecture-interpreting-structure-plots
+manipulating-our-metadata-with-dplyr
