@@ -188,7 +188,7 @@ Now we're ready to plot our data!
 First, let's make a simple plot. Ultimately, PCAs are viewed as scatterplots, so 
 we can use `ggplot` with `geom_point()` to visualize each samples' PC values. 
 ```{r, label='8.1', echo=T, eval=F}
-ggplot(pcs.tab, aes(x = PC1, y = PC2)) + geom_point()
+ggplot(tab, aes(x = PC1, y = PC2)) + geom_point()
 ```
 
 This doesn't show us much, just that there is a lot of variation along PC1! 
@@ -200,7 +200,7 @@ which is why we add the specification `as.factor()`
 
 ```{r, label='8.2', echo=T, eval=F}
 #PLOT
-ggplot(pcs.tab, aes(x = PC1, y = PC2, color=as.factor(metadata$Site_ID))) + geom_point()
+ggplot(tab, aes(x = PC1, y = PC2, color=as.factor(metadata$Site_ID))) + geom_point()
 ```
 
 This helps but we don't really know what each of these site labels really mean 
@@ -247,7 +247,7 @@ color palettes in this package.
 To get the percentages I filled into the labels you can run this code from earlier: `print(pc.percent)`
 
 ```{r, label= '8.4', echo=T, eval=F}
-ggplot(pcs.tab, aes(x = PC1, y = PC2, color=as.factor(metadata$country)))+
+ggplot(tab, aes(x = PC1, y = PC2, color=as.factor(metadata$country)))+
   geom_point()+
   labs(x = 'PC1 10.4%', y='PC2 4.96%', color = "country")+
   scale_colour_brewer(palette = "Paired")+
