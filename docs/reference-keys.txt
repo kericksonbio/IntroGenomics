@@ -198,3 +198,8 @@ reading-in-vcfs
 reading-in-csvs
 mini-lecture-interpreting-structure-plots
 manipulating-our-metadata-with-dplyr
+warmup-understanding-pcas
+how-many-pcs-do-we-care-about
+warmup-getting-acquainted-with-pcas
+join-metadata
+plotting-pca-data
