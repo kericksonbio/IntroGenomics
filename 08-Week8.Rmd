@@ -175,7 +175,7 @@ Let's keep just the first 10 PCs.
 # First, we'll transform pca.mosq into a new table that's easier to work with
 pcs <- pca.mosq$eigenvect[, 1:10, drop = FALSE] # save the first 10 eigenvectors (PCs) into a new df
 colnames(pcs) <- paste0("PC", 1:10) #name each column with "PC1", "PC2", etc...
-pcs.tab <- data.frame(sample.id = pca.mosq$sample.id, pcs, check.names = FALSE) #add sample_id to each row
+pcs.tab <- data.frame(Sample_ID= pca.mosq$sample.id, pcs, check.names = FALSE) #add sample_id to each row
 
 # Then, we can merge our pcs with our metadata by matching up the "Sample_ID" columns
 identical(pcs.tab$Sample_ID, metadata$Sample_ID) #make sure "Sample_ID" is shared between both dfs
