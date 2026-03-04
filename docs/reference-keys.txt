@@ -203,3 +203,4 @@ how-many-pcs-do-we-care-about
 warmup-getting-acquainted-with-pcas
 join-metadata
 plotting-pca-data
+key-points-8

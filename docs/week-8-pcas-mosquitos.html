@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-7--population-structure-sea-cucumbers.html"/>
-
+<link rel="next" href="week-9-fst-outlier-analysis-and-chunky-quails.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -291,6 +291,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#group-work-activity--what-can-the-other-pc-axes-tell-us"><i class="fa fa-check"></i><b>9.9</b> Group Work Activity- What can the other PC axes tell us?</a></li>
 <li class="chapter" data-level="9.10" data-path="week-8-pcas-mosquitos.html"><a href="week-8-pcas-mosquitos.html#key-points-7"><i class="fa fa-check"></i><b>9.10</b> Key Points</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html"><i class="fa fa-check"></i><b>10</b> Week 9: F<sub>st</sub> outlier analysis and chunky quails</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#main-objectives-6"><i class="fa fa-check"></i><b>10.1</b> Main Objectives:</a></li>
+<li class="chapter" data-level="10.2" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#download-the-data"><i class="fa fa-check"></i><b>10.2</b> Download the data</a></li>
+<li class="chapter" data-level="10.3" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#downloading-r-packages"><i class="fa fa-check"></i><b>10.3</b> Downloading R Packages</a></li>
+<li class="chapter" data-level="10.4" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#r-hygiene"><i class="fa fa-check"></i><b>10.4</b> R hygiene</a></li>
+<li class="chapter" data-level="10.5" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#finding-outliers-using-outflank"><i class="fa fa-check"></i><b>10.5</b> Finding outliers using OutFLANK</a></li>
+<li class="chapter" data-level="10.6" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#pulling-snp-data-from-the-gds-file"><i class="fa fa-check"></i><b>10.6</b> Pulling SNP data from the gds file</a></li>
+<li class="chapter" data-level="10.7" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#calculating-fst-and-identifying-outliers"><i class="fa fa-check"></i><b>10.7</b> Calculating F<sub>st</sub> and identifying outliers</a></li>
+<li class="chapter" data-level="10.8" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#group-work-activity-pca-outflank"><i class="fa fa-check"></i><b>10.8</b> Group Work Activity: PCA &amp; Outflank</a></li>
+<li class="chapter" data-level="10.9" data-path="week-9-fst-outlier-analysis-and-chunky-quails.html"><a href="week-9-fst-outlier-analysis-and-chunky-quails.html#key-points-8"><i class="fa fa-check"></i><b>10.9</b> Key Points</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -436,7 +448,7 @@ Let’s keep just the first 10 PCs.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-8-pcas-mosquitos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we&#39;ll transform pca.mosq into a new table that&#39;s easier to work with</span></span>
 <span id="cb10-2"><a href="week-8-pcas-mosquitos.html#cb10-2" aria-hidden="true" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> pca.mosq<span class="sc">$</span>eigenvect[, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>] <span class="co"># save the first 10 eigenvectors (PCs) into a new df</span></span>
 <span id="cb10-3"><a href="week-8-pcas-mosquitos.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pcs) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;PC&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co">#name each column with &quot;PC1&quot;, &quot;PC2&quot;, etc...</span></span>
-<span id="cb10-4"><a href="week-8-pcas-mosquitos.html#cb10-4" aria-hidden="true" tabindex="-1"></a>pcs.tab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sample.id =</span> pca.mosq<span class="sc">$</span>sample.id, pcs, <span class="at">check.names =</span> <span class="cn">FALSE</span>) <span class="co">#add sample_id to each row</span></span>
+<span id="cb10-4"><a href="week-8-pcas-mosquitos.html#cb10-4" aria-hidden="true" tabindex="-1"></a>pcs.tab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sample_ID=</span> pca.mosq<span class="sc">$</span>sample.id, pcs, <span class="at">check.names =</span> <span class="cn">FALSE</span>) <span class="co">#add sample_id to each row</span></span>
 <span id="cb10-5"><a href="week-8-pcas-mosquitos.html#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="week-8-pcas-mosquitos.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Then, we can merge our pcs with our metadata by matching up the &quot;Sample_ID&quot; columns</span></span>
 <span id="cb10-7"><a href="week-8-pcas-mosquitos.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(pcs.tab<span class="sc">$</span>Sample_ID, metadata<span class="sc">$</span>Sample_ID) <span class="co">#make sure &quot;Sample_ID&quot; is shared between both dfs</span></span>
@@ -447,7 +459,7 @@ Let’s keep just the first 10 PCs.</p>
 <h2><span class="header-section-number">9.8</span> Plotting PCA Data<a href="week-8-pcas-mosquitos.html#plotting-pca-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First, let’s make a simple plot. Ultimately, PCAs are viewed as scatterplots, so
 we can use <code>ggplot</code> with <code>geom_point()</code> to visualize each samples’ PC values.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-8-pcas-mosquitos.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pcs.tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-8-pcas-mosquitos.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p>This doesn’t show us much, just that there is a lot of variation along PC1!
 But we don’t have any information about these samples, so we want to use the
 metadata to contextualize what we are looking at.
@@ -455,7 +467,7 @@ Let’s modify the code to fill in our dots by Site_ID.
 We want to make sure that variable is read as a factor,
 which is why we add the specification <code>as.factor()</code></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-8-pcas-mosquitos.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PLOT</span></span>
-<span id="cb12-2"><a href="week-8-pcas-mosquitos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pcs.tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">color=</span><span class="fu">as.factor</span>(metadata<span class="sc">$</span>Site_ID))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<span id="cb12-2"><a href="week-8-pcas-mosquitos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">color=</span><span class="fu">as.factor</span>(metadata<span class="sc">$</span>Site_ID))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p>This helps but we don’t really know what each of these site labels really mean
 and having so many colors make it difficult to see trends.
 From reading the paper we can assign an additional column of information for
@@ -489,7 +501,7 @@ many unique sites there are and the names of those sites:</p>
 You can type <code>?RColorBrewer</code> for a help tab to pop up where you can see the other
 color palettes in this package.</p>
 <p>To get the percentages I filled into the labels you can run this code from earlier: <code>print(pc.percent)</code></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-8-pcas-mosquitos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pcs.tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">color=</span><span class="fu">as.factor</span>(metadata<span class="sc">$</span>country)))<span class="sc">+</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-8-pcas-mosquitos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tab, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">color=</span><span class="fu">as.factor</span>(metadata<span class="sc">$</span>country)))<span class="sc">+</span></span>
 <span id="cb15-2"><a href="week-8-pcas-mosquitos.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb15-3"><a href="week-8-pcas-mosquitos.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;PC1 10.4%&#39;</span>, <span class="at">y=</span><span class="st">&#39;PC2 4.96%&#39;</span>, <span class="at">color =</span> <span class="st">&quot;country&quot;</span>)<span class="sc">+</span></span>
 <span id="cb15-4"><a href="week-8-pcas-mosquitos.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>)<span class="sc">+</span></span>
@@ -565,8 +577,8 @@ in the paper Kenya spans both the Central Africa and Coastal categories).</li>
           </div>
         </div>
       </div>
-<a href="week-7--population-structure-sea-cucumbers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="week-7--population-structure-sea-cucumbers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-9-fst-outlier-analysis-and-chunky-quails.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
